@@ -1,0 +1,98 @@
+Research Automated Report Writing Practices
+    What software is currently employed to automate reports?
+        • Dradis
+        • Faraday - Lots of features restricted.
+        • Ghostwriter - Requires nested virtualisation, bit resource heavy for my laptop.
+        • SysReptor - Requires nested virtualisation, bit resource heavy for my laptop.
+        • Serpico - Became read-only in 2020 and likely no updates since.
+        • AttackForge - Not freeware.
+        • MagicTree - Not freeware.
+        • Plextrac - Not freeware.
+        • Checksec Canopy - Not what we are looking for.
+        • OneVault - Not freeware.
+        • Reconmap - Not freeware.
+        • Archery - Seems good but lack of focus on reports/uses on pen test tools.
+        • Envizon - Unrefined + resource intensive.
+
+        https://inventory.raw.pm/tools.html#title-tools-collaboration-and-report
+
+    What software is currently used for task automation in Kali?
+        • Run a Wrapper Script
+        • Cron - Simple Task Scheduler
+        • Systemd Timers - Task Scheduler
+        • Anacron -
+
+Find out what penetration testing tools are used at the moment.
+    In the project preceding this, Automatic OT Penetration Testing, these freeware tools were used:
+        • Metasploit: For exploitation and vulnerability scanning.
+        • scapy: Packet manipulation.
+        • nmap: Network scanning, including Modbus detection.
+        • tcpdump: Capturing modBus TCP/IP packets.
+        • plcscan: Scan PLC devices for the presence of Modbus.
+        • smod-1: Modbus exploitation framework.
+    The previous project focused on Modbus systems to reduce complexity, so this should be taken into account.
+
+Use Dradis or Faraday to gather and organise the various penetration test results (supports various tools).
+Alternatively, we could compile the data from the tools ourself and use that.
+
+Dradis
++ Good support for plugins.
++ Strong focus on reporting and documentation.
+- May not scale for larger environments.
+- Can require manual setup and configuration for some integrations.
+Ideal for small to medium-sized teams looking for a straightforward way to aggregate data and generate reports.
+Useful when the primary focus is on creating detailed and customised reports.
+Suitable for environments where extensive real-time collaboration is not a priority.
+
+Faraday
++ Robust integration and automation capabilities.
++ Scales well for larger teams and environments.
+- More resource intensive.
+- More initial setup and configuration.
+- Less options as a freeware tool.
+Best suited for larger teams requiring real-time collaboration and robust data management.
+Ideal for environments where scalability and comprehensive API access are critical.
+
+Homebrewed
++ No reliance on third-party tools.
++ High level of customisation and control.
+- Won't be as extensively tested as available tools.
+- Would only work with selected tools.
+- Slow and lacks reliability due to less frequent (no) updates.
+Best suited for very specific needs that existing tools cannot meet.
+
+WORKFLOW
+    • Use a script to trigger penetration test scans.
+    • Use (Windows) Task Scheduler or (Linux) Cron to automatically trigger a script that imports the results into Dradis.
+    • Use a script to pull the data from Dradis, fill a report template, and generate a final report in PDF/HTML format.
+
+The current Automated OT System Penetration Testing framework already produces reports for the tests that are run.
+    Check if these reports are compatible with Dradis.
+        • If not, make a script to make them compatible?
+    Do we even need to use Dradis?
+        • Depends on the comprehension of the pen test reports.
+Need more information on the existing OT System Penetration Testing framework as it will be used by our automated
+report writing software in week 3 ("automated reporting implementation").
+    Wait for source code of the OT System Penetration Testing framework.
+
+Week 1:
+    • Monday - Tuesday:
+    1) Try out a penetration tool and observe the results.
+        • Tried out nmap. Gives option to output as various file types.
+    2) Integrate the penetration tool into a reporting tool.
+        • Uploaded the Nmap output to Dradis and it successfully created a Node.
+        • Dradis not automatically creating Issues based on dummy data from several penetration testing tools.
+        • Can't find dummy data to use for Dradis either. Will have to simulate a vulnerability.
+        • Tried out Ghostwriter but its scope seems too broad.
+
+    • Wednesday:
+    1) Output the data from Dradis and observe the results.
+        • Output as a CSV file. Looks fine.
+        • If the existing pen test system already creates reports, all I'll need to do is compile them?
+    2) Use a task automation tool to automate a process.
+        • Used Cron to automate a task every minute. Seems fine but probably better methods.
+        • Might just be better to use a script? Will try out exporting reports from Dradis when source code is provided.
+
+    • Thursday:
+    1) Simulate an exploit to generate interesting results for pen test reporting.
+

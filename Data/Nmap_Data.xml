@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<nmaprun>
+    <host>
+        <address addr="192.168.1.10" addrtype="ipv4"/>
+        <hostnames/>
+        <ports>
+            <port protocol="tcp" portid="80">
+                <state state="open" reason="syn-ack"/>
+                <service name="http" product="Apache httpd 2.4.38"/>
+                <script id="clickjacking" output="Possible SQL injection vulnerability detected:
+          URI: /index.php?id=1'
+          Payload: id=1' OR '1'='1
+          Output: SQL error detected"/>
+            </port>
+            <port protocol="tcp" portid="443">
+                <state state="open" reason="syn-ack"/>
+                <service name="ssl/http" product="Apache httpd 2.4.38 ((Debian))"/>
+                <ssl-cert>
+                    <subject>commonName=example.com</subject>
+                    <subjectAltName>DNS:example.com</subjectAltName>
+                    <issuer>commonName=Let's Encrypt Authority X3/organizationName=Let's Encrypt/countryName=US</issuer>
+                    <pubkey type="rsa" bits="2048"/>
+                    <sigalg>sha256WithRSAEncryption</sigalg>
+                    <notbefore>2024-06-10T00:00:00</notbefore>
+                    <notafter>2024-09-08T12:00:00</notafter>
+                </ssl-cert>
+            </port>
+            <port protocol="tcp" portid="3306">
+                <state state="open" reason="syn-ack"/>
+                <service name="mysql" product="MySQL 5.7.23"/>
+                <script id="sql-injection" output="Possible SQL injection vulnerability detected:
+          URI: /login.php
+          Payload: username=admin' OR '1'='1 --
+          Output: Login successful"/>
+            </port>
+            <port protocol="tcp" portid="502">
+                <state state="open" reason="syn-ack"/>
+                <service name="modbus" product="Schneider Electric Modicon"/>
+                <modbus-discover>
+                    <device_id>0x0102</device_id>
+                    <vendor>Schneider Electric</vendor>
+                    <product_code>0x0002</product_code>
+                    <revision>2.00</revision>
+                    <device_serial>0x00000001</device_serial>
+                    <running_status>Normal</running_status>
+                </modbus-discover>
+            </port>
+        </ports>
+        <hostscript>
+            <script id="sql-injection" output="Possible SQL injection vulnerability detected:
+        URI: /index.php?id=1'
+        Payload: id=1' OR '1'='1
+        Output: SQL error detected"/>
+        </hostscript>
+    </host>
+    <host>
+        <address addr="192.168.1.20" addrtype="ipv4"/>
+        <hostnames/>
+        <ports>
+            <port protocol="tcp" portid="80">
+                <state state="open" reason="syn-ack"/>
+                <service name="http" product="Apache httpd 2.4.38"/>
+                <script id="sql-injection" output="Possible SQL injection vulnerability detected:
+          URI: /view_data.php?record=5
+          Payload: record=5' AND 1=1 --
+          Output: SQL error detected"/>
+            </port>
+            <port protocol="tcp" portid="443">
+                <state state="open" reason="syn-ack"/>
+                <service name="ssl/http" product="Apache httpd 2.4.38 ((Debian))"/>
+                <ssl-cert>
+                    <subject>commonName=example.org</subject>
+                    <subjectAltName>DNS:example.org</subjectAltName>
+                    <issuer>commonName=Let's Encrypt Authority X3/organizationName=Let's Encrypt/countryName=US</issuer>
+                    <pubkey type="rsa" bits="2048"/>
+                    <sigalg>sha256WithRSAEncryption</sigalg>
+                    <notbefore>2024-06-15T00:00:00</notbefore>
+                    <notafter>2024-09-13T12:00:00</notafter>
+                </ssl-cert>
+            </port>
+            <port protocol="tcp" portid="3306">
+                <state state="open" reason="syn-ack"/>
+                <service name="mysql" product="MySQL 5.7.23"/>
+                <script id="sql-injection" output="Possible SQL injection vulnerability detected:
+          URI: /data.php?id=3
+          Payload: id=3' UNION SELECT NULL, NULL, NULL --
+          Output: SQL error detected"/>
+            </port>
+            <port protocol="tcp" portid="502">
+                <state state="open" reason="syn-ack"/>
+                <service name="modbus" product="Siemens SIMATIC S7-1200"/>
+                <modbus-discover>
+                    <device_id>0x0202</device_id>
+                    <vendor>Siemens</vendor>
+                    <product_code>0x0003</product_code>
+                    <revision>3.00</revision>
+                    <device_serial>0x00000002</device_serial>
+                    <running_status>Normal</running_status>
+                </modbus-discover>
+            </port>
+        </ports>
+        <hostscript>
+            <script id="sql-injection" output="Possible SQL injection vulnerability detected:
+        URI: /view_data.php?record=5
+        Payload: record=5' AND 1=1 --
+        Output: SQL error detected"/>
+        </hostscript>
+    </host>
+    <host>
+        <address addr="192.168.1.30" addrtype="ipv4"/>
+        <hostnames/>
+        <ports>
+            <port protocol="tcp" portid="80">
+                <state state="open" reason="syn-ack"/>
+                <service name="http" product="Apache httpd 2.4.38"/>
+                <script id="sql-injection" output="Possible SQL injection vulnerability detected:
+          URI: /submit.php
+          Payload: data=xyz' OR '1'='1
+          Output: SQL error detected"/>
+            </port>
+            <port protocol="tcp" portid="443">
+                <state state="open" reason="syn-ack"/>
+                <service name="ssl/http" product="Apache httpd 2.4.38 ((Debian))"/>
+                <ssl-cert>
+                    <subject>commonName=example.net</subject>
+                    <subjectAltName>DNS:example.net</subjectAltName>
+                    <issuer>commonName=Let's Encrypt Authority X3/organizationName=Let's Encrypt/countryName=US</issuer>
+                    <pubkey type="rsa" bits="2048"/>
+                    <sigalg>sha256WithRSAEncryption</sigalg>
+                    <notbefore>2024-06-20T00:00:00</notbefore>
+                    <notafter>2024-09-18T12:00:00</notafter>
+                </ssl-cert>
+            </port>
+            <port protocol="tcp" portid="3306">
+                <state state="open" reason="syn-ack"/>
+                <service name="mysql" product="MySQL 5.7.23"/>
+                <script id="sql-injection" output="Possible SQL injection vulnerability detected:
+          URI: /info.php?item=7
+          Payload: item=7' AND 1=2 --
+          Output: SQL error detected"/>
+            </port>
+            <port protocol="tcp" portid="502">
+                <state state="open" reason="syn-ack"/>
+                <service name="modbus" product="Rockwell Automation"/>
+                <modbus-discover>
+                    <device_id>0x0302</device_id>
+                    <vendor>Rockwell Automation</vendor>
+                    <product_code>0x0004</product_code>
+                    <revision>4.00</revision>
+                    <device_serial>0x00000003</device_serial>
+                    <running_status>Normal</running_status>
+                </modbus-discover>
+            </port>
+        </ports>
+        <hostscript>
+            <script id="sql-injection" output="Possible SQL injection vulnerability detected:
+        URI: /submit.php
+        Payload: data=xyz' OR '1'='1
+        Output: SQL error detected"/>
+        </hostscript>
+    </host>
+</nmaprun>

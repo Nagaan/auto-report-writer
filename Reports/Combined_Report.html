@@ -1,0 +1,41 @@
+<html><head><title>Combined Report</title></head><body>
+<html>
+  <head>
+    <title>DirbScan Vulnerability Report</title>
+    <style>
+                    body { font-family: Arial, sans-serif; }
+                    h1 { color: #333; }
+                    .host { margin-bottom: 20px; }
+                    .result { margin-left: 20px; border-left: 2px solid #000; padding-left: 10px; margin-bottom: 10px; }
+                    h2, h3, p { margin: 5px 0; }
+                </style>
+  </head>
+  <body>
+    <h1>DirbScan Vulnerability Report</h1>
+    <div class="host">
+      <h2>Host: </h2>
+      <div class="result">
+        <p><strong>Path: </strong>/admin</p>
+        <p><strong>Status: </strong>200 OK</p>
+        <p><strong>Description: </strong>Admin panel found</p>
+      </div>
+      <div class="result">
+        <p><strong>Path: </strong>/login</p>
+        <p><strong>Status: </strong>200 OK</p>
+        <p><strong>Description: </strong>Login page found</p>
+      </div>
+      <div class="result">
+        <p><strong>Path: </strong>/uploads</p>
+        <p><strong>Status: </strong>403 Forbidden</p>
+        <p><strong>Description: </strong>Directory listing is restricted</p>
+      </div>
+      <div class="result">
+        <p><strong>Path: </strong>/backup</p>
+        <p><strong>Status: </strong>404 Not Found</p>
+        <p><strong>Description: </strong>Backup directory not found</p>
+      </div>
+    </div>
+  </body>
+</html>
+<hr>
+</body></html>

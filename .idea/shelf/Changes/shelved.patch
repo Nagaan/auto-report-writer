@@ -1,0 +1,2359 @@
+Index: Reports/XML/Nmap_Report.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Reports/XML/Nmap_Report.xml b/Reports/XML/Nmap_Report.xml
+new file mode 100644
+--- /dev/null	(date 1721747465862)
++++ b/Reports/XML/Nmap_Report.xml	(date 1721747465862)
+@@ -0,0 +1,20 @@
++<?xml version='1.0' encoding='utf-8'?>
++<nmap_report><host><address addr="192.168.1.10" /><service portid="80" protocol="TCP"><state>Open</state><product>Apache httpd 2.4.38</product><name>HTTP</name><vulnerabilities>Possible SQL injection vulnerability detected:
++		 URI: /index.php?id=1'
++		 Payload: id=1' OR '1'='1
++		 Output: SQL error detected</vulnerabilities><vulnerability id="Clickjacking"><risk_level>None (estimated from name)</risk_level><csvv_score>0.0 (estimated from risk level)</csvv_score><recommendations>No recommendations.</recommendations></vulnerability></service><service portid="3306" protocol="TCP"><state>Open</state><product>MySQL 5.7.23</product><name>MYSQL</name><vulnerabilities>Possible SQL injection vulnerability detected:
++		 URI: /login.php
++		 Payload: username=admin' OR '1'='1 --
++		 Output: Login successful</vulnerabilities><vulnerability id="Sql-injection"><risk_level>High (estimated from name)</risk_level><csvv_score>7.0 - 8.9 (estimated from risk level)</csvv_score><recommendations>[Generalised Recommendations for Sql-injection] To effectively address SQL injection vulnerabilities, employ the following strategies: Use prepared statements and parameterized queries to separate SQL code from data, ensuring malicious input cannot alter queries. Implement stored procedures, which encapsulate SQL logic within the database to minimize exposure to injection. Validate and sanitize all user inputs to adhere to expected formats, thereby rejecting potentially harmful data. Utilize ORM (Object-Relational Mapping) libraries to abstract SQL operations, reducing direct interaction with raw SQL. Restrict database user privileges to the minimum necessary for application functionality. Properly handle errors by avoiding the exposure of detailed SQL error messages to users; instead, log them securely. Regularly conduct security testing to identify and address vulnerabilities, and consider using web application firewalls (WAFs) to filter out malicious SQL attempts. Finally, keep all systems and libraries up to date with the latest security patches and updates to mitigate emerging threats.</recommendations></vulnerability></service></host><host><address addr="192.168.1.20" /><service portid="80" protocol="TCP"><state>Open</state><product>Apache httpd 2.4.38</product><name>HTTP</name><vulnerabilities>Possible SQL injection vulnerability detected:
++		 URI: /view_data.php?record=5
++		 Payload: record=5' AND 1=1 --
++		 Output: SQL error detected</vulnerabilities><vulnerability id="Sql-injection"><risk_level>High (estimated from name)</risk_level><csvv_score>7.0 - 8.9 (estimated from risk level)</csvv_score><recommendations>[Generalised Recommendations for Sql-injection] To effectively address SQL injection vulnerabilities, employ the following strategies: Use prepared statements and parameterized queries to separate SQL code from data, ensuring malicious input cannot alter queries. Implement stored procedures, which encapsulate SQL logic within the database to minimize exposure to injection. Validate and sanitize all user inputs to adhere to expected formats, thereby rejecting potentially harmful data. Utilize ORM (Object-Relational Mapping) libraries to abstract SQL operations, reducing direct interaction with raw SQL. Restrict database user privileges to the minimum necessary for application functionality. Properly handle errors by avoiding the exposure of detailed SQL error messages to users; instead, log them securely. Regularly conduct security testing to identify and address vulnerabilities, and consider using web application firewalls (WAFs) to filter out malicious SQL attempts. Finally, keep all systems and libraries up to date with the latest security patches and updates to mitigate emerging threats.</recommendations></vulnerability></service><service portid="3306" protocol="TCP"><state>Open</state><product>MySQL 5.7.23</product><name>MYSQL</name><vulnerabilities>Possible SQL injection vulnerability detected:
++		 URI: /data.php?id=3
++		 Payload: id=3' UNION SELECT NULL, NULL, NULL --
++		 Output: SQL error detected</vulnerabilities><vulnerability id="Sql-injection"><risk_level>High (estimated from name)</risk_level><csvv_score>7.0 - 8.9 (estimated from risk level)</csvv_score><recommendations>[Generalised Recommendations for Sql-injection] To effectively address SQL injection vulnerabilities, employ the following strategies: Use prepared statements and parameterized queries to separate SQL code from data, ensuring malicious input cannot alter queries. Implement stored procedures, which encapsulate SQL logic within the database to minimize exposure to injection. Validate and sanitize all user inputs to adhere to expected formats, thereby rejecting potentially harmful data. Utilize ORM (Object-Relational Mapping) libraries to abstract SQL operations, reducing direct interaction with raw SQL. Restrict database user privileges to the minimum necessary for application functionality. Properly handle errors by avoiding the exposure of detailed SQL error messages to users; instead, log them securely. Regularly conduct security testing to identify and address vulnerabilities, and consider using web application firewalls (WAFs) to filter out malicious SQL attempts. Finally, keep all systems and libraries up to date with the latest security patches and updates to mitigate emerging threats.</recommendations></vulnerability></service></host><host><address addr="192.168.1.30" /><service portid="80" protocol="TCP"><state>Open</state><product>Apache httpd 2.4.38</product><name>HTTP</name><vulnerabilities>Possible SQL injection vulnerability detected:
++		 URI: /submit.php
++		 Payload: data=xyz' OR '1'='1
++		 Output: SQL error detected</vulnerabilities><vulnerability id="Sql-injection"><risk_level>High (estimated from name)</risk_level><csvv_score>7.0 - 8.9 (estimated from risk level)</csvv_score><recommendations>[Generalised Recommendations for Sql-injection] To effectively address SQL injection vulnerabilities, employ the following strategies: Use prepared statements and parameterized queries to separate SQL code from data, ensuring malicious input cannot alter queries. Implement stored procedures, which encapsulate SQL logic within the database to minimize exposure to injection. Validate and sanitize all user inputs to adhere to expected formats, thereby rejecting potentially harmful data. Utilize ORM (Object-Relational Mapping) libraries to abstract SQL operations, reducing direct interaction with raw SQL. Restrict database user privileges to the minimum necessary for application functionality. Properly handle errors by avoiding the exposure of detailed SQL error messages to users; instead, log them securely. Regularly conduct security testing to identify and address vulnerabilities, and consider using web application firewalls (WAFs) to filter out malicious SQL attempts. Finally, keep all systems and libraries up to date with the latest security patches and updates to mitigate emerging threats.</recommendations></vulnerability></service><service portid="3306" protocol="TCP"><state>Open</state><product>MySQL 5.7.23</product><name>MYSQL</name><vulnerabilities>Possible SQL injection vulnerability detected:
++		 URI: /info.php?item=7
++		 Payload: item=7' AND 1=2 --
++		 Output: SQL error detected</vulnerabilities><vulnerability id="Sql-injection"><risk_level>High (estimated from name)</risk_level><csvv_score>7.0 - 8.9 (estimated from risk level)</csvv_score><recommendations>[Generalised Recommendations for Sql-injection] To effectively address SQL injection vulnerabilities, employ the following strategies: Use prepared statements and parameterized queries to separate SQL code from data, ensuring malicious input cannot alter queries. Implement stored procedures, which encapsulate SQL logic within the database to minimize exposure to injection. Validate and sanitize all user inputs to adhere to expected formats, thereby rejecting potentially harmful data. Utilize ORM (Object-Relational Mapping) libraries to abstract SQL operations, reducing direct interaction with raw SQL. Restrict database user privileges to the minimum necessary for application functionality. Properly handle errors by avoiding the exposure of detailed SQL error messages to users; instead, log them securely. Regularly conduct security testing to identify and address vulnerabilities, and consider using web application firewalls (WAFs) to filter out malicious SQL attempts. Finally, keep all systems and libraries up to date with the latest security patches and updates to mitigate emerging threats.</recommendations></vulnerability></service></host></nmap_report>
+\ No newline at end of file
+Index: auto_report_writing/report_generation/determine_classification.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/auto_report_writing/report_generation/determine_classification.py b/auto_report_writing/report_generation/determine_classification.py
+new file mode 100644
+--- /dev/null	(date 1721731934804)
++++ b/auto_report_writing/report_generation/determine_classification.py	(date 1721731934804)
+@@ -0,0 +1,101 @@
++import re
++
++
++def csvv_from_classification(risk_classification):
++    """
++    Determines the CSVV score of the vulnerability based on its risk level classification.
++
++    :param risk_classification: Risk level classification of the vulnerability.
++    :return string: Estimated CSVV score of the vulnerability.
++    """
++    risk_classification_string = str(risk_classification).lower()
++
++    if 'critical' in risk_classification_string:
++        return "9.0 - 10.0 (estimated from risk level)"
++    if 'high' in risk_classification_string:
++        return "7.0 - 8.9 (estimated from risk level)"
++    if 'medium' in risk_classification_string:
++        return "4.0 - 6.9 (estimated from risk level)"
++    if 'low' in risk_classification_string:
++        return "0.1 - 3.9 (estimated from risk level)"
++    else:
++        return "0.0 (estimated from risk level)"
++
++
++def classification_from_name(vulnerability_name):
++    """
++    Determines the risk level classification of the vulnerability based on its name, specifically for Nmap results.
++
++    :param vulnerability_name: Name of the vulnerability.
++    :return risk_classification: Risk level classification (critical, high, medium, low, or none) of the vulnerability.
++    """
++    # Normalising the input string.
++    normalised_name = vulnerability_name.lower().replace('-', ' ').replace('_', ' ')
++
++    # Defining regex patterns for each risk classification level.
++    critical_patterns = [
++        r"remote\s+code\s+execution|command\s+injection|deserialization|rce|arbitrary\s+code",
++        r"file\s+upload|remote\s+command"
++    ]
++
++    high_patterns = [
++        r"sql\s+injection|sql\s+error|sql\s+query|xss|file\s+inclusion|path\s+traversal|xxe",
++        r"cross\s+site\s+scripting|http\s+split|http\s+pollution"
++    ]
++
++    medium_patterns = [
++        r"directory\s+traversal|open\s+redirect|insecure\s+deserialization|missing\s+auth",
++        r"session\s+fixation|insecure\s+config|unsecured\s+storage|security\s+misconfig"
++    ]
++
++    low_patterns = [
++        r"outdated\s+auth|weak\s+crypto|info\s+disclosure|dos|default\s+creds",
++        r"open\s+ports|unpatched\s+software|http\s+security\s+headers"
++    ]
++
++    none_patterns = [
++        r"clickjacking|headers|exposed\s+data|dep",
++        r"insecure\s+coding|logging"
++    ]
++
++    # Sub-function checking if any of the regex patterns match the normalised vulnerability name.
++    def matches_any_pattern(patterns):
++        return any(re.search(pattern, normalised_name) for pattern in patterns)
++
++    # Classifying vulnerability names based on pattern matching.
++    if matches_any_pattern(critical_patterns):
++        risk_classification = "Critical (estimated from name)"
++    elif matches_any_pattern(high_patterns):
++        risk_classification = "High (estimated from name)"
++    elif matches_any_pattern(medium_patterns):
++        risk_classification = "Medium (estimated from name)"
++    elif matches_any_pattern(low_patterns):
++        risk_classification = "Low (estimated from name)"
++    elif matches_any_pattern(none_patterns):
++        risk_classification = "None (estimated from name)"
++    else:
++        risk_classification = "Unknown (estimated from name)"
++
++    return risk_classification
++
++
++def classification_from_csvv(csvv):
++    """
++    Determines the risk level classification of the vulnerability based on its CSVV score.
++
++    :param csvv: CSVV score of the vulnerability.
++    :return string: Risk level classification (critical, high, medium, low, or none) of the vulnerability.
++    """
++    csvv_classification_float = float(csvv)
++
++    # If CSVV is between x and y ...
++    if 9.0 <= csvv_classification_float <= 10.0:
++        return "Critical (estimated from CSVV)"
++    elif 7.0 <= csvv_classification_float <= 8.9:
++        return "High (estimated from CSVV)"
++    elif 4.0 <= csvv_classification_float <= 6.9:
++        return "Medium (estimated from CSVV)"
++    elif 0.1 <= csvv_classification_float <= 3.9:
++        return "Low (estimated from CSVV)"
++    else:
++        return "None (estimated from CSVV)"
+Index: auto_report_writing/report_generation/generate_recommendations.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/auto_report_writing/report_generation/generate_recommendations.py b/auto_report_writing/report_generation/generate_recommendations.py
+new file mode 100644
+--- /dev/null	(date 1721656710236)
++++ b/auto_report_writing/report_generation/generate_recommendations.py	(date 1721656710236)
+@@ -0,0 +1,46 @@
++from openai import OpenAI
++import re
++
++
++def generate_recommendations_name(vulnerability_name):
++    vulnerability_name_string = vulnerability_name.lower()
++
++    if vulnerability_name_string == "sql-injection":
++        recommendations = f"[Generalised Recommendations for {vulnerability_name}] \
++To effectively address SQL injection vulnerabilities, employ the following strategies: \
++Use prepared statements and parameterized queries to separate SQL code from data, \
++ensuring malicious input cannot alter queries. Implement stored procedures, which \
++encapsulate SQL logic within the database to minimize exposure to injection. Validate \
++and sanitize all user inputs to adhere to expected formats, thereby rejecting potentially \
++harmful data. Utilize ORM (Object-Relational Mapping) libraries to abstract SQL operations, \
++reducing direct interaction with raw SQL. Restrict database user privileges to the minimum \
++necessary for application functionality. Properly handle errors by avoiding the exposure of \
++detailed SQL error messages to users; instead, log them securely. Regularly conduct security \
++testing to identify and address vulnerabilities, and consider using web application firewalls \
++(WAFs) to filter out malicious SQL attempts. Finally, keep all systems and libraries up to \
++date with the latest security patches and updates to mitigate emerging threats."
++        return recommendations
++
++    # Any string starting with 'MS' will receive the below recommendation.
++    elif re.match(r'^ms', vulnerability_name_string):
++        recommendations = f"Check the appropriate Microsoft Security Bulletin for recommendations: " \
++                          f"https://learn.microsoft.com/en-us/security-updates/securitybulletins/securitybulletins"
++        return recommendations
++
++    else:
++        return "No recommendations."
++
++
++def generate_recommendations_openai(vulnerability_details):
++
++    client = OpenAI(api_key="sk-proj-94X4V3oIt7f9gK5jAgyHT3BlbkFJ3TXSz1J0jTEa7T8Mr3br")
++
++    recommendations = client.chat.completions.create(
++        model="gpt-3.5-turbo",
++        messages=[
++            {"role": "system", "content": "You are a straight-to-the-point deadpan assistant."},
++            {"role": "user", "content": f"Using a 200 word paragraph, detail some recommendations and solutions for: {vulnerability_details}"},
++        ],
++    )
++
++    return recommendations.choices[0].text.strip()
+Index: .idea/inspectionProfiles/Project_Default.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/inspectionProfiles/Project_Default.xml b/.idea/inspectionProfiles/Project_Default.xml
+new file mode 100644
+--- /dev/null	(date 1721218723313)
++++ b/.idea/inspectionProfiles/Project_Default.xml	(date 1721218723313)
+@@ -0,0 +1,12 @@
++<component name="InspectionProjectProfileManager">
++  <profile version="1.0">
++    <option name="myName" value="Project Default" />
++    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
++      <option name="ignoredErrors">
++        <list>
++          <option value="E501" />
++        </list>
++      </option>
++    </inspection_tool>
++  </profile>
++</component>
+\ No newline at end of file
+Index: Reports/XSL/Nmap_Report.xsl
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Reports/XSL/Nmap_Report.xsl b/Reports/XSL/Nmap_Report.xsl
+new file mode 100644
+--- /dev/null	(date 1721729903450)
++++ b/Reports/XSL/Nmap_Report.xsl	(date 1721729903450)
+@@ -0,0 +1,69 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
++
++    <!-- Template to match the root element -->
++    <xsl:template match="/nmap_report">
++        <html>
++            <head>
++                <title>Nmap Vulnerability Report</title>
++                <style>
++                    body { font-family: Arial, sans-serif; }
++                    h1 { color: #333; }
++                    .host { margin-bottom: 20px; }
++                    .service { margin-left: 20px; }
++                    .vulnerability { margin-left: 40px; border-left: 2px solid #000; padding-left: 10px; margin-bottom: 10px; }
++                    h2, h3, h4, p { margin: 5px 0; }
++                </style>
++            </head>
++            <body>
++                <h1>Nmap Vulnerability Report</h1>
++                <xsl:apply-templates select="host" />
++            </body>
++        </html>
++    </xsl:template>
++
++    <!-- Template to match each host -->
++    <xsl:template match="host">
++        <div class="host">
++            <h2>Host: <xsl:value-of select="address/@addr" /></h2>
++            <xsl:apply-templates select="service" />
++        </div>
++    </xsl:template>
++
++    <!-- Template to match each service -->
++    <xsl:template match="service">
++        <div class="service">
++            <h3>Service: Port <xsl:value-of select="@portid"/> (<xsl:value-of select="@protocol"/>)</h3>
++            <p><strong>State: </strong> <xsl:value-of select="state" /></p>
++            <p><strong>Product: </strong> <xsl:value-of select="product" /></p>
++            <p><strong>Service Name: </strong> <xsl:value-of select="name" /></p>
++            <p><strong>Vulnerabilities:</strong></p>
++            <xsl:apply-templates select="vulnerability" />
++        </div>
++    </xsl:template>
++
++    <!-- Template to match each vulnerability -->
++    <xsl:template match="vulnerability">
++        <div class="vulnerability">
++            <h4>Vulnerability Name: <xsl:value-of select="@id" /></h4>
++            <p><strong>Risk Level: </strong> <xsl:value-of select="risk_level" /></p>
++            <p><strong>CSVV Score: </strong> <xsl:value-of select="csvv_score" /></p>
++            <p><strong>Vulnerability Details:</strong></p>
++            <xsl:apply-templates select="preceding-sibling::vulnerabilities[1]" />
++            <p><strong>Recommendations:</strong></p>
++            <p><xsl:value-of select="recommendations" /></p>
++        </div>
++    </xsl:template>
++
++    <!-- Template to match each vulnerabilities element -->
++    <xsl:template match="vulnerabilities">
++        <p>
++            <xsl:text>• </xsl:text><xsl:value-of select="substring-before(., ' URI: ')" /><br />
++            <xsl:text>• URI: </xsl:text><xsl:value-of select="substring-before(substring-after(., ' URI: '), ' Payload: ')" /><br />
++            <xsl:text>• Payload: </xsl:text><xsl:value-of select="substring-before(substring-after(., ' Payload: '), ' Output: ')" /><br />
++            <xsl:text>• Output: </xsl:text><xsl:value-of select="substring-after(., ' Output: ')" />
++
++        </p>
++    </xsl:template>
++
++</xsl:stylesheet>
+Index: Reports/HTML/Nmap_Report.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Reports/HTML/Nmap_Report.html b/Reports/HTML/Nmap_Report.html
+new file mode 100644
+--- /dev/null	(date 1721747465879)
++++ b/Reports/HTML/Nmap_Report.html	(date 1721747465879)
+@@ -0,0 +1,175 @@
++<html>
++  <head>
++    <title>Nmap Vulnerability Report</title>
++    <style>
++                    body { font-family: Arial, sans-serif; }
++                    h1 { color: #333; }
++                    .host { margin-bottom: 20px; }
++                    .service { margin-left: 20px; }
++                    .vulnerability { margin-left: 40px; border-left: 2px solid #000; padding-left: 10px; margin-bottom: 10px; }
++                    h2, h3, h4, p { margin: 5px 0; }
++                </style>
++  </head>
++  <body>
++    <h1>Nmap Vulnerability Report</h1>
++    <div class="host">
++      <h2>Host: 192.168.1.10</h2>
++      <div class="service">
++        <h3>Service: Port 80 (TCP)</h3>
++        <p><strong>State: </strong>Open</p>
++        <p><strong>Product: </strong>Apache httpd 2.4.38</p>
++        <p><strong>Service Name: </strong>HTTP</p>
++        <p>
++          <strong>Vulnerabilities:</strong>
++        </p>
++        <div class="vulnerability">
++          <h4>Vulnerability Name: Clickjacking</h4>
++          <p><strong>Risk Level: </strong>None (estimated from name)</p>
++          <p><strong>CSVV Score: </strong>0.0 (estimated from risk level)</p>
++          <p>
++            <strong>Vulnerability Details:</strong>
++          </p>
++          <p>• Possible SQL injection vulnerability detected:
++		<br/>• URI: /index.php?id=1'
++		<br/>• Payload: id=1' OR '1'='1
++		<br/>• Output: SQL error detected</p>
++          <p>
++            <strong>Recommendations:</strong>
++          </p>
++          <p>No recommendations.</p>
++        </div>
++      </div>
++      <div class="service">
++        <h3>Service: Port 3306 (TCP)</h3>
++        <p><strong>State: </strong>Open</p>
++        <p><strong>Product: </strong>MySQL 5.7.23</p>
++        <p><strong>Service Name: </strong>MYSQL</p>
++        <p>
++          <strong>Vulnerabilities:</strong>
++        </p>
++        <div class="vulnerability">
++          <h4>Vulnerability Name: Sql-injection</h4>
++          <p><strong>Risk Level: </strong>High (estimated from name)</p>
++          <p><strong>CSVV Score: </strong>7.0 - 8.9 (estimated from risk level)</p>
++          <p>
++            <strong>Vulnerability Details:</strong>
++          </p>
++          <p>• Possible SQL injection vulnerability detected:
++		<br/>• URI: /login.php
++		<br/>• Payload: username=admin' OR '1'='1 --
++		<br/>• Output: Login successful</p>
++          <p>
++            <strong>Recommendations:</strong>
++          </p>
++          <p>[Generalised Recommendations for Sql-injection] To effectively address SQL injection vulnerabilities, employ the following strategies: Use prepared statements and parameterized queries to separate SQL code from data, ensuring malicious input cannot alter queries. Implement stored procedures, which encapsulate SQL logic within the database to minimize exposure to injection. Validate and sanitize all user inputs to adhere to expected formats, thereby rejecting potentially harmful data. Utilize ORM (Object-Relational Mapping) libraries to abstract SQL operations, reducing direct interaction with raw SQL. Restrict database user privileges to the minimum necessary for application functionality. Properly handle errors by avoiding the exposure of detailed SQL error messages to users; instead, log them securely. Regularly conduct security testing to identify and address vulnerabilities, and consider using web application firewalls (WAFs) to filter out malicious SQL attempts. Finally, keep all systems and libraries up to date with the latest security patches and updates to mitigate emerging threats.</p>
++        </div>
++      </div>
++    </div>
++    <div class="host">
++      <h2>Host: 192.168.1.20</h2>
++      <div class="service">
++        <h3>Service: Port 80 (TCP)</h3>
++        <p><strong>State: </strong>Open</p>
++        <p><strong>Product: </strong>Apache httpd 2.4.38</p>
++        <p><strong>Service Name: </strong>HTTP</p>
++        <p>
++          <strong>Vulnerabilities:</strong>
++        </p>
++        <div class="vulnerability">
++          <h4>Vulnerability Name: Sql-injection</h4>
++          <p><strong>Risk Level: </strong>High (estimated from name)</p>
++          <p><strong>CSVV Score: </strong>7.0 - 8.9 (estimated from risk level)</p>
++          <p>
++            <strong>Vulnerability Details:</strong>
++          </p>
++          <p>• Possible SQL injection vulnerability detected:
++		<br/>• URI: /view_data.php?record=5
++		<br/>• Payload: record=5' AND 1=1 --
++		<br/>• Output: SQL error detected</p>
++          <p>
++            <strong>Recommendations:</strong>
++          </p>
++          <p>[Generalised Recommendations for Sql-injection] To effectively address SQL injection vulnerabilities, employ the following strategies: Use prepared statements and parameterized queries to separate SQL code from data, ensuring malicious input cannot alter queries. Implement stored procedures, which encapsulate SQL logic within the database to minimize exposure to injection. Validate and sanitize all user inputs to adhere to expected formats, thereby rejecting potentially harmful data. Utilize ORM (Object-Relational Mapping) libraries to abstract SQL operations, reducing direct interaction with raw SQL. Restrict database user privileges to the minimum necessary for application functionality. Properly handle errors by avoiding the exposure of detailed SQL error messages to users; instead, log them securely. Regularly conduct security testing to identify and address vulnerabilities, and consider using web application firewalls (WAFs) to filter out malicious SQL attempts. Finally, keep all systems and libraries up to date with the latest security patches and updates to mitigate emerging threats.</p>
++        </div>
++      </div>
++      <div class="service">
++        <h3>Service: Port 3306 (TCP)</h3>
++        <p><strong>State: </strong>Open</p>
++        <p><strong>Product: </strong>MySQL 5.7.23</p>
++        <p><strong>Service Name: </strong>MYSQL</p>
++        <p>
++          <strong>Vulnerabilities:</strong>
++        </p>
++        <div class="vulnerability">
++          <h4>Vulnerability Name: Sql-injection</h4>
++          <p><strong>Risk Level: </strong>High (estimated from name)</p>
++          <p><strong>CSVV Score: </strong>7.0 - 8.9 (estimated from risk level)</p>
++          <p>
++            <strong>Vulnerability Details:</strong>
++          </p>
++          <p>• Possible SQL injection vulnerability detected:
++		<br/>• URI: /data.php?id=3
++		<br/>• Payload: id=3' UNION SELECT NULL, NULL, NULL --
++		<br/>• Output: SQL error detected</p>
++          <p>
++            <strong>Recommendations:</strong>
++          </p>
++          <p>[Generalised Recommendations for Sql-injection] To effectively address SQL injection vulnerabilities, employ the following strategies: Use prepared statements and parameterized queries to separate SQL code from data, ensuring malicious input cannot alter queries. Implement stored procedures, which encapsulate SQL logic within the database to minimize exposure to injection. Validate and sanitize all user inputs to adhere to expected formats, thereby rejecting potentially harmful data. Utilize ORM (Object-Relational Mapping) libraries to abstract SQL operations, reducing direct interaction with raw SQL. Restrict database user privileges to the minimum necessary for application functionality. Properly handle errors by avoiding the exposure of detailed SQL error messages to users; instead, log them securely. Regularly conduct security testing to identify and address vulnerabilities, and consider using web application firewalls (WAFs) to filter out malicious SQL attempts. Finally, keep all systems and libraries up to date with the latest security patches and updates to mitigate emerging threats.</p>
++        </div>
++      </div>
++    </div>
++    <div class="host">
++      <h2>Host: 192.168.1.30</h2>
++      <div class="service">
++        <h3>Service: Port 80 (TCP)</h3>
++        <p><strong>State: </strong>Open</p>
++        <p><strong>Product: </strong>Apache httpd 2.4.38</p>
++        <p><strong>Service Name: </strong>HTTP</p>
++        <p>
++          <strong>Vulnerabilities:</strong>
++        </p>
++        <div class="vulnerability">
++          <h4>Vulnerability Name: Sql-injection</h4>
++          <p><strong>Risk Level: </strong>High (estimated from name)</p>
++          <p><strong>CSVV Score: </strong>7.0 - 8.9 (estimated from risk level)</p>
++          <p>
++            <strong>Vulnerability Details:</strong>
++          </p>
++          <p>• Possible SQL injection vulnerability detected:
++		<br/>• URI: /submit.php
++		<br/>• Payload: data=xyz' OR '1'='1
++		<br/>• Output: SQL error detected</p>
++          <p>
++            <strong>Recommendations:</strong>
++          </p>
++          <p>[Generalised Recommendations for Sql-injection] To effectively address SQL injection vulnerabilities, employ the following strategies: Use prepared statements and parameterized queries to separate SQL code from data, ensuring malicious input cannot alter queries. Implement stored procedures, which encapsulate SQL logic within the database to minimize exposure to injection. Validate and sanitize all user inputs to adhere to expected formats, thereby rejecting potentially harmful data. Utilize ORM (Object-Relational Mapping) libraries to abstract SQL operations, reducing direct interaction with raw SQL. Restrict database user privileges to the minimum necessary for application functionality. Properly handle errors by avoiding the exposure of detailed SQL error messages to users; instead, log them securely. Regularly conduct security testing to identify and address vulnerabilities, and consider using web application firewalls (WAFs) to filter out malicious SQL attempts. Finally, keep all systems and libraries up to date with the latest security patches and updates to mitigate emerging threats.</p>
++        </div>
++      </div>
++      <div class="service">
++        <h3>Service: Port 3306 (TCP)</h3>
++        <p><strong>State: </strong>Open</p>
++        <p><strong>Product: </strong>MySQL 5.7.23</p>
++        <p><strong>Service Name: </strong>MYSQL</p>
++        <p>
++          <strong>Vulnerabilities:</strong>
++        </p>
++        <div class="vulnerability">
++          <h4>Vulnerability Name: Sql-injection</h4>
++          <p><strong>Risk Level: </strong>High (estimated from name)</p>
++          <p><strong>CSVV Score: </strong>7.0 - 8.9 (estimated from risk level)</p>
++          <p>
++            <strong>Vulnerability Details:</strong>
++          </p>
++          <p>• Possible SQL injection vulnerability detected:
++		<br/>• URI: /info.php?item=7
++		<br/>• Payload: item=7' AND 1=2 --
++		<br/>• Output: SQL error detected</p>
++          <p>
++            <strong>Recommendations:</strong>
++          </p>
++          <p>[Generalised Recommendations for Sql-injection] To effectively address SQL injection vulnerabilities, employ the following strategies: Use prepared statements and parameterized queries to separate SQL code from data, ensuring malicious input cannot alter queries. Implement stored procedures, which encapsulate SQL logic within the database to minimize exposure to injection. Validate and sanitize all user inputs to adhere to expected formats, thereby rejecting potentially harmful data. Utilize ORM (Object-Relational Mapping) libraries to abstract SQL operations, reducing direct interaction with raw SQL. Restrict database user privileges to the minimum necessary for application functionality. Properly handle errors by avoiding the exposure of detailed SQL error messages to users; instead, log them securely. Regularly conduct security testing to identify and address vulnerabilities, and consider using web application firewalls (WAFs) to filter out malicious SQL attempts. Finally, keep all systems and libraries up to date with the latest security patches and updates to mitigate emerging threats.</p>
++        </div>
++      </div>
++    </div>
++  </body>
++</html>
+Index: Reports/XML/Metasploit_Report.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Reports/XML/Metasploit_Report.xml b/Reports/XML/Metasploit_Report.xml
+new file mode 100644
+--- /dev/null	(date 1721747465828)
++++ b/Reports/XML/Metasploit_Report.xml	(date 1721747465828)
+@@ -0,0 +1,2 @@
++<?xml version='1.0' encoding='utf-8'?>
++<metasploit_report><host><address addr="192.168.1.50" /><exploit id="1"><name>MS08-067</name><risk>High</risk><csvv_score>7.0 - 8.9 (estimated from risk level)</csvv_score><description>Description: Remote code execution in Microsoft Windows Server 2008.</description><result>Result: Exploit successful: Command shell opened.</result><recommendations>Check the appropriate Microsoft Security Bulletin for recommendations: https://learn.microsoft.com/en-us/security-updates/securitybulletins/securitybulletins</recommendations></exploit><exploit id="2"><name>Shellshock</name><risk>Critical</risk><csvv_score>9.0 - 10.0 (estimated from risk level)</csvv_score><description>Description: Remote code execution in Bash.</description><result>Result: Exploit successful: Remote access obtained.</result><recommendations>No recommendations.</recommendations></exploit><exploit id="3"><name>MS17-010</name><risk>Critical</risk><csvv_score>9.0 - 10.0 (estimated from risk level)</csvv_score><description>Description: Remote code execution vulnerability in Microsoft Windows SMBv1.</description><result>Result: Exploit successful: Meterpreter session opened.</result><recommendations>Check the appropriate Microsoft Security Bulletin for recommendations: https://learn.microsoft.com/en-us/security-updates/securitybulletins/securitybulletins</recommendations></exploit></host><host><address addr="192.168.1.51" /><exploit id="1"><name>Apache Struts 2 OGNL Injection</name><risk>High</risk><csvv_score>7.0 - 8.9 (estimated from risk level)</csvv_score><description>Description: Remote code execution vulnerability in Apache Struts 2.</description><result>Result: Exploit successful: Command shell opened.</result><recommendations>No recommendations.</recommendations></exploit></host></metasploit_report>
+\ No newline at end of file
+Index: Reports/XSL/Metasploit_Report.xsl
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Reports/XSL/Metasploit_Report.xsl b/Reports/XSL/Metasploit_Report.xsl
+new file mode 100644
+--- /dev/null	(date 1721657740133)
++++ b/Reports/XSL/Metasploit_Report.xsl	(date 1721657740133)
+@@ -0,0 +1,45 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
++
++    <!-- Template to match the root element -->
++    <xsl:template match="/metasploit_report">
++        <html>
++            <head>
++                <title>Metasploit Vulnerability Report</title>
++                <style>
++                    body { font-family: Arial, sans-serif; }
++                    h1 { color: #333; }
++                    .host { margin-bottom: 20px; }
++                    .vulnerability { margin-left: 20px; border-left: 2px solid #000; padding-left: 10px; margin-bottom: 10px; }
++                    h2, h3, p { margin: 5px 0; }
++                </style>
++            </head>
++            <body>
++                <h1>Metasploit Vulnerability Report</h1>
++                <xsl:apply-templates select="host" />
++            </body>
++        </html>
++    </xsl:template>
++
++    <!-- Template to match each host -->
++    <xsl:template match="host">
++        <div class="host">
++            <h2>Host: <xsl:value-of select="address/@addr" /></h2>
++            <xsl:apply-templates select="exploit" />
++        </div>
++    </xsl:template>
++
++    <!-- Template to match each exploit -->
++    <xsl:template match="exploit">
++        <div class="vulnerability">
++            <p><strong>Vulnerability Name: </strong> <xsl:value-of select="name" /></p>
++            <p><strong>Risk Level: </strong> <xsl:value-of select="risk" /></p>
++            <p><strong>CSVV Score: </strong> <xsl:value-of select="csvv_score" /></p>
++            <p><strong>Vulnerability Details: </strong></p>
++            <p>• <xsl:value-of select="description" /></p>
++            <p>• <xsl:value-of select="result" /></p>
++            <p><strong>Recommendations: </strong> <xsl:value-of select="recommendations" /></p>
++        </div>
++    </xsl:template>
++
++</xsl:stylesheet>
+Index: Reports/HTML/Metasploit_Report.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Reports/HTML/Metasploit_Report.html b/Reports/HTML/Metasploit_Report.html
+new file mode 100644
+--- /dev/null	(date 1721747465841)
++++ b/Reports/HTML/Metasploit_Report.html	(date 1721747465841)
+@@ -0,0 +1,65 @@
++<html>
++  <head>
++    <title>Metasploit Vulnerability Report</title>
++    <style>
++                    body { font-family: Arial, sans-serif; }
++                    h1 { color: #333; }
++                    .host { margin-bottom: 20px; }
++                    .vulnerability { margin-left: 20px; border-left: 2px solid #000; padding-left: 10px; margin-bottom: 10px; }
++                    h2, h3, p { margin: 5px 0; }
++                </style>
++  </head>
++  <body>
++    <h1>Metasploit Vulnerability Report</h1>
++    <div class="host">
++      <h2>Host: 192.168.1.50</h2>
++      <div class="vulnerability">
++        <p><strong>Vulnerability Name: </strong>MS08-067</p>
++        <p><strong>Risk Level: </strong>High</p>
++        <p><strong>CSVV Score: </strong>7.0 - 8.9 (estimated from risk level)</p>
++        <p>
++          <strong>Vulnerability Details: </strong>
++        </p>
++        <p>• Description: Remote code execution in Microsoft Windows Server 2008.</p>
++        <p>• Result: Exploit successful: Command shell opened.</p>
++        <p><strong>Recommendations: </strong>Check the appropriate Microsoft Security Bulletin for recommendations: https://learn.microsoft.com/en-us/security-updates/securitybulletins/securitybulletins</p>
++      </div>
++      <div class="vulnerability">
++        <p><strong>Vulnerability Name: </strong>Shellshock</p>
++        <p><strong>Risk Level: </strong>Critical</p>
++        <p><strong>CSVV Score: </strong>9.0 - 10.0 (estimated from risk level)</p>
++        <p>
++          <strong>Vulnerability Details: </strong>
++        </p>
++        <p>• Description: Remote code execution in Bash.</p>
++        <p>• Result: Exploit successful: Remote access obtained.</p>
++        <p><strong>Recommendations: </strong>No recommendations.</p>
++      </div>
++      <div class="vulnerability">
++        <p><strong>Vulnerability Name: </strong>MS17-010</p>
++        <p><strong>Risk Level: </strong>Critical</p>
++        <p><strong>CSVV Score: </strong>9.0 - 10.0 (estimated from risk level)</p>
++        <p>
++          <strong>Vulnerability Details: </strong>
++        </p>
++        <p>• Description: Remote code execution vulnerability in Microsoft Windows SMBv1.</p>
++        <p>• Result: Exploit successful: Meterpreter session opened.</p>
++        <p><strong>Recommendations: </strong>Check the appropriate Microsoft Security Bulletin for recommendations: https://learn.microsoft.com/en-us/security-updates/securitybulletins/securitybulletins</p>
++      </div>
++    </div>
++    <div class="host">
++      <h2>Host: 192.168.1.51</h2>
++      <div class="vulnerability">
++        <p><strong>Vulnerability Name: </strong>Apache Struts 2 OGNL Injection</p>
++        <p><strong>Risk Level: </strong>High</p>
++        <p><strong>CSVV Score: </strong>7.0 - 8.9 (estimated from risk level)</p>
++        <p>
++          <strong>Vulnerability Details: </strong>
++        </p>
++        <p>• Description: Remote code execution vulnerability in Apache Struts 2.</p>
++        <p>• Result: Exploit successful: Command shell opened.</p>
++        <p><strong>Recommendations: </strong>No recommendations.</p>
++      </div>
++    </div>
++  </body>
++</html>
+Index: auto_report_writing/data_processing/xml_loader.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/auto_report_writing/data_processing/xml_loader.py b/auto_report_writing/data_processing/xml_loader.py
+new file mode 100644
+--- /dev/null	(date 1721737054616)
++++ b/auto_report_writing/data_processing/xml_loader.py	(date 1721737054616)
+@@ -0,0 +1,21 @@
++import xml.etree.ElementTree as EleTree
++from auto_report_writing.utils.message_utils import *
++
++
++def load_xml(file_path):
++    """
++    Loads an XML file and returns the tree and root elements.
++
++    :param file_path: Path to the XML file.
++    :return: A tuple (tree, root) if successful, otherwise (None, None).
++    """
++    try:
++        tree = EleTree.parse(file_path)
++        root = tree.getroot()
++        return tree, root
++    except EleTree.ParseError as e:
++        print_error_parsing_xml(e)
++        return None, None
++    except FileNotFoundError:
++        print_file_not_found(file_path)
++        return None, None
+Index: auto_report_writing/report_generation/report_data/smod-1_report.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/auto_report_writing/report_generation/report_data/smod-1_report.py b/auto_report_writing/report_generation/report_data/smod-1_report.py
+new file mode 100644
+--- /dev/null	(date 1721748628795)
++++ b/auto_report_writing/report_generation/report_data/smod-1_report.py	(date 1721748628795)
+@@ -0,0 +1,63 @@
++import xml.etree.ElementTree as ET
++
++def calculate_risk_level(vulnerability):
++    """
++    Placeholder for risk level calculation based on vulnerability.
++    """
++    # Implement your formula here
++    return "Medium"  # Example value
++
++def calculate_csvv_score(vulnerability):
++    """
++    Placeholder for CSVV score calculation based on vulnerability.
++    """
++    # Implement your formula here
++    return 5.0  # Example value
++
++def generate_recommendations(vulnerability):
++    """
++    Placeholder for recommendations generation based on vulnerability.
++    """
++    # Implement your formula here
++    return "Apply latest patches and security updates."  # Example recommendation
++
++def process_smod1_data(file_path):
++    """
++    Processes the input SMOD-1 XML file and prints a structured report.
++    """
++    try:
++        tree = ET.parse(file_path)
++        root = tree.getroot()
++
++        for attempt in root.findall('.//attempt'):
++            vulnerability = attempt.find('vulnerability').text
++            risk_level = calculate_risk_level(vulnerability)
++            csvv_score = calculate_csvv_score(vulnerability)
++            recommendations = generate_recommendations(vulnerability)
++
++            details = {}
++            for child in attempt:
++                if child.tag not in ['target', 'device', 'vulnerability', 'result', 'timestamp', 'commands']:
++                    details[child.tag] = child.text
++                elif child.tag == 'commands':
++                    details[child.tag] = [cmd.text for cmd in child.findall('command')]
++
++            print(f"Vulnerability Name: {vulnerability}")
++            print(f"Risk Level: {risk_level}")
++            print(f"CSVV Score: {csvv_score}")
++            print(f"Vulnerability Details:")
++            for key, value in details.items():
++                if key == 'commands':
++                    print(f"  - {key}: {', '.join(value)}")
++                else:
++                    print(f"  - {key}: {value}")
++            print(f"Recommendations: {recommendations}")
++            print("\n" + "-"*40 + "\n")
++
++    except ET.ParseError as e:
++        print(f"Error parsing XML file: {e}")
++    except Exception as e:
++        print(f"Error processing the report: {e}")
++
++# Example usage
++process_smod1_data('path_to_smod1_file.xml')
+Index: Data/Dirb_Data.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Data/Dirb_Data.xml b/Data/Dirb_Data.xml
+new file mode 100644
+--- /dev/null	(date 1721038270401)
++++ b/Data/Dirb_Data.xml	(date 1721038270401)
+@@ -0,0 +1,28 @@
++<?xml version="1.0"?>
++<dirbscan>
++    <host>
++        <address>10.0.0.2</address>
++        <scan_results>
++            <result id="1">
++                <path>/admin</path>
++                <status>200 OK</status>
++                <description>Admin panel found</description>
++            </result>
++            <result id="2">
++                <path>/login</path>
++                <status>200 OK</status>
++                <description>Login page found</description>
++            </result>
++            <result id="3">
++                <path>/uploads</path>
++                <status>403 Forbidden</status>
++                <description>Directory listing is restricted</description>
++            </result>
++            <result id="4">
++                <path>/backup</path>
++                <status>404 Not Found</status>
++                <description>Backup directory not found</description>
++            </result>
++        </scan_results>
++    </host>
++</dirbscan>
+Index: Data/Metasploit_Data.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Data/Metasploit_Data.xml b/Data/Metasploit_Data.xml
+new file mode 100644
+--- /dev/null	(date 1721038295042)
++++ b/Data/Metasploit_Data.xml	(date 1721038295042)
+@@ -0,0 +1,39 @@
++<?xml version="1.0"?>
++<metasploit>
++    <report>
++        <host>
++            <address>192.168.1.50</address>
++            <exploits>
++                <exploit id="1">
++                    <name>MS08-067</name>
++                    <description>Remote code execution in Microsoft Windows Server 2008.</description>
++                    <result>Exploit successful: Command shell opened</result>
++                    <risk>High</risk>
++                </exploit>
++                <exploit id="2">
++                    <name>Shellshock</name>
++                    <description>Remote code execution in Bash.</description>
++                    <result>Exploit successful: Remote access obtained</result>
++                    <risk>Critical</risk>
++                </exploit>
++                <exploit id="3">
++                    <name>MS17-010</name>
++                    <description>Remote code execution vulnerability in Microsoft Windows SMBv1.</description>
++                    <result>Exploit successful: Meterpreter session opened</result>
++                    <risk>Critical</risk>
++                </exploit>
++            </exploits>
++        </host>
++        <host>
++            <address>192.168.1.51</address>
++            <exploits>
++                <exploit id="1">
++                    <name>Apache Struts 2 OGNL Injection</name>
++                    <description>Remote code execution vulnerability in Apache Struts 2.</description>
++                    <result>Exploit successful: Command shell opened</result>
++                    <risk>High</risk>
++                </exploit>
++            </exploits>
++        </host>
++    </report>
++</metasploit>
+Index: Data/Nikto_Data.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Data/Nikto_Data.xml b/Data/Nikto_Data.xml
+new file mode 100644
+--- /dev/null	(date 1721038153119)
++++ b/Data/Nikto_Data.xml	(date 1721038153119)
+@@ -0,0 +1,39 @@
++<?xml version="1.0"?>
++<nikto>
++    <scan>
++        <target host="example.com" port="80"/>
++        <results>
++            <result id="1">
++                <description>Server Type: Apache/2.4.41</description>
++                <vulnerability>CVE-2019-0211 - Privilege escalation vulnerability</vulnerability>
++                <risk>High</risk>
++            </result>
++            <result id="2">
++                <description>Potentially dangerous file found: /admin</description>
++                <risk>Medium</risk>
++            </result>
++            <result id="3">
++                <description>Directory listing found: /uploads/</description>
++                <risk>High</risk>
++            </result>
++            <result id="4">
++                <description>SSL Certificate expired</description>
++                <risk>Critical</risk>
++            </result>
++        </results>
++    </scan>
++    <scan>
++        <target host="testsite.local" port="443"/>
++        <results>
++            <result id="1">
++                <description>Server Type: nginx/1.18.0</description>
++                <vulnerability>CVE-2020-25712 - Information disclosure</vulnerability>
++                <risk>Medium</risk>
++            </result>
++            <result id="2">
++                <description>Unusual HTTP method allowed: PUT</description>
++                <risk>Medium</risk>
++            </result>
++        </results>
++    </scan>
++</nikto>
+Index: Data/Nmap_Data.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Data/Nmap_Data.xml b/Data/Nmap_Data.xml
+new file mode 100644
+--- /dev/null	(date 1721731993573)
++++ b/Data/Nmap_Data.xml	(date 1721731993573)
+@@ -0,0 +1,162 @@
++<?xml version="1.0"?>
++<nmaprun>
++    <host>
++        <address addr="192.168.1.10" addrtype="ipv4"/>
++        <hostnames/>
++        <ports>
++            <port protocol="tcp" portid="80">
++                <state state="open" reason="syn-ack"/>
++                <service name="http" product="Apache httpd 2.4.38"/>
++                <script id="clickjacking" output="Possible SQL injection vulnerability detected:
++          URI: /index.php?id=1'
++          Payload: id=1' OR '1'='1
++          Output: SQL error detected"/>
++            </port>
++            <port protocol="tcp" portid="443">
++                <state state="open" reason="syn-ack"/>
++                <service name="ssl/http" product="Apache httpd 2.4.38 ((Debian))"/>
++                <ssl-cert>
++                    <subject>commonName=example.com</subject>
++                    <subjectAltName>DNS:example.com</subjectAltName>
++                    <issuer>commonName=Let's Encrypt Authority X3/organizationName=Let's Encrypt/countryName=US</issuer>
++                    <pubkey type="rsa" bits="2048"/>
++                    <sigalg>sha256WithRSAEncryption</sigalg>
++                    <notbefore>2024-06-10T00:00:00</notbefore>
++                    <notafter>2024-09-08T12:00:00</notafter>
++                </ssl-cert>
++            </port>
++            <port protocol="tcp" portid="3306">
++                <state state="open" reason="syn-ack"/>
++                <service name="mysql" product="MySQL 5.7.23"/>
++                <script id="sql-injection" output="Possible SQL injection vulnerability detected:
++          URI: /login.php
++          Payload: username=admin' OR '1'='1 --
++          Output: Login successful"/>
++            </port>
++            <port protocol="tcp" portid="502">
++                <state state="open" reason="syn-ack"/>
++                <service name="modbus" product="Schneider Electric Modicon"/>
++                <modbus-discover>
++                    <device_id>0x0102</device_id>
++                    <vendor>Schneider Electric</vendor>
++                    <product_code>0x0002</product_code>
++                    <revision>2.00</revision>
++                    <device_serial>0x00000001</device_serial>
++                    <running_status>Normal</running_status>
++                </modbus-discover>
++            </port>
++        </ports>
++        <hostscript>
++            <script id="sql-injection" output="Possible SQL injection vulnerability detected:
++        URI: /index.php?id=1'
++        Payload: id=1' OR '1'='1
++        Output: SQL error detected"/>
++        </hostscript>
++    </host>
++    <host>
++        <address addr="192.168.1.20" addrtype="ipv4"/>
++        <hostnames/>
++        <ports>
++            <port protocol="tcp" portid="80">
++                <state state="open" reason="syn-ack"/>
++                <service name="http" product="Apache httpd 2.4.38"/>
++                <script id="sql-injection" output="Possible SQL injection vulnerability detected:
++          URI: /view_data.php?record=5
++          Payload: record=5' AND 1=1 --
++          Output: SQL error detected"/>
++            </port>
++            <port protocol="tcp" portid="443">
++                <state state="open" reason="syn-ack"/>
++                <service name="ssl/http" product="Apache httpd 2.4.38 ((Debian))"/>
++                <ssl-cert>
++                    <subject>commonName=example.org</subject>
++                    <subjectAltName>DNS:example.org</subjectAltName>
++                    <issuer>commonName=Let's Encrypt Authority X3/organizationName=Let's Encrypt/countryName=US</issuer>
++                    <pubkey type="rsa" bits="2048"/>
++                    <sigalg>sha256WithRSAEncryption</sigalg>
++                    <notbefore>2024-06-15T00:00:00</notbefore>
++                    <notafter>2024-09-13T12:00:00</notafter>
++                </ssl-cert>
++            </port>
++            <port protocol="tcp" portid="3306">
++                <state state="open" reason="syn-ack"/>
++                <service name="mysql" product="MySQL 5.7.23"/>
++                <script id="sql-injection" output="Possible SQL injection vulnerability detected:
++          URI: /data.php?id=3
++          Payload: id=3' UNION SELECT NULL, NULL, NULL --
++          Output: SQL error detected"/>
++            </port>
++            <port protocol="tcp" portid="502">
++                <state state="open" reason="syn-ack"/>
++                <service name="modbus" product="Siemens SIMATIC S7-1200"/>
++                <modbus-discover>
++                    <device_id>0x0202</device_id>
++                    <vendor>Siemens</vendor>
++                    <product_code>0x0003</product_code>
++                    <revision>3.00</revision>
++                    <device_serial>0x00000002</device_serial>
++                    <running_status>Normal</running_status>
++                </modbus-discover>
++            </port>
++        </ports>
++        <hostscript>
++            <script id="sql-injection" output="Possible SQL injection vulnerability detected:
++        URI: /view_data.php?record=5
++        Payload: record=5' AND 1=1 --
++        Output: SQL error detected"/>
++        </hostscript>
++    </host>
++    <host>
++        <address addr="192.168.1.30" addrtype="ipv4"/>
++        <hostnames/>
++        <ports>
++            <port protocol="tcp" portid="80">
++                <state state="open" reason="syn-ack"/>
++                <service name="http" product="Apache httpd 2.4.38"/>
++                <script id="sql-injection" output="Possible SQL injection vulnerability detected:
++          URI: /submit.php
++          Payload: data=xyz' OR '1'='1
++          Output: SQL error detected"/>
++            </port>
++            <port protocol="tcp" portid="443">
++                <state state="open" reason="syn-ack"/>
++                <service name="ssl/http" product="Apache httpd 2.4.38 ((Debian))"/>
++                <ssl-cert>
++                    <subject>commonName=example.net</subject>
++                    <subjectAltName>DNS:example.net</subjectAltName>
++                    <issuer>commonName=Let's Encrypt Authority X3/organizationName=Let's Encrypt/countryName=US</issuer>
++                    <pubkey type="rsa" bits="2048"/>
++                    <sigalg>sha256WithRSAEncryption</sigalg>
++                    <notbefore>2024-06-20T00:00:00</notbefore>
++                    <notafter>2024-09-18T12:00:00</notafter>
++                </ssl-cert>
++            </port>
++            <port protocol="tcp" portid="3306">
++                <state state="open" reason="syn-ack"/>
++                <service name="mysql" product="MySQL 5.7.23"/>
++                <script id="sql-injection" output="Possible SQL injection vulnerability detected:
++          URI: /info.php?item=7
++          Payload: item=7' AND 1=2 --
++          Output: SQL error detected"/>
++            </port>
++            <port protocol="tcp" portid="502">
++                <state state="open" reason="syn-ack"/>
++                <service name="modbus" product="Rockwell Automation"/>
++                <modbus-discover>
++                    <device_id>0x0302</device_id>
++                    <vendor>Rockwell Automation</vendor>
++                    <product_code>0x0004</product_code>
++                    <revision>4.00</revision>
++                    <device_serial>0x00000003</device_serial>
++                    <running_status>Normal</running_status>
++                </modbus-discover>
++            </port>
++        </ports>
++        <hostscript>
++            <script id="sql-injection" output="Possible SQL injection vulnerability detected:
++        URI: /submit.php
++        Payload: data=xyz' OR '1'='1
++        Output: SQL error detected"/>
++        </hostscript>
++    </host>
++</nmaprun>
+Index: Data/OpenVAS_Data.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Data/OpenVAS_Data.xml b/Data/OpenVAS_Data.xml
+new file mode 100644
+--- /dev/null	(date 1721038204287)
++++ b/Data/OpenVAS_Data.xml	(date 1721038204287)
+@@ -0,0 +1,41 @@
++<?xml version="1.0"?>
++<openvas>
++    <report>
++        <host>
++            <address>192.168.1.100</address>
++            <host_name>internal-server</host_name>
++            <vulnerabilities>
++                <vulnerability id="1">
++                    <name>OpenSSL Heartbleed</name>
++                    <description>OpenSSL vulnerability CVE-2014-0160 allows remote attackers to read sensitive memory contents.</description>
++                    <severity>Critical</severity>
++                    <recommendation>Upgrade to a patched version of OpenSSL.</recommendation>
++                </vulnerability>
++                <vulnerability id="2">
++                    <name>HTTP PUT Method Allowed</name>
++                    <description>The HTTP PUT method is allowed on the web server, which may allow unauthorized file uploads.</description>
++                    <severity>High</severity>
++                    <recommendation>Disable the PUT method or restrict its use.</recommendation>
++                </vulnerability>
++                <vulnerability id="3">
++                    <name>Directory Listing Enabled</name>
++                    <description>Directory listing is enabled on the web server, which may expose sensitive files and directories.</description>
++                    <severity>Medium</severity>
++                    <recommendation>Disable directory listing.</recommendation>
++                </vulnerability>
++            </vulnerabilities>
++        </host>
++        <host>
++            <address>192.168.1.101</address>
++            <host_name>external-db</host_name>
++            <vulnerabilities>
++                <vulnerability id="1">
++                    <name>MySQL Weak Password</name>
++                    <description>MySQL user 'root' has a weak password that could be easily guessed.</description>
++                    <severity>High</severity>
++                    <recommendation>Change the MySQL root password to a stronger one.</recommendation>
++                </vulnerability>
++            </vulnerabilities>
++        </host>
++    </report>
++</openvas>
+Index: Data/PlcScan_Data.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Data/PlcScan_Data.xml b/Data/PlcScan_Data.xml
+new file mode 100644
+--- /dev/null	(date 1721039486375)
++++ b/Data/PlcScan_Data.xml	(date 1721039486375)
+@@ -0,0 +1,41 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<plcscan>
++    <scan>
++        <device id="D1">
++            <address>192.168.1.60</address>
++            <type>Modbus</type>
++            <vendor>Siemens</vendor>
++            <product>SIMATIC S7-1200</product>
++            <version>V4.0</version>
++            <status>Online</status>
++            <additional_info>
++                <firmware_version>4.1.0</firmware_version>
++                <model>S7-1214</model>
++            </additional_info>
++        </device>
++        <device id="D2">
++            <address>192.168.1.70</address>
++            <type>Modbus</type>
++            <vendor>Rockwell</vendor>
++            <product>MicroLogix 1400</product>
++            <version>V7.0</version>
++            <status>Online</status>
++            <additional_info>
++                <firmware_version>7.2.0</firmware_version>
++                <model>1766-L32BWAA</model>
++            </additional_info>
++        </device>
++        <device id="D3">
++            <address>192.168.1.80</address>
++            <type>Modbus</type>
++            <vendor>Schneider</vendor>
++            <product>Modicon M221</product>
++            <version>V2.0</version>
++            <status>Offline</status>
++            <additional_info>
++                <firmware_version>2.3.0</firmware_version>
++                <model>M221</model>
++            </additional_info>
++        </device>
++    </scan>
++</plcscan>
+Index: Data/Scapy_Data.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Data/Scapy_Data.xml b/Data/Scapy_Data.xml
+new file mode 100644
+--- /dev/null	(date 1721039376211)
++++ b/Data/Scapy_Data.xml	(date 1721039376211)
+@@ -0,0 +1,35 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<scapy>
++    <capture>
++        <packet id="P1">
++            <timestamp>2024-07-15T10:00:00</timestamp>
++            <source>192.168.1.10</source>
++            <destination>192.168.1.20</destination>
++            <protocol>TCP</protocol>
++            <length>1500</length>
++            <data>GET /index.html HTTP/1.1\r\nHost: example.com\r\n\r\n</data>
++            <flags>PSH, ACK</flags>
++            <payload>...</payload>
++        </packet>
++        <packet id="P2">
++            <timestamp>2024-07-15T10:01:00</timestamp>
++            <source>192.168.1.20</source>
++            <destination>192.168.1.10</destination>
++            <protocol>UDP</protocol>
++            <length>1024</length>
++            <data>DNS Response: A record for example.com</data>
++            <flags>None</flags>
++            <payload>...</payload>
++        </packet>
++        <packet id="P3">
++            <timestamp>2024-07-15T10:05:00</timestamp>
++            <source>192.168.1.30</source>
++            <destination>192.168.1.10</destination>
++            <protocol>ICMP</protocol>
++            <length>64</length>
++            <data>ICMP Echo Request</data>
++            <flags>None</flags>
++            <payload>...</payload>
++        </packet>
++    </capture>
++</scapy>
+Index: Data/Smod-1_Data.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Data/Smod-1_Data.xml b/Data/Smod-1_Data.xml
+new file mode 100644
+--- /dev/null	(date 1721039506723)
++++ b/Data/Smod-1_Data.xml	(date 1721039506723)
+@@ -0,0 +1,41 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<smod-1>
++    <exploitation>
++        <attempt id="A1">
++            <target>192.168.1.80</target>
++            <device>Modbus PLC</device>
++            <vulnerability>Unauthorized Access</vulnerability>
++            <result>Exploited</result>
++            <details>Successfully gained access to the PLC and modified configuration settings.</details>
++            <timestamp>2024-07-15T13:00:00</timestamp>
++            <commands>
++                <command>READ_COILS</command>
++                <command>WRITE_SINGLE_REGISTER</command>
++            </commands>
++        </attempt>
++        <attempt id="A2">
++            <target>192.168.1.90</target>
++            <device>Modbus PLC</device>
++            <vulnerability>Buffer Overflow</vulnerability>
++            <result>Failed</result>
++            <details>Exploit failed due to lack of proper response from PLC.</details>
++            <timestamp>2024-07-15T13:30:00</timestamp>
++            <commands>
++                <command>WRITE_MULTIPLE_REGISTERS</command>
++                <command>READ_DISCRETE_INPUTS</command>
++            </commands>
++        </attempt>
++        <attempt id="A3">
++            <target>192.168.1.100</target>
++            <device>Modbus PLC</device>
++            <vulnerability>Denial of Service</vulnerability>
++            <result>Success</result>
++            <details>Successfully launched DoS attack causing PLC to crash.</details>
++            <timestamp>2024-07-15T14:00:00</timestamp>
++            <commands>
++                <command>WRITE_SINGLE_COIL</command>
++                <command>READ_INPUT_REGISTERS</command>
++            </commands>
++        </attempt>
++    </exploitation>
++</smod-1>
+Index: Data/TcpDump_Data.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Data/TcpDump_Data.xml b/Data/TcpDump_Data.xml
+new file mode 100644
+--- /dev/null	(date 1721039437782)
++++ b/Data/TcpDump_Data.xml	(date 1721039437782)
+@@ -0,0 +1,32 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<tcpdump>
++    <capture>
++        <packet id="P1">
++            <timestamp>2024-07-15T10:00:00</timestamp>
++            <source>192.168.1.10</source>
++            <destination>192.168.1.20</destination>
++            <protocol>TCP</protocol>
++            <info>GET /index.html HTTP/1.1</info>
++            <length>1500</length>
++            <details>TCP 3-way handshake complete. Data transmitted: GET /index.html HTTP/1.1</details>
++        </packet>
++        <packet id="P2">
++            <timestamp>2024-07-15T10:01:00</timestamp>
++            <source>192.168.1.20</source>
++            <destination>192.168.1.10</destination>
++            <protocol>TCP</protocol>
++            <info>HTTP/1.1 200 OK</info>
++            <length>1048</length>
++            <details>Response from server with content-length: 1024 bytes</details>
++        </packet>
++        <packet id="P3">
++            <timestamp>2024-07-15T10:02:00</timestamp>
++            <source>192.168.1.10</source>
++            <destination>192.168.1.30</destination>
++            <protocol>ICMP</protocol>
++            <info>ICMP Echo Request</info>
++            <length>64</length>
++            <details>ICMP ping request sent to 192.168.1.30</details>
++        </packet>
++    </capture>
++</tcpdump>
+Index: auto_report_writing/report_generation/report_data/metasploit_report.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/auto_report_writing/report_generation/report_data/metasploit_report.py b/auto_report_writing/report_generation/report_data/metasploit_report.py
+new file mode 100644
+--- /dev/null	(date 1721743048315)
++++ b/auto_report_writing/report_generation/report_data/metasploit_report.py	(date 1721743048315)
+@@ -0,0 +1,113 @@
++from auto_report_writing.data_processing.xml_loader import load_xml
++from auto_report_writing.report_generation.determine_classification import csvv_from_classification
++from auto_report_writing.report_generation.generate_recommendations import generate_recommendations_name
++from auto_report_writing.utils.message_utils import *
++
++from xml.etree.ElementTree import Element, SubElement, ElementTree
++
++
++def generate_metasploit_report(root):
++    """
++    Generates an XML structure with details of exploits for each host.
++    """
++    report = Element('metasploit_report')
++
++    for host in root.findall('.//host'):
++        address = host.find('address').text
++        host_element = SubElement(report, 'host')
++        SubElement(host_element, 'address', addr=address)
++
++        exploits = host.findall('.//exploit')
++        for exploit in exploits:
++            exploit_id = exploit.get('id')
++            name = exploit.find('name').text
++            description = exploit.find('description').text
++            result = exploit.find('result').text
++            risk = exploit.find('risk').text
++            csvv_score = csvv_from_classification(risk)
++            recommendations = generate_recommendations_name(name)
++
++            exploit_element = SubElement(host_element, 'exploit', id=exploit_id)
++            SubElement(exploit_element, 'name').text = name
++            SubElement(exploit_element, 'risk').text = risk
++            SubElement(exploit_element, 'csvv_score').text = f"{csvv_score}"
++            SubElement(exploit_element, 'description').text = f"Description: {description}"
++            SubElement(exploit_element, 'result').text = f"Result: {result}."
++            SubElement(exploit_element, 'recommendations').text = recommendations
++
++    return ElementTree(report)
++
++
++def count_hosts(root):
++    """
++    Counts the number of hosts in the given Metasploit XML root.
++    """
++    return len(root.findall('.//host'))
++
++
++def count_exploits_per_host(root):
++    """
++    Counts the number of exploits for each host in the given Metasploit XML root.
++    """
++    host_exploit_counts = []
++
++    for host in root.findall('.//host'):
++        host_address = host.find('address').text
++        exploits = host.findall('.//exploit')
++        exploit_count = len(exploits) if exploits is not None else 0
++        host_exploit_counts.append((host_address, exploit_count))
++
++    return host_exploit_counts
++
++
++def print_exploit_details(root):
++    """
++    Prints details for each exploit in the given Metasploit XML root.
++    """
++    host_count = count_hosts(root)
++    exploits_per_host = count_exploits_per_host(root)
++    total_exploits_per_host = sum(exploit_count for _, exploit_count in exploits_per_host)
++    print_exploit_report_details(host_count, total_exploits_per_host)
++
++    for host_address, exploit_count in exploits_per_host:
++        print_exploit_details_for_host(host_address, exploit_count)
++
++        for host in root.findall('.//host'):
++            address = host.find('address').text
++
++            if address == host_address:
++                exploits = host.findall('.//exploit')
++
++                for exploit in exploits:
++                    name = exploit.find('name').text
++                    description = exploit.find('description').text
++                    result = exploit.find('result').text
++                    risk_classification = exploit.find('risk').text
++                    csvv_score = csvv_from_classification(risk_classification)
++                    recommendations = generate_recommendations_name(name)
++
++                    print_vulnerability_details(name, risk_classification, csvv_score, description, result, recommendations)
++
++                break
++
++        else:
++            print_no_exploits_found(host_address)
++
++
++def metasploit_report(file_path, output_file):
++    """
++    Processes the input Metasploit XML file and generates a Metasploit report XML.
++    """
++    try:
++        tree, root = load_xml(file_path)
++
++        if root is not None:
++            print_exploit_details(root)
++            report_tree = generate_metasploit_report(root)
++            report_tree.write(output_file, encoding='utf-8', xml_declaration=True)
++
++        else:
++            print_failed_to_load_file()
++
++    except Exception as e:
++        print_error_processing_report(e)
+Index: auto_report_writing/report_generation/report_data/nmap_report.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/auto_report_writing/report_generation/report_data/nmap_report.py b/auto_report_writing/report_generation/report_data/nmap_report.py
+new file mode 100644
+--- /dev/null	(date 1721738913130)
++++ b/auto_report_writing/report_generation/report_data/nmap_report.py	(date 1721738913130)
+@@ -0,0 +1,143 @@
++from auto_report_writing.data_processing.xml_loader import load_xml
++from auto_report_writing.report_generation.determine_classification import csvv_from_classification, classification_from_name
++from auto_report_writing.report_generation.generate_recommendations import generate_recommendations_name
++from auto_report_writing.utils.message_utils import *
++
++from xml.etree.ElementTree import Element, SubElement, ElementTree
++import re
++
++
++def generate_nmap_report(root):
++    """
++    Generates an XML structure with details of services for each host.
++    """
++    report = Element('nmap_report')
++
++    for host in root.findall('.//host'):
++        address = host.find('.//address[@addrtype="ipv4"]').get('addr')
++        host_element = SubElement(report, 'host')
++        SubElement(host_element, 'address', addr=address)
++
++        services = host.findall('.//port')
++        for service in services:
++            script = service.find('script')
++            if script is not None:
++                port_id = service.get('portid')
++                port_protocol = service.get('protocol').upper()
++                state = service.find('state').get('state').capitalize()
++                service_elem = service.find('service')
++                product = service_elem.get('product') if service_elem is not None else 'N/A'
++                service_name = service_elem.get('name').upper() if service_elem is not None else 'N/A'
++                script_id = script.get('id').capitalize()
++                script_output = script.get('output')
++                formatted_script_output = re.sub(r'\s{2,}', '\n\t\t ', script_output.strip())
++
++                risk_classification = classification_from_name(script_id)
++                csvv_score = csvv_from_classification(risk_classification)
++
++                recommendations = generate_recommendations_name(script_id)
++
++                service_element = SubElement(host_element, 'service', portid=port_id, protocol=port_protocol)
++                SubElement(service_element, 'state').text = state
++                SubElement(service_element, 'product').text = product
++                SubElement(service_element, 'name').text = service_name
++                SubElement(service_element, 'vulnerabilities').text = formatted_script_output
++
++                vulnerability_element = SubElement(service_element, 'vulnerability', id=script_id)
++                SubElement(vulnerability_element, 'risk_level').text = risk_classification
++                SubElement(vulnerability_element, 'csvv_score').text = str(csvv_score)
++                SubElement(vulnerability_element, 'recommendations').text = recommendations
++
++    return ElementTree(report)
++
++
++def count_hosts(root):
++    """
++    Counts the number of hosts in the given Nmap XML root.
++    """
++    return len(root.findall('.//host'))
++
++
++def count_services_per_host(root):
++    """
++    Counts the number of vulnerable services (ports) for each host (IP) in the given Nmap XML root.
++    """
++    host_service_counts = []
++
++    for host in root.findall('.//host'):
++        host_address = host.find('.//address[@addrtype="ipv4"]').get('addr')
++        services = host.findall('.//port')
++
++        service_count = sum(1 for service in services if service.find('script') is not None)
++        host_service_counts.append((host_address, service_count))
++
++    return host_service_counts
++
++
++def print_service_details(root):
++    """
++    Prints details for open services with vulnerabilities for each host.
++    """
++    host_count = count_hosts(root)
++    services_per_host = count_services_per_host(root)
++    total_services_per_host = sum(service_count for _, service_count in services_per_host)
++    print_service_report_details(host_count, total_services_per_host)
++
++    for host_address, service_count in services_per_host:
++        print_service_details_for_host(host_address, service_count)
++
++        for host in root.findall('.//host'):
++            address = host.find('.//address[@addrtype="ipv4"]').get('addr')
++
++            if address == host_address:
++                services = host.findall('.//port')
++
++                for service in services:
++                    script = service.find('script')
++                    service_element = service.find('service')
++
++                    if script is not None:
++                        port_id = service.get('portid')
++                        port_protocol = service.get('protocol').upper()
++                        state = service.find('state').get('state').capitalize()
++                        product = service_element.get('product') if service_element is not None else 'N/A'
++
++                        script_id = script.get('id').capitalize()
++                        script_output = script.get('output')
++
++                        script_output_formatted = re.sub(r'\s{2,}', '\n\t\t ', script_output.strip())
++                        service_name = service_element.get('name').upper() if service_element is not None else 'N/A'
++
++                        risk_classification = classification_from_name(script_id)
++                        csvv_score = csvv_from_classification(risk_classification)
++
++                        recommendations = generate_recommendations_name(script_id)
++
++                        print_service_vulnerability_details(
++                            script_id, risk_classification, csvv_score, port_id, port_protocol,
++                            state, product, service_name, script_output_formatted, recommendations
++                        )
++
++                break
++
++        else:
++            print_no_services_found(host_address)
++
++
++def nmap_report(file_path, output_file):
++    """
++    Processes the input Nmap XML file and generates an Nmap report XML.
++    """
++    try:
++        tree, root = load_xml(file_path)
++
++        if root is not None:
++            print_service_details(root)
++            report_tree = generate_nmap_report(root)
++            report_tree.write(output_file, encoding='utf-8', xml_declaration=True)
++
++        else:
++            print_failed_to_load_file()
++
++    except Exception as e:
++        print_error_processing_report(e)
+Index: AutoReportWriting.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/AutoReportWriting.iml b/AutoReportWriting.iml
+new file mode 100644
+--- /dev/null	(date 1721047842693)
++++ b/AutoReportWriting.iml	(date 1721047842693)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="PYTHON_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$" />
++    <orderEntry type="jdk" jdkName="Python 3.11 (AutoReportWriting)" jdkType="Python SDK" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1721047833886)
++++ b/.idea/modules.xml	(date 1721047833886)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/AutoReportWriting.iml" filepath="$PROJECT_DIR$/AutoReportWriting.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+new file mode 100644
+--- /dev/null	(date 1721815425971)
++++ b/.idea/workspace.xml	(date 1721815425971)
+@@ -0,0 +1,159 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="AutoImportSettings">
++    <option name="autoReloadType" value="SELECTIVE" />
++  </component>
++  <component name="ChangeListManager">
++    <list default="true" id="6ee88f64-0ec1-47ec-9bcb-cb65576934c5" name="Changes" comment="">
++      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/AutoReportWriting.iml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Data/Dirb_Data.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Data/Metasploit_Data.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Data/Nikto_Data.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Data/Nmap_Data.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Data/OpenVAS_Data.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Data/PlcScan_Data.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Data/Scapy_Data.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Data/Smod-1_Data.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Data/TcpDump_Data.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Notes/Design.txt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Notes/Research.txt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Reports/Combined_Report.html" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Reports/HTML/Metasploit_Report.html" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Reports/HTML/Nmap_Report.html" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Reports/XML/Metasploit_Report.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Reports/XML/Nmap_Report.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Reports/XSL/Metasploit_Report.xsl" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Reports/XSL/Nmap_Report.xsl" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/auto_report_writing/__init__.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/auto_report_writing/data_processing/__init__.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/auto_report_writing/data_processing/html_combiner.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/auto_report_writing/data_processing/xml_loader.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/auto_report_writing/data_processing/xml_to_html.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/auto_report_writing/report_generation/__init__.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/auto_report_writing/report_generation/determine_classification.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/auto_report_writing/report_generation/generate_recommendations.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/auto_report_writing/report_generation/report_data/__init__.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/auto_report_writing/report_generation/report_data/metasploit_report.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/auto_report_writing/report_generation/report_data/nmap_report.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/auto_report_writing/report_generation/report_data/smod-1_report.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/auto_report_writing/report_generation/report_generator.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/auto_report_writing/utils/__init__.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/auto_report_writing/utils/message_utils.py" afterDir="false" />
++    </list>
++    <option name="SHOW_DIALOG" value="false" />
++    <option name="HIGHLIGHT_CONFLICTS" value="true" />
++    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
++    <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="HTML File" />
++        <option value="Python Script" />
++      </list>
++    </option>
++  </component>
++  <component name="Git.Settings">
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="MarkdownSettingsMigration">
++    <option name="stateVersion" value="1" />
++  </component>
++  <component name="ProjectId" id="2jHdEZGjn09CSGMeSpMnvE5H813" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
++    <ConfirmationsSetting value="2" id="Add" />
++  </component>
++  <component name="ProjectViewState">
++    <option name="hideEmptyMiddlePackages" value="true" />
++    <option name="showLibraryContents" value="true" />
++  </component>
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "ASKED_ADD_EXTERNAL_FILES": "true",
++    "DefaultHtmlFileTemplate": "HTML File",
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "WebServerToolWindowFactoryState": "false",
++    "last_opened_file_path": "C:/Users/c1333038/OneDrive - Cardiff University/Documents/Kali Linux/AutoReportWriting/auto_report_writing/report_generation/report_data",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "project.structure.last.edited": "Artifacts",
++    "project.structure.proportion": "0.0",
++    "project.structure.side.proportion": "0.2",
++    "vue.rearranger.settings.migration": "true"
++  }
++}]]></component>
++  <component name="RecentsManager">
++    <key name="CopyFile.RECENT_KEYS">
++      <recent name="C:\Users\c1333038\OneDrive - Cardiff University\Documents\Kali Linux\AutoReportWriting\auto_report_writing\report_generation\report_data" />
++      <recent name="C:\Users\c1333038\OneDrive - Cardiff University\Documents\Kali Linux\AutoReportWriting\auto_report_writing\report_data" />
++    </key>
++    <key name="MoveFile.RECENT_KEYS">
++      <recent name="C:\Users\c1333038\OneDrive - Cardiff University\Documents\Kali Linux\AutoReportWriting\auto_report_writing\data_processing" />
++      <recent name="C:\Users\c1333038\OneDrive - Cardiff University\Documents\Kali Linux\AutoReportWriting\auto_report_writing\report_generation" />
++      <recent name="C:\Users\c1333038\OneDrive - Cardiff University\Documents\Kali Linux\AutoReportWriting\auto_report_writing\utils" />
++      <recent name="C:\Users\c1333038\OneDrive - Cardiff University\Documents\Kali Linux\AutoReportWriting\Data" />
++      <recent name="C:\Users\c1333038\OneDrive - Cardiff University\Documents\Kali Linux\AutoReportWriting\Reports\XSL" />
++    </key>
++  </component>
++  <component name="RunManager">
++    <configuration name="xml_loader" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++      <module name="AutoReportWriting" />
++      <option name="INTERPRETER_OPTIONS" value="" />
++      <option name="PARENT_ENVS" value="true" />
++      <envs>
++        <env name="PYTHONUNBUFFERED" value="1" />
++      </envs>
++      <option name="SDK_HOME" value="" />
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/auto_report_writing" />
++      <option name="IS_MODULE_SDK" value="true" />
++      <option name="ADD_CONTENT_ROOTS" value="true" />
++      <option name="ADD_SOURCE_ROOTS" value="true" />
++      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
++      <option name="SCRIPT_NAME" value="C:\Users\c1333038\OneDrive - Cardiff University\Documents\Kali Linux\AutoReportWriting\auto_report_writing\data_processing\xml_loader.py" />
++      <option name="PARAMETERS" value="" />
++      <option name="SHOW_COMMAND_LINE" value="false" />
++      <option name="EMULATE_TERMINAL" value="false" />
++      <option name="MODULE_MODE" value="false" />
++      <option name="REDIRECT_INPUT" value="false" />
++      <option name="INPUT_FILE" value="" />
++      <method v="2" />
++    </configuration>
++    <recent_temporary>
++      <list>
++        <item itemvalue="Python.xml_loader" />
++      </list>
++    </recent_temporary>
++  </component>
++  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
++  <component name="TaskManager">
++    <task active="true" id="Default" summary="Default task">
++      <changelist id="6ee88f64-0ec1-47ec-9bcb-cb65576934c5" name="Changes" comment="" />
++      <created>1721047831994</created>
++      <option name="number" value="Default" />
++      <option name="presentableId" value="Default" />
++      <updated>1721047831994</updated>
++      <workItem from="1721047832860" duration="31042000" />
++      <workItem from="1721632730689" duration="49166000" />
++    </task>
++    <servers />
++  </component>
++  <component name="TypeScriptGeneratedFilesManager">
++    <option name="version" value="3" />
++  </component>
++  <component name="VcsManagerConfiguration">
++    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
++  </component>
++  <component name="com.intellij.coverage.CoverageDataManagerImpl">
++    <SUITE FILE_PATH="coverage/AutoReportWriting$report_template.coverage" NAME="report_template Coverage Results" MODIFIED="1721048489858" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/auto_report_writing" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1721047833982)
++++ b/.idea/misc.xml	(date 1721047833982)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectRootManager">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1721047834045)
++++ b/.idea/vcs.xml	(date 1721047834045)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: auto_report_writing/utils/message_utils.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/auto_report_writing/utils/message_utils.py b/auto_report_writing/utils/message_utils.py
+new file mode 100644
+--- /dev/null	(date 1721729392697)
++++ b/auto_report_writing/utils/message_utils.py	(date 1721729392697)
+@@ -0,0 +1,106 @@
++# Report Generation Messages
++
++
++def print_combined_report_generated(path):
++    print(f"Combined HTML report generated and saved as '{path}'.")
++
++
++def print_xml_report_generated(output_xml):
++    print(f"XML report generated and saved as '{output_xml}'.")
++
++
++def print_html_report_generated(output_html):
++    print(f"HTML report generated and saved as '{output_html}'.")
++
++
++def print_generating_report(report_type, file_path):
++    print(f"Generating {report_type.capitalize()} report from {file_path}...")
++
++
++# Error Handling Messages
++def print_error_converting_xml_to_html(error_message):
++    print(f"Error converting XML to HTML: {error_message}")
++
++
++def print_error_parsing_xml(error_message):
++    print(f"Error parsing XML file: {error_message}")
++
++
++def print_error_combining_html(error_message):
++    print(f"Error combining HTML reports: {error_message}")
++
++
++def print_error_processing_report(error_message):
++    print(f"Error processing report: {error_message}")
++
++
++def print_failed_to_load_file():
++    print("Failed to load the XML file.")
++
++
++# File Status Messages
++def print_no_files_selected():
++    print("No files selected. No reports will be generated.")
++
++
++def print_file_not_found(file_path):
++    print(f"File not found: {file_path}")
++
++
++def print_no_reports_generated():
++    print("No valid report types found. No reports were generated.")
++
++
++def print_unknown_report_type(file_path):
++    print(f"Unknown XML format or root element in file: {file_path}")
++
++
++# Metasploit Report Details
++def print_exploit_report_details(host_count, total_exploits_per_host):
++    print(f"Metasploit has detected {host_count} hosts with a total of {total_exploits_per_host} exploits.")
++
++
++def print_exploit_details_for_host(host_address, exploit_count):
++    print(f"\n[{host_address}] has {exploit_count} vulnerabilities:")
++
++
++def print_vulnerability_details(name, risk, csvv, description, result, recommendations):
++    print(f"Vulnerability Name: {name}")
++    print(f"Risk Level: {risk}")
++    print(f"CSVV Score: {csvv} (estimated from risk level)")
++    print(f"Vulnerability Details: ")
++    print(f"\t Description: {description}")
++    print(f"\t Result: {result}.")
++    print(f"Recommendations: {recommendations}")
++    print("")
++
++
++def print_no_exploits_found(host_address):
++    print(f"No exploits found for host: {host_address}.")
++
++
++# Nmap Report Details
++def print_service_report_details(host_count, total_services_per_host):
++    print(f"Nmap has detected {host_count} hosts with a total of {total_services_per_host} vulnerable services.")
++
++
++def print_service_details_for_host(host_address, service_count):
++    print(f"\n[{host_address}] has {service_count} vulnerable services:")
++
++
++def print_service_vulnerability_details(script_id, risk_classification, csvv_score, port_id, port_protocol, state, product, service_name, script_output_formatted, recommendations):
++    print(f"Vulnerability Name: {script_id}")
++    print(f"Risk Level: {risk_classification}")
++    print(f"CSVV Score: {csvv_score}")
++    print(f"Vulnerability Details: ")
++    print(f"\t Port: {port_id} ({port_protocol})")
++    print(f"\t State: {state}")
++    print(f"\t Product: {product}")
++    print(f"\t Service: {service_name}")
++    print(f"\t Vulnerabilities: \n\t\t• {script_output_formatted}.")
++    print(f"Recommendations: {recommendations}")
++    print("")
++
++
++def print_no_services_found(host_address):
++    print(f"No vulnerable services found for host: {host_address}.")
+Index: Notes/Design.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Notes/Design.txt b/Notes/Design.txt
+new file mode 100644
+--- /dev/null	(date 1721048905549)
++++ b/Notes/Design.txt	(date 1721048905549)
+@@ -0,0 +1,65 @@
++Design a standardised report template that captures essential information:
++
++    Vulnerability Details
++        Classification
++            Critical/High/Medium/Low/Informational
++        Vulnerability Name
++            CVSS Score
++            CVSS Vector
++            Vulnerability Description
++            Recommendations
++            Vulnerable Instances
++
++Define a structured format for presenting the report:
++
++    Project Summary - Header (Manually Input)
++        Details - Paragraph (Manually Input)
++        Description - Paragraph (Manually Input)
++
++    Vulnerability Details - Header (Imported)
++        Classification - Sub-Header (Calculated)
++            Critical/High/Medium/Low/Informational - Based on CVSS Score
++        Vulnerability Name - Sub-Header (Imported)
++            CVSS Score - Floating Point Number (Imported)
++            CVSS Vector - String (Imported)
++            Vulnerability Description - Paragraph (Imported/Generated*)
++            Recommendations - Paragraph (Imported/Generated*)
++            Vulnerable Instances - String (Imported)
++    ...
++
++    * In the event of missing recommendations, use generalised recommendations.
++      The following should be missing recommendations:
++        Metasploit:
++            General Advice: Regularly update systems, apply patches, and follow best practices for security configurations.
++            Consult Resources: Look up specific exploits on databases like CVE or security forums for advice on mitigation.
++            Vendor Documentation: Review vendor advisories for guidance on addressing specific vulnerabilities.
++        PlcScan:
++            General Advice: Ensure PLCs are configured securely, use strong passwords, and limit network access.
++            Consult Resources: Refer to guidelines for securing industrial control systems.
++            Vendor Documentation: Check PLC manufacturers’ security recommendations.
++        Scapy:
++            General Advice: Encrypt sensitive data and use secure protocols.
++            Consult Resources: Look up best practices for network traffic security.
++            Vendor Documentation: Review documentation for protocols in use.
++        Smod-1:
++            General Advice: Implement proper authentication and authorization controls for Modbus communications.
++            Consult Resources: Check Modbus security guidelines and best practices.
++            Vendor Documentation: Consult documentation from Modbus device vendors.
++        TcpDump:
++            General Advice: Encrypt traffic and secure network communications.
++            Consult Resources: Look up practices for protecting data in transit.
++            Vendor Documentation: Review network security recommendations for the tools in use.
++
++Develop a mechanism for automatically populating the template with relevant
++information obtained from automated tests.
++
++    OT System Penetration Tests output results as XML files.
++    Write a script that takes multiple inputs (the various output results).
++        Use Python - Predecessor project used Python.
++    Write a script that populates the various fields of the report with data from the inputs.
++    Finally, output the result.
++        XSL + XML -> HTML
++            Use xsltproc (Linux) to apply the XSL to the XML, creating the HTML.
++                xsltproc fileName.xsl fileName.xml > output.html
++
++python auto_report_writing/report_template.py Data/DataRaw/Metasploit_Data_Raw.xml
+\ No newline at end of file
+Index: Notes/Research.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Notes/Research.txt b/Notes/Research.txt
+new file mode 100644
+--- /dev/null	(date 1721028222022)
++++ b/Notes/Research.txt	(date 1721028222022)
+@@ -0,0 +1,98 @@
++Research Automated Report Writing Practices
++    What software is currently employed to automate reports?
++        • Dradis
++        • Faraday - Lots of features restricted.
++        • Ghostwriter - Requires nested virtualisation, bit resource heavy for my laptop.
++        • SysReptor - Requires nested virtualisation, bit resource heavy for my laptop.
++        • Serpico - Became read-only in 2020 and likely no updates since.
++        • AttackForge - Not freeware.
++        • MagicTree - Not freeware.
++        • Plextrac - Not freeware.
++        • Checksec Canopy - Not what we are looking for.
++        • OneVault - Not freeware.
++        • Reconmap - Not freeware.
++        • Archery - Seems good but lack of focus on reports/uses on pen test tools.
++        • Envizon - Unrefined + resource intensive.
++
++        https://inventory.raw.pm/tools.html#title-tools-collaboration-and-report
++
++    What software is currently used for task automation in Kali?
++        • Run a Wrapper Script
++        • Cron - Simple Task Scheduler
++        • Systemd Timers - Task Scheduler
++        • Anacron -
++
++Find out what penetration testing tools are used at the moment.
++    In the project preceding this, Automatic OT Penetration Testing, these freeware tools were used:
++        • Metasploit: For exploitation and vulnerability scanning.
++        • scapy: Packet manipulation.
++        • nmap: Network scanning, including Modbus detection.
++        • tcpdump: Capturing modBus TCP/IP packets.
++        • plcscan: Scan PLC devices for the presence of Modbus.
++        • smod-1: Modbus exploitation framework.
++    The previous project focused on Modbus systems to reduce complexity, so this should be taken into account.
++
++Use Dradis or Faraday to gather and organise the various penetration test results (supports various tools).
++Alternatively, we could compile the data from the tools ourself and use that.
++
++Dradis
+++ Good support for plugins.
+++ Strong focus on reporting and documentation.
++- May not scale for larger environments.
++- Can require manual setup and configuration for some integrations.
++Ideal for small to medium-sized teams looking for a straightforward way to aggregate data and generate reports.
++Useful when the primary focus is on creating detailed and customised reports.
++Suitable for environments where extensive real-time collaboration is not a priority.
++
++Faraday
+++ Robust integration and automation capabilities.
+++ Scales well for larger teams and environments.
++- More resource intensive.
++- More initial setup and configuration.
++- Less options as a freeware tool.
++Best suited for larger teams requiring real-time collaboration and robust data management.
++Ideal for environments where scalability and comprehensive API access are critical.
++
++Homebrewed
+++ No reliance on third-party tools.
+++ High level of customisation and control.
++- Won't be as extensively tested as available tools.
++- Would only work with selected tools.
++- Slow and lacks reliability due to less frequent (no) updates.
++Best suited for very specific needs that existing tools cannot meet.
++
++WORKFLOW
++    • Use a script to trigger penetration test scans.
++    • Use (Windows) Task Scheduler or (Linux) Cron to automatically trigger a script that imports the results into Dradis.
++    • Use a script to pull the data from Dradis, fill a report template, and generate a final report in PDF/HTML format.
++
++The current Automated OT System Penetration Testing framework already produces reports for the tests that are run.
++    Check if these reports are compatible with Dradis.
++        • If not, make a script to make them compatible?
++    Do we even need to use Dradis?
++        • Depends on the comprehension of the pen test reports.
++Need more information on the existing OT System Penetration Testing framework as it will be used by our automated
++report writing software in week 3 ("automated reporting implementation").
++    Wait for source code of the OT System Penetration Testing framework.
++
++Week 1:
++    • Monday - Tuesday:
++    1) Try out a penetration tool and observe the results.
++        • Tried out nmap. Gives option to output as various file types.
++    2) Integrate the penetration tool into a reporting tool.
++        • Uploaded the Nmap output to Dradis and it successfully created a Node.
++        • Dradis not automatically creating Issues based on dummy data from several penetration testing tools.
++        • Can't find dummy data to use for Dradis either. Will have to simulate a vulnerability.
++        • Tried out Ghostwriter but its scope seems too broad.
++
++    • Wednesday:
++    1) Output the data from Dradis and observe the results.
++        • Output as a CSV file. Looks fine.
++        • If the existing pen test system already creates reports, all I'll need to do is compile them?
++    2) Use a task automation tool to automate a process.
++        • Used Cron to automate a task every minute. Seems fine but probably better methods.
++        • Might just be better to use a script? Will try out exporting reports from Dradis when source code is provided.
++
++    • Thursday:
++    1) Simulate an exploit to generate interesting results for pen test reporting.
++
+Index: Reports/Combined_Report.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Reports/Combined_Report.html b/Reports/Combined_Report.html
+new file mode 100644
+--- /dev/null	(date 1721747681398)
++++ b/Reports/Combined_Report.html	(date 1721747681398)
+@@ -0,0 +1,41 @@
++<html><head><title>Combined Report</title></head><body>
++<html>
++  <head>
++    <title>DirbScan Vulnerability Report</title>
++    <style>
++                    body { font-family: Arial, sans-serif; }
++                    h1 { color: #333; }
++                    .host { margin-bottom: 20px; }
++                    .result { margin-left: 20px; border-left: 2px solid #000; padding-left: 10px; margin-bottom: 10px; }
++                    h2, h3, p { margin: 5px 0; }
++                </style>
++  </head>
++  <body>
++    <h1>DirbScan Vulnerability Report</h1>
++    <div class="host">
++      <h2>Host: </h2>
++      <div class="result">
++        <p><strong>Path: </strong>/admin</p>
++        <p><strong>Status: </strong>200 OK</p>
++        <p><strong>Description: </strong>Admin panel found</p>
++      </div>
++      <div class="result">
++        <p><strong>Path: </strong>/login</p>
++        <p><strong>Status: </strong>200 OK</p>
++        <p><strong>Description: </strong>Login page found</p>
++      </div>
++      <div class="result">
++        <p><strong>Path: </strong>/uploads</p>
++        <p><strong>Status: </strong>403 Forbidden</p>
++        <p><strong>Description: </strong>Directory listing is restricted</p>
++      </div>
++      <div class="result">
++        <p><strong>Path: </strong>/backup</p>
++        <p><strong>Status: </strong>404 Not Found</p>
++        <p><strong>Description: </strong>Backup directory not found</p>
++      </div>
++    </div>
++  </body>
++</html>
++<hr>
++</body></html>
+Index: auto_report_writing/report_generation/report_generator.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/auto_report_writing/report_generation/report_generator.py b/auto_report_writing/report_generation/report_generator.py
+new file mode 100644
+--- /dev/null	(date 1721748147710)
++++ b/auto_report_writing/report_generation/report_generator.py	(date 1721748147710)
+@@ -0,0 +1,126 @@
++import sys
++import os
++import tkinter as tk
++from tkinter import filedialog, messagebox
++import xml.etree.ElementTree as EleTree
++
++# Adding the parent directory to the system PATH.
++sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
++
++from auto_report_writing.report_generation.report_data.metasploit_report import metasploit_report
++from auto_report_writing.report_generation.report_data.nmap_report import nmap_report
++from auto_report_writing.data_processing.xml_to_html import xml_to_html
++from auto_report_writing.data_processing.html_combiner import html_combiner
++from auto_report_writing.utils.message_utils import *
++
++
++def get_file_paths(prompt):
++    """
++    Open a file dialog to get one or more file paths from the user.
++    """
++    root = tk.Tk()
++    root.withdraw()  # Hide the root window.
++    file_paths = filedialog.askopenfilenames(title=prompt, filetypes=[("XML Files", "*.xml")])
++    return list(file_paths)
++
++
++def determine_report_type(file_path):
++    """
++    Determine the type of report based on the XML file content.
++    """
++    try:
++        tree = EleTree.parse(file_path)
++        root = tree.getroot()
++
++        # Identifying the report type based on the name of the root element.
++        if 'metasploit' in root.tag.lower():
++            return 'metasploit'
++        elif 'nmap' in root.tag.lower():
++            return 'nmap'
++        else:
++            print_unknown_report_type(file_path)
++            return None
++
++    except EleTree.ParseError as e:
++        print_error_parsing_xml(e)
++        return None
++
++
++def create_output_dir(path):
++    """
++    Create the output directory if it doesn't exist.
++    :param path: The directory to be checked and created.
++    """
++    if not os.path.exists(path):
++        os.makedirs(path)
++
++
++def main():
++    # Prompting the user for one or more XML file paths.
++    file_paths = get_file_paths("Select one or more XML files")
++
++    if file_paths:
++        # Creating the output directories if they don't exist.
++        xml_dir = 'Reports/XML'
++        xsl_dir = 'Reports/XSL'
++        html_dir = 'Reports/HTML'
++        create_output_dir(xml_dir)
++        create_output_dir(xsl_dir)
++        create_output_dir(html_dir)
++
++        # Tracking the generated HTML files to combine them.
++        html_files = []
++
++        for file_path in file_paths:
++            # Determining the report type based on the XML root element.
++            report_type = determine_report_type(file_path)
++
++            # For handling Metasploit report data.
++            if report_type == 'metasploit':
++                print_generating_report(report_type, file_path)
++
++                # Defining the paths to output/input the XML, XSL, and HTML.
++                output_xml = os.path.join(xml_dir, 'Metasploit_Report.xml')
++                input_xsl = os.path.join(xsl_dir, 'Metasploit_Report.xsl')
++                output_html = os.path.join(html_dir, 'Metasploit_Report.html')
++
++                metasploit_report(file_path, output_xml)  # Generating the Metasploit Report XML.
++                xml_to_html(output_xml, input_xsl, output_html)  # Generating the Metasploit Report HTML.
++                html_files.append(output_html)  # Appending all current HTMLs that have been generated.
++
++                print_xml_report_generated(output_xml)
++                print_html_report_generated(output_html)
++
++            # For handling Nmap report data.
++            elif report_type == 'nmap':
++                print_generating_report(report_type, file_path)
++
++                # Defining the paths to output/input the XML, XSL, and HTML.
++                output_xml = os.path.join(xml_dir, 'Nmap_Report.xml')
++                input_xsl = os.path.join(xsl_dir, 'Nmap_Report.xsl')
++                output_html = os.path.join(html_dir, 'Nmap_Report.html')
++
++                nmap_report(file_path, output_xml)  # Generating the Nmap Report XML.
++                xml_to_html(output_xml, input_xsl, output_html)  # Generating the Nmap Report HTML.
++                html_files.append(output_html)  # Appending all current HTMLs that have been generated.
++
++                print_xml_report_generated(output_xml)
++                print_html_report_generated(output_html)
++
++        if html_files:
++            # Combining HTML files into one report.
++            combined_html = 'Reports/Combined_Report.html'
++            html_combiner(html_files, combined_html)
++            print_combined_report_generated(combined_html)
++
++        else:
++            print_no_reports_generated()
++            messagebox.showinfo("No Reports Generated", "No valid report types found. No reports were generated.")
++
++    else:
++        print_no_files_selected()
++        messagebox.showinfo("No Files Selected", "No files selected. No reports will be generated.")
++
++
++if __name__ == '__main__':
++    main()
+Index: auto_report_writing/data_processing/html_combiner.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/auto_report_writing/data_processing/html_combiner.py b/auto_report_writing/data_processing/html_combiner.py
+new file mode 100644
+--- /dev/null	(date 1721737183914)
++++ b/auto_report_writing/data_processing/html_combiner.py	(date 1721737183914)
+@@ -0,0 +1,20 @@
++from auto_report_writing.utils.message_utils import *
++
++
++def html_combiner(html_files, output_file):
++    """
++    Combine multiple HTML files into one HTML file.
++    """
++    try:
++        with open(output_file, 'w', encoding='utf-8') as outfile:
++            outfile.write('<html><head><title>Combined Report</title></head><body>\n')
++
++            for html_file in html_files:
++                with open(html_file, 'r', encoding='utf-8') as infile:
++                    outfile.write(infile.read())
++                    outfile.write('<hr>\n')  # Add a separator between reports
++
++            outfile.write('</body></html>\n')
++
++    except Exception as e:
++        print_error_combining_html(e)
+Index: auto_report_writing/data_processing/xml_to_html.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/auto_report_writing/data_processing/xml_to_html.py b/auto_report_writing/data_processing/xml_to_html.py
+new file mode 100644
+--- /dev/null	(date 1721737159465)
++++ b/auto_report_writing/data_processing/xml_to_html.py	(date 1721737159465)
+@@ -0,0 +1,23 @@
++from lxml import etree
++from auto_report_writing.utils.message_utils import *
++
++
++def xml_to_html(xml_file, xsl_file, output_html):
++    """
++    Convert XML file to HTML using an XSL stylesheet.
++    """
++    try:
++        # Load XML and XSL files
++        xml_doc = etree.parse(xml_file)
++        xsl_doc = etree.parse(xsl_file)
++        transform = etree.XSLT(xsl_doc)
++
++        # Transform XML to HTML
++        html_doc = transform(xml_doc)
++
++        # Save HTML file
++        with open(output_html, 'wb') as f:
++            f.write(etree.tostring(html_doc, pretty_print=True, encoding='UTF-8'))
++
++    except Exception as e:
++        print_error_converting_xml_to_html(e)
+diff --git a/auto_report_writing/utils/__init__.py b/auto_report_writing/utils/__init__.py
+new file mode 100644
+diff --git a/auto_report_writing/data_processing/__init__.py b/auto_report_writing/data_processing/__init__.py
+new file mode 100644
+diff --git a/auto_report_writing/report_generation/__init__.py b/auto_report_writing/report_generation/__init__.py
+new file mode 100644
+diff --git a/auto_report_writing/__init__.py b/auto_report_writing/__init__.py
+new file mode 100644
+diff --git a/auto_report_writing/report_generation/report_data/__init__.py b/auto_report_writing/report_generation/report_data/__init__.py
+new file mode 100644

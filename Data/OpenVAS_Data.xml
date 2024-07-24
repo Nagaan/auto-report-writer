@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<openvas>
+    <report>
+        <host>
+            <address>192.168.1.100</address>
+            <host_name>internal-server</host_name>
+            <vulnerabilities>
+                <vulnerability id="1">
+                    <name>OpenSSL Heartbleed</name>
+                    <description>OpenSSL vulnerability CVE-2014-0160 allows remote attackers to read sensitive memory contents.</description>
+                    <severity>Critical</severity>
+                    <recommendation>Upgrade to a patched version of OpenSSL.</recommendation>
+                </vulnerability>
+                <vulnerability id="2">
+                    <name>HTTP PUT Method Allowed</name>
+                    <description>The HTTP PUT method is allowed on the web server, which may allow unauthorized file uploads.</description>
+                    <severity>High</severity>
+                    <recommendation>Disable the PUT method or restrict its use.</recommendation>
+                </vulnerability>
+                <vulnerability id="3">
+                    <name>Directory Listing Enabled</name>
+                    <description>Directory listing is enabled on the web server, which may expose sensitive files and directories.</description>
+                    <severity>Medium</severity>
+                    <recommendation>Disable directory listing.</recommendation>
+                </vulnerability>
+            </vulnerabilities>
+        </host>
+        <host>
+            <address>192.168.1.101</address>
+            <host_name>external-db</host_name>
+            <vulnerabilities>
+                <vulnerability id="1">
+                    <name>MySQL Weak Password</name>
+                    <description>MySQL user 'root' has a weak password that could be easily guessed.</description>
+                    <severity>High</severity>
+                    <recommendation>Change the MySQL root password to a stronger one.</recommendation>
+                </vulnerability>
+            </vulnerabilities>
+        </host>
+    </report>
+</openvas>
