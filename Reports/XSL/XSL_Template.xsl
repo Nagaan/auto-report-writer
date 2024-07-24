@@ -2,14 +2,17 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
     <!-- Template to match the root element -->
-    <xsl:template match="/metasploit_report">
+    <xsl:template match="*">
         <html>
             <head>
-                <title>Metasploit Vulnerability Report</title>
+                <!-- Set the title dynamically based on the root element name -->
+                <title>
+                    <xsl:value-of select="concat(name(), ' Vulnerability Report')" />
+                </title>
                 <style>
                     body { font-family: Arial, sans-serif; margin: 20px; font-size: 14px; }
                     h1 { color: #333; font-size: 20px; }
-                    .host {
+                    .repeating_root {
                     margin-bottom: 20px;
                     border: 1px solid #ddd;
                     padding: 10px;
@@ -17,7 +20,7 @@
                     border-right: 2px solid #000;
                     background-color: #f9f9f9;
                     }
-                    .exploit {
+                    .repeating_subroot {
                     margin: 0;
                     border-top: 1px solid #ddd;
                     padding: 8px;
@@ -39,30 +42,33 @@
                 </style>
             </head>
             <body>
-                <h1>Metasploit Vulnerability Report</h1>
-                <xsl:apply-templates select="host" />
+                <!-- Set the header dynamically based on the root element name -->
+                <h1>
+                    <xsl:value-of select="concat(name(), ' Vulnerability Report')" />
+                </h1>
+                <!-- Apply templates to child elements of the root -->
+                <xsl:apply-templates />
             </body>
         </html>
     </xsl:template>
 
-    <!-- Template to match each host -->
-    <xsl:template match="host">
-        <div class="host">
-            <h2>Host: <xsl:value-of select="address/@addr" /></h2>
-            <xsl:apply-templates select="exploit" />
+    <!-- Template to match each repeating_root -->
+    <xsl:template match="repeating_root">
+        <div class="repeating_root">
+            <h2>Host: <xsl:value-of select="." /></h2>
+            <xsl:apply-templates select="repeating_subroot" />
         </div>
     </xsl:template>
 
-    <!-- Template to match each exploit -->
-    <xsl:template match="exploit">
-        <div class="exploit">
+    <!-- Template to match each repeating_subroot -->
+    <xsl:template match="repeating_subroot">
+        <div class="repeating_subroot">
             <p><strong>Vulnerability Name: </strong> <xsl:value-of select="name" /></p>
             <p><strong>Risk Level: </strong> <xsl:value-of select="risk" /></p>
             <p><strong>CVSS Score: </strong> <xsl:value-of select="cvss_score" /></p>
             <div class="details">
                 <p><strong>Vulnerability Details:</strong></p>
-                <p><xsl:value-of select="description" /></p>
-                <p><xsl:value-of select="result" /></p>
+                <p><xsl:value-of select="details" /></p>
             </div>
             <p><strong>Recommendations: </strong> <xsl:value-of select="recommendations" /></p>
         </div>

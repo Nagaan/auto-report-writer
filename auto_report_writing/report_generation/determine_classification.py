@@ -1,28 +1,28 @@
 import re
 
 
-def csvv_from_classification(risk_classification):
+def cvss_from_risk_level(risk_level):
     """
-    Determines the CSVV score of the vulnerability based on its risk level classification.
+    Determines the CVSS score of the vulnerability based on its risk level classification.
 
-    :param risk_classification: Risk level classification of the vulnerability.
-    :return string: Estimated CSVV score of the vulnerability.
+    :param risk_level: Risk level classification of the vulnerability.
+    :return string: Estimated CVSS score of the vulnerability.
     """
-    risk_classification_string = str(risk_classification).lower()
+    risk_level_string = str(risk_level).lower()
 
-    if 'critical' in risk_classification_string:
+    if 'critical' in risk_level_string:
         return "9.0 - 10.0 (estimated from risk level)"
-    if 'high' in risk_classification_string:
+    if 'high' in risk_level_string:
         return "7.0 - 8.9 (estimated from risk level)"
-    if 'medium' in risk_classification_string:
+    if 'medium' in risk_level_string:
         return "4.0 - 6.9 (estimated from risk level)"
-    if 'low' in risk_classification_string:
+    if 'low' in risk_level_string:
         return "0.1 - 3.9 (estimated from risk level)"
     else:
         return "0.0 (estimated from risk level)"
 
 
-def classification_from_name(vulnerability_name):
+def risk_level_from_name(vulnerability_name):
     """
     Determines the risk level classification of the vulnerability based on its name, specifically for Nmap results.
 
@@ -64,38 +64,38 @@ def classification_from_name(vulnerability_name):
 
     # Classifying vulnerability names based on pattern matching.
     if matches_any_pattern(critical_patterns):
-        risk_classification = "Critical (estimated from name)"
+        risk_level = "Critical (estimated from name)"
     elif matches_any_pattern(high_patterns):
-        risk_classification = "High (estimated from name)"
+        risk_level = "High (estimated from name)"
     elif matches_any_pattern(medium_patterns):
-        risk_classification = "Medium (estimated from name)"
+        risk_level = "Medium (estimated from name)"
     elif matches_any_pattern(low_patterns):
-        risk_classification = "Low (estimated from name)"
+        risk_level = "Low (estimated from name)"
     elif matches_any_pattern(none_patterns):
-        risk_classification = "None (estimated from name)"
+        risk_level = "None (estimated from name)"
     else:
-        risk_classification = "Unknown (estimated from name)"
+        risk_level = "Unknown (estimated from name)"
 
-    return risk_classification
+    return risk_level
 
 
-def classification_from_csvv(csvv):
+def risk_level_from_cvss(cvss):
     """
-    Determines the risk level classification of the vulnerability based on its CSVV score.
+    Determines the risk level classification of the vulnerability based on its CVSS score.
 
-    :param csvv: CSVV score of the vulnerability.
+    :param cvss: CVSS score of the vulnerability.
     :return string: Risk level classification (critical, high, medium, low, or none) of the vulnerability.
     """
-    csvv_classification_float = float(csvv)
+    cvss_float = float(cvss)
 
-    # If CSVV is between x and y ...
-    if 9.0 <= csvv_classification_float <= 10.0:
-        return "Critical (estimated from CSVV)"
-    elif 7.0 <= csvv_classification_float <= 8.9:
-        return "High (estimated from CSVV)"
-    elif 4.0 <= csvv_classification_float <= 6.9:
-        return "Medium (estimated from CSVV)"
-    elif 0.1 <= csvv_classification_float <= 3.9:
-        return "Low (estimated from CSVV)"
+    # If CVSS is between x and y ...
+    if 9.0 <= cvss_float <= 10.0:
+        return "Critical (estimated from CVSS)"
+    elif 7.0 <= cvss_float <= 8.9:
+        return "High (estimated from CVSS)"
+    elif 4.0 <= cvss_float <= 6.9:
+        return "Medium (estimated from CVSS)"
+    elif 0.1 <= cvss_float <= 3.9:
+        return "Low (estimated from CVSS)"
     else:
-        return "None (estimated from CSVV)"
+        return "None (estimated from CVSS)"

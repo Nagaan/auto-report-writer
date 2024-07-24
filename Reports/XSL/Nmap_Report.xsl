@@ -7,12 +7,41 @@
             <head>
                 <title>Nmap Vulnerability Report</title>
                 <style>
-                    body { font-family: Arial, sans-serif; }
-                    h1 { color: #333; }
-                    .host { margin-bottom: 20px; }
-                    .service { margin-left: 20px; }
-                    .vulnerability { margin-left: 40px; border-left: 2px solid #000; padding-left: 10px; margin-bottom: 10px; }
-                    h2, h3, h4, p { margin: 5px 0; }
+                    body { font-family: Arial, sans-serif; margin: 20px; font-size: 14px; }
+                    h1 { color: #333; font-size: 16px; }
+                    .host {
+                    margin-bottom: 20px;
+                    border: 1px solid #ddd;
+                    padding: 10px;
+                    border-left: 2px solid #000;
+                    border-right: 2px solid #000;
+                    background-color: #f9f9f9;
+                    }
+                    .service {
+                    margin: 0;
+                    border-top: 1px solid #ddd;
+                    padding: 8px;
+                    background-color: #fff;
+                    }
+                    .vulnerability {
+                    margin-left: 10px;
+                    border-left: 2px solid #000;
+                    padding-left: 8px;
+                    margin-bottom: 8px;
+                    }
+                    .details {
+                    margin-left: 10px;
+                    border-left: 2px solid #000;
+                    padding-left: 8px;
+                    margin-bottom: 8px;
+                    }
+                    h2, h3, p {
+                    margin: 5px 0;
+                    font-size: 14px;
+                    }
+                    strong {
+                    font-weight: bold;
+                    }
                 </style>
             </head>
             <body>
@@ -45,13 +74,14 @@
     <!-- Template to match each vulnerability -->
     <xsl:template match="vulnerability">
         <div class="vulnerability">
-            <h4>Vulnerability Name: <xsl:value-of select="@id" /></h4>
+            <p><strong>Vulnerability Name: </strong> <xsl:value-of select="@id" /></p>
             <p><strong>Risk Level: </strong> <xsl:value-of select="risk_level" /></p>
-            <p><strong>CSVV Score: </strong> <xsl:value-of select="csvv_score" /></p>
-            <p><strong>Vulnerability Details:</strong></p>
-            <xsl:apply-templates select="preceding-sibling::vulnerabilities[1]" />
-            <p><strong>Recommendations:</strong></p>
-            <p><xsl:value-of select="recommendations" /></p>
+            <p><strong>CVSS Score: </strong> <xsl:value-of select="cvss_score" /></p>
+            <div class="details">
+                <p><strong>Vulnerability Details:</strong></p>
+                <xsl:apply-templates select="preceding-sibling::vulnerabilities[1]" />
+            </div>
+            <p><strong>Recommendations: </strong> <xsl:value-of select="recommendations" /></p>
         </div>
     </xsl:template>
 
@@ -62,7 +92,6 @@
             <xsl:text>• URI: </xsl:text><xsl:value-of select="substring-before(substring-after(., ' URI: '), ' Payload: ')" /><br />
             <xsl:text>• Payload: </xsl:text><xsl:value-of select="substring-before(substring-after(., ' Payload: '), ' Output: ')" /><br />
             <xsl:text>• Output: </xsl:text><xsl:value-of select="substring-after(., ' Output: ')" />
-
         </p>
     </xsl:template>
 

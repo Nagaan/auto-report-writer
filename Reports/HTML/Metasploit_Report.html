@@ -2,62 +2,94 @@
   <head>
     <title>Metasploit Vulnerability Report</title>
     <style>
-                    body { font-family: Arial, sans-serif; }
-                    h1 { color: #333; }
-                    .host { margin-bottom: 20px; }
-                    .vulnerability { margin-left: 20px; border-left: 2px solid #000; padding-left: 10px; margin-bottom: 10px; }
-                    h2, h3, p { margin: 5px 0; }
+                    body { font-family: Arial, sans-serif; margin: 20px; font-size: 14px; }
+                    h1 { color: #333; font-size: 20px; }
+                    .host {
+                    margin-bottom: 20px;
+                    border: 1px solid #ddd;
+                    padding: 10px;
+                    border-left: 2px solid #000;
+                    border-right: 2px solid #000;
+                    background-color: #f9f9f9;
+                    }
+                    .exploit {
+                    margin: 0;
+                    border-top: 1px solid #ddd;
+                    padding: 8px;
+                    background-color: #fff;
+                    }
+                    .details {
+                    margin-left: 10px;
+                    border-left: 2px solid #000;
+                    padding-left: 8px;
+                    margin-bottom: 8px;
+                    }
+                    h2, p {
+                    margin: 5px 0;
+                    font-size: 14px;
+                    }
+                    strong {
+                    font-weight: bold;
+                    }
                 </style>
   </head>
   <body>
     <h1>Metasploit Vulnerability Report</h1>
     <div class="host">
       <h2>Host: 192.168.1.50</h2>
-      <div class="vulnerability">
+      <div class="exploit">
         <p><strong>Vulnerability Name: </strong>MS08-067</p>
         <p><strong>Risk Level: </strong>High</p>
-        <p><strong>CSVV Score: </strong>7.0 - 8.9 (estimated from risk level)</p>
-        <p>
-          <strong>Vulnerability Details: </strong>
-        </p>
-        <p>• Description: Remote code execution in Microsoft Windows Server 2008.</p>
-        <p>• Result: Exploit successful: Command shell opened.</p>
+        <p><strong>CVSS Score: </strong>7.0 - 8.9 (estimated from risk level)</p>
+        <div class="details">
+          <p>
+            <strong>Vulnerability Details:</strong>
+          </p>
+          <p>Description: Remote code execution in Microsoft Windows Server 2008.</p>
+          <p>Result: Exploit successful: Command shell opened.</p>
+        </div>
         <p><strong>Recommendations: </strong>Check the appropriate Microsoft Security Bulletin for recommendations: https://learn.microsoft.com/en-us/security-updates/securitybulletins/securitybulletins</p>
       </div>
-      <div class="vulnerability">
+      <div class="exploit">
         <p><strong>Vulnerability Name: </strong>Shellshock</p>
         <p><strong>Risk Level: </strong>Critical</p>
-        <p><strong>CSVV Score: </strong>9.0 - 10.0 (estimated from risk level)</p>
-        <p>
-          <strong>Vulnerability Details: </strong>
-        </p>
-        <p>• Description: Remote code execution in Bash.</p>
-        <p>• Result: Exploit successful: Remote access obtained.</p>
+        <p><strong>CVSS Score: </strong>9.0 - 10.0 (estimated from risk level)</p>
+        <div class="details">
+          <p>
+            <strong>Vulnerability Details:</strong>
+          </p>
+          <p>Description: Remote code execution in Bash.</p>
+          <p>Result: Exploit successful: Remote access obtained.</p>
+        </div>
         <p><strong>Recommendations: </strong>No recommendations.</p>
       </div>
-      <div class="vulnerability">
+      <div class="exploit">
         <p><strong>Vulnerability Name: </strong>MS17-010</p>
         <p><strong>Risk Level: </strong>Critical</p>
-        <p><strong>CSVV Score: </strong>9.0 - 10.0 (estimated from risk level)</p>
-        <p>
-          <strong>Vulnerability Details: </strong>
-        </p>
-        <p>• Description: Remote code execution vulnerability in Microsoft Windows SMBv1.</p>
-        <p>• Result: Exploit successful: Meterpreter session opened.</p>
+        <p><strong>CVSS Score: </strong>9.0 - 10.0 (estimated from risk level)</p>
+        <div class="details">
+          <p>
+            <strong>Vulnerability Details:</strong>
+          </p>
+          <p>Description: Remote code execution vulnerability in Microsoft Windows SMBv1.</p>
+          <p>Result: Exploit successful: Meterpreter session opened.</p>
+        </div>
         <p><strong>Recommendations: </strong>Check the appropriate Microsoft Security Bulletin for recommendations: https://learn.microsoft.com/en-us/security-updates/securitybulletins/securitybulletins</p>
       </div>
     </div>
     <div class="host">
       <h2>Host: 192.168.1.51</h2>
-      <div class="vulnerability">
+      <div class="exploit">
         <p><strong>Vulnerability Name: </strong>Apache Struts 2 OGNL Injection</p>
         <p><strong>Risk Level: </strong>High</p>
-        <p><strong>CSVV Score: </strong>7.0 - 8.9 (estimated from risk level)</p>
-        <p>
-          <strong>Vulnerability Details: </strong>
-        </p>
-        <p>• Description: Remote code execution vulnerability in Apache Struts 2.</p>
-        <p>• Result: Exploit successful: Command shell opened.</p>
+        <p><strong>CVSS Score: </strong>7.0 - 8.9 (estimated from risk level)</p>
+        <div class="details">
+          <p>
+            <strong>Vulnerability Details:</strong>
+          </p>
+          <p>Description: Remote code execution vulnerability in Apache Struts 2.</p>
+          <p>Result: Exploit successful: Command shell opened.</p>
+        </div>
         <p><strong>Recommendations: </strong>No recommendations.</p>
       </div>
     </div>

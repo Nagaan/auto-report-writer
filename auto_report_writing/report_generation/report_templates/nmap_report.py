@@ -1,5 +1,5 @@
 from auto_report_writing.data_processing.xml_loader import load_xml
-from auto_report_writing.report_generation.determine_classification import csvv_from_classification, classification_from_name
+from auto_report_writing.report_generation.determine_classification import cvss_from_risk_level, risk_level_from_name
 from auto_report_writing.report_generation.generate_recommendations import generate_recommendations_name
 from auto_report_writing.utils.message_utils import *
 
@@ -32,8 +32,8 @@ def generate_nmap_report(root):
                 script_output = script.get('output')
                 formatted_script_output = re.sub(r'\s{2,}', '\n\t\t ', script_output.strip())
 
-                risk_classification = classification_from_name(script_id)
-                csvv_score = csvv_from_classification(risk_classification)
+                risk_level = risk_level_from_name(script_id)
+                cvss_score = cvss_from_risk_level(risk_level)
 
                 recommendations = generate_recommendations_name(script_id)
 
@@ -44,8 +44,8 @@ def generate_nmap_report(root):
                 SubElement(service_element, 'vulnerabilities').text = formatted_script_output
 
                 vulnerability_element = SubElement(service_element, 'vulnerability', id=script_id)
-                SubElement(vulnerability_element, 'risk_level').text = risk_classification
-                SubElement(vulnerability_element, 'csvv_score').text = str(csvv_score)
+                SubElement(vulnerability_element, 'risk_level').text = risk_level
+                SubElement(vulnerability_element, 'cvss_score').text = str(cvss_score)
                 SubElement(vulnerability_element, 'recommendations').text = recommendations
 
     return ElementTree(report)
@@ -74,7 +74,7 @@ def count_services_per_host(root):
     return host_service_counts
 
 
-def print_service_details(root):
+def print_nmod_details(root):
     """
     Prints details for open services with vulnerabilities for each host.
     """
@@ -108,13 +108,13 @@ def print_service_details(root):
                         script_output_formatted = re.sub(r'\s{2,}', '\n\t\t ', script_output.strip())
                         service_name = service_element.get('name').upper() if service_element is not None else 'N/A'
 
-                        risk_classification = classification_from_name(script_id)
-                        csvv_score = csvv_from_classification(risk_classification)
+                        risk_classification = risk_level_from_name(script_id)
+                        cvss_score = cvss_from_risk_level(risk_classification)
 
                         recommendations = generate_recommendations_name(script_id)
 
                         print_service_vulnerability_details(
-                            script_id, risk_classification, csvv_score, port_id, port_protocol,
+                            script_id, risk_classification, cvss_score, port_id, port_protocol,
                             state, product, service_name, script_output_formatted, recommendations
                         )
 
@@ -132,7 +132,6 @@ def nmap_report(file_path, output_file):
         tree, root = load_xml(file_path)
 
         if root is not None:
-            print_service_details(root)
             report_tree = generate_nmap_report(root)
             report_tree.write(output_file, encoding='utf-8', xml_declaration=True)
 

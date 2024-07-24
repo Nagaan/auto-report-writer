@@ -7,10 +7,11 @@ import xml.etree.ElementTree as EleTree
 # Adding the parent directory to the system PATH.
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
-from auto_report_writing.report_generation.report_data.metasploit_report import metasploit_report
-from auto_report_writing.report_generation.report_data.nmap_report import nmap_report
+from auto_report_writing.report_generation.report_templates.metasploit_report import metasploit_report
+from auto_report_writing.report_generation.report_templates.nmap_report import nmap_report
+from auto_report_writing.report_generation.report_templates.smod1_report import smod1_report
 from auto_report_writing.data_processing.xml_to_html import xml_to_html
-from auto_report_writing.data_processing.html_combiner import html_combiner
+from auto_report_writing.data_processing.html_combiner import *
 from auto_report_writing.utils.message_utils import *
 
 
@@ -37,6 +38,8 @@ def determine_report_type(file_path):
             return 'metasploit'
         elif 'nmap' in root.tag.lower():
             return 'nmap'
+        elif 'smod-1' in root.tag.lower():
+            return 'smod-1'
         else:
             print_unknown_report_type(file_path)
             return None
@@ -79,14 +82,13 @@ def main():
             if report_type == 'metasploit':
                 print_generating_report(report_type, file_path)
 
-                # Defining the paths to output/input the XML, XSL, and HTML.
                 output_xml = os.path.join(xml_dir, 'Metasploit_Report.xml')
                 input_xsl = os.path.join(xsl_dir, 'Metasploit_Report.xsl')
                 output_html = os.path.join(html_dir, 'Metasploit_Report.html')
 
-                metasploit_report(file_path, output_xml)  # Generating the Metasploit Report XML.
-                xml_to_html(output_xml, input_xsl, output_html)  # Generating the Metasploit Report HTML.
-                html_files.append(output_html)  # Appending all current HTMLs that have been generated.
+                metasploit_report(file_path, output_xml)
+                xml_to_html(output_xml, input_xsl, output_html)
+                html_files.append(output_html)
 
                 print_xml_report_generated(output_xml)
                 print_html_report_generated(output_html)
@@ -95,27 +97,41 @@ def main():
             elif report_type == 'nmap':
                 print_generating_report(report_type, file_path)
 
-                # Defining the paths to output/input the XML, XSL, and HTML.
                 output_xml = os.path.join(xml_dir, 'Nmap_Report.xml')
                 input_xsl = os.path.join(xsl_dir, 'Nmap_Report.xsl')
                 output_html = os.path.join(html_dir, 'Nmap_Report.html')
 
-                nmap_report(file_path, output_xml)  # Generating the Nmap Report XML.
-                xml_to_html(output_xml, input_xsl, output_html)  # Generating the Nmap Report HTML.
-                html_files.append(output_html)  # Appending all current HTMLs that have been generated.
+                nmap_report(file_path, output_xml)
+                xml_to_html(output_xml, input_xsl, output_html)
+                html_files.append(output_html)
+
+                print_xml_report_generated(output_xml)
+                print_html_report_generated(output_html)
+
+            # For handling Smod-1 report data.
+            elif report_type == 'smod-1':
+                print_generating_report(report_type, file_path)
+
+                output_xml = os.path.join(xml_dir, 'Smod-1_Report.xml')
+                input_xsl = os.path.join(xsl_dir, 'Smod-1_Report.xsl')
+                output_html = os.path.join(html_dir, 'Smod-1_Report.html')
+
+                smod1_report(file_path, output_xml)
+                xml_to_html(output_xml, input_xsl, output_html)
+                html_files.append(output_html)
 
                 print_xml_report_generated(output_xml)
                 print_html_report_generated(output_html)
 
         if html_files:
-            # Combining HTML files into one report.
             combined_html = 'Reports/Combined_Report.html'
-            html_combiner(html_files, combined_html)
+
+            generate_combined_html_with_graph(html_files, combined_html)
             print_combined_report_generated(combined_html)
 
         else:
             print_no_reports_generated()
-            messagebox.showinfo("No Reports Generated", "No valid report types found. No reports were generated.")
+            messagebox.showinfo("No Reports Generated", "No valid reports found. No combined report was generated.")
 
     else:
         print_no_files_selected()

@@ -4,7 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ee88f64-0ec1-47ec-9bcb-cb65576934c5" name="Changes" comment="" />
+    <list default="true" id="6ee88f64-0ec1-47ec-9bcb-cb65576934c5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Reports/CSS/Common_Styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reports/HTML/Smod-1_Report.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reports/XML/Smod-1_Report.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reports/XSL/Smod-1_Report.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reports/XSL/XSL_Template.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auto_report_writing/report_generation/report_templates/smod1_report.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reports/Combined_Report.html" beforeDir="false" afterPath="$PROJECT_DIR$/Reports/Combined_Report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reports/HTML/Metasploit_Report.html" beforeDir="false" afterPath="$PROJECT_DIR$/Reports/HTML/Metasploit_Report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reports/HTML/Nmap_Report.html" beforeDir="false" afterPath="$PROJECT_DIR$/Reports/HTML/Nmap_Report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reports/XML/Metasploit_Report.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Reports/XML/Metasploit_Report.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reports/XML/Nmap_Report.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Reports/XML/Nmap_Report.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reports/XSL/Metasploit_Report.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/Reports/XSL/Metasploit_Report.xsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reports/XSL/Nmap_Report.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/Reports/XSL/Nmap_Report.xsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auto_report_writing/data_processing/html_combiner.py" beforeDir="false" afterPath="$PROJECT_DIR$/auto_report_writing/data_processing/html_combiner.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auto_report_writing/report_generation/determine_classification.py" beforeDir="false" afterPath="$PROJECT_DIR$/auto_report_writing/report_generation/determine_classification.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auto_report_writing/report_generation/report_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/auto_report_writing/report_generation/report_generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auto_report_writing/report_generation/report_templates/metasploit_report.py" beforeDir="false" afterPath="$PROJECT_DIR$/auto_report_writing/report_generation/report_templates/metasploit_report.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auto_report_writing/report_generation/report_templates/nmap_report.py" beforeDir="false" afterPath="$PROJECT_DIR$/auto_report_writing/report_generation/report_templates/nmap_report.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auto_report_writing/report_generation/report_templates/smod-1_report.py" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,11 +82,11 @@
       <recent name="C:\Users\c1333038\OneDrive - Cardiff University\Documents\Kali Linux\AutoReportWriting\auto_report_writing\report_data" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="B:\Work\auto-report-writer\Reports\CSS" />
+      <recent name="B:\Work\auto-report-writer\Reports\XSL" />
       <recent name="C:\Users\c1333038\OneDrive - Cardiff University\Documents\Kali Linux\AutoReportWriting\auto_report_writing\data_processing" />
       <recent name="C:\Users\c1333038\OneDrive - Cardiff University\Documents\Kali Linux\AutoReportWriting\auto_report_writing\report_generation" />
       <recent name="C:\Users\c1333038\OneDrive - Cardiff University\Documents\Kali Linux\AutoReportWriting\auto_report_writing\utils" />
-      <recent name="C:\Users\c1333038\OneDrive - Cardiff University\Documents\Kali Linux\AutoReportWriting\Data" />
-      <recent name="C:\Users\c1333038\OneDrive - Cardiff University\Documents\Kali Linux\AutoReportWriting\Reports\XSL" />
     </key>
   </component>
   <component name="RunManager">
@@ -87,6 +110,25 @@
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
       <method v="2" />
     </configuration>
     <recent_temporary>
@@ -128,6 +170,9 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/auto_report_writer$config_generator.coverage" NAME="config_generator Coverage Results" MODIFIED="1721849714392" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/auto_report_writing/configs" />
     <SUITE FILE_PATH="coverage/AutoReportWriting$report_template.coverage" NAME="report_template Coverage Results" MODIFIED="1721048489858" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/auto_report_writing" />
+    <SUITE FILE_PATH="coverage/auto_report_writer$smod_1_report.coverage" NAME="smod-1_report Coverage Results" MODIFIED="1721850061607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/auto_report_writing/report_generation/report_templates" />
+    <SUITE FILE_PATH="coverage/auto_report_writer$general_report.coverage" NAME="general_report Coverage Results" MODIFIED="1721829561482" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/auto_report_writing/report_generation/report_templates" />
   </component>
 </project>
