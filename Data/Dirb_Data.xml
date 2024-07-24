@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<dirbscan>
+    <host>
+        <address>10.0.0.2</address>
+        <scan_results>
+            <result id="1">
+                <path>/admin</path>
+                <status>200 OK</status>
+                <description>Admin panel found</description>
+            </result>
+            <result id="2">
+                <path>/login</path>
+                <status>200 OK</status>
+                <description>Login page found</description>
+            </result>
+            <result id="3">
+                <path>/uploads</path>
+                <status>403 Forbidden</status>
+                <description>Directory listing is restricted</description>
+            </result>
+            <result id="4">
+                <path>/backup</path>
+                <status>404 Not Found</status>
+                <description>Backup directory not found</description>
+            </result>
+        </scan_results>
+    </host>
+</dirbscan>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<smod-1>
+    <exploitation>
+        <attempt id="A1">
+            <target>192.168.1.80</target>
+            <device>Modbus PLC</device>
+            <vulnerability>Unauthorized Access</vulnerability>
+            <result>Exploited</result>
+            <details>Successfully gained access to the PLC and modified configuration settings.</details>
+            <timestamp>2024-07-15T13:00:00</timestamp>
+            <commands>
+                <command>READ_COILS</command>
+                <command>WRITE_SINGLE_REGISTER</command>
+            </commands>
+        </attempt>
+        <attempt id="A2">
+            <target>192.168.1.90</target>
+            <device>Modbus PLC</device>
+            <vulnerability>Buffer Overflow</vulnerability>
+            <result>Failed</result>
+            <details>Exploit failed due to lack of proper response from PLC.</details>
+            <timestamp>2024-07-15T13:30:00</timestamp>
+            <commands>
+                <command>WRITE_MULTIPLE_REGISTERS</command>
+                <command>READ_DISCRETE_INPUTS</command>
+            </commands>
+        </attempt>
+        <attempt id="A3">
+            <target>192.168.1.100</target>
+            <device>Modbus PLC</device>
+            <vulnerability>Denial of Service</vulnerability>
+            <result>Success</result>
+            <details>Successfully launched DoS attack causing PLC to crash.</details>
+            <timestamp>2024-07-15T14:00:00</timestamp>
+            <commands>
+                <command>WRITE_SINGLE_COIL</command>
+                <command>READ_INPUT_REGISTERS</command>
+            </commands>
+        </attempt>
+    </exploitation>
+</smod-1>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<nikto>
+    <scan>
+        <target host="example.com" port="80"/>
+        <results>
+            <result id="1">
+                <description>Server Type: Apache/2.4.41</description>
+                <vulnerability>CVE-2019-0211 - Privilege escalation vulnerability</vulnerability>
+                <risk>High</risk>
+            </result>
+            <result id="2">
+                <description>Potentially dangerous file found: /admin</description>
+                <risk>Medium</risk>
+            </result>
+            <result id="3">
+                <description>Directory listing found: /uploads/</description>
+                <risk>High</risk>
+            </result>
+            <result id="4">
+                <description>SSL Certificate expired</description>
+                <risk>Critical</risk>
+            </result>
+        </results>
+    </scan>
+    <scan>
+        <target host="testsite.local" port="443"/>
+        <results>
+            <result id="1">
+                <description>Server Type: nginx/1.18.0</description>
+                <vulnerability>CVE-2020-25712 - Information disclosure</vulnerability>
+                <risk>Medium</risk>
+            </result>
+            <result id="2">
+                <description>Unusual HTTP method allowed: PUT</description>
+                <risk>Medium</risk>
+            </result>
+        </results>
+    </scan>
+</nikto>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<metasploit>
+    <report>
+        <host>
+            <address>192.168.1.50</address>
+            <exploits>
+                <exploit id="1">
+                    <name>MS08-067</name>
+                    <description>Remote code execution in Microsoft Windows Server 2008.</description>
+                    <result>Exploit successful: Command shell opened</result>
+                    <risk>High</risk>
+                </exploit>
+                <exploit id="2">
+                    <name>Shellshock</name>
+                    <description>Remote code execution in Bash.</description>
+                    <result>Exploit successful: Remote access obtained</result>
+                    <risk>Critical</risk>
+                </exploit>
+                <exploit id="3">
+                    <name>MS17-010</name>
+                    <description>Remote code execution vulnerability in Microsoft Windows SMBv1.</description>
+                    <result>Exploit successful: Meterpreter session opened</result>
+                    <risk>Critical</risk>
+                </exploit>
+            </exploits>
+        </host>
+        <host>
+            <address>192.168.1.51</address>
+            <exploits>
+                <exploit id="1">
+                    <name>Apache Struts 2 OGNL Injection</name>
+                    <description>Remote code execution vulnerability in Apache Struts 2.</description>
+                    <result>Exploit successful: Command shell opened</result>
+                    <risk>High</risk>
+                </exploit>
+            </exploits>
+        </host>
+    </report>
+</metasploit>
