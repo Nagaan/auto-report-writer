@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plcscan>
+    <scan>
+        <device id="D1">
+            <address>192.168.1.60</address>
+            <type>Modbus</type>
+            <vendor>Siemens</vendor>
+            <product>SIMATIC S7-1200</product>
+            <version>V4.0</version>
+            <status>Online</status>
+            <additional_info>
+                <firmware_version>4.1.0</firmware_version>
+                <model>S7-1214</model>
+            </additional_info>
+        </device>
+        <device id="D2">
+            <address>192.168.1.70</address>
+            <type>Modbus</type>
+            <vendor>Rockwell</vendor>
+            <product>MicroLogix 1400</product>
+            <version>V7.0</version>
+            <status>Online</status>
+            <additional_info>
+                <firmware_version>7.2.0</firmware_version>
+                <model>1766-L32BWAA</model>
+            </additional_info>
+        </device>
+        <device id="D3">
+            <address>192.168.1.80</address>
+            <type>Modbus</type>
+            <vendor>Schneider</vendor>
+            <product>Modicon M221</product>
+            <version>V2.0</version>
+            <status>Offline</status>
+            <additional_info>
+                <firmware_version>2.3.0</firmware_version>
+                <model>M221</model>
+            </additional_info>
+        </device>
+    </scan>
+</plcscan>

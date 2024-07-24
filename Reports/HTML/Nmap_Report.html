@@ -1,0 +1,175 @@
+<html>
+  <head>
+    <title>Nmap Vulnerability Report</title>
+    <style>
+                    body { font-family: Arial, sans-serif; }
+                    h1 { color: #333; }
+                    .host { margin-bottom: 20px; }
+                    .service { margin-left: 20px; }
+                    .vulnerability { margin-left: 40px; border-left: 2px solid #000; padding-left: 10px; margin-bottom: 10px; }
+                    h2, h3, h4, p { margin: 5px 0; }
+                </style>
+  </head>
+  <body>
+    <h1>Nmap Vulnerability Report</h1>
+    <div class="host">
+      <h2>Host: 192.168.1.10</h2>
+      <div class="service">
+        <h3>Service: Port 80 (TCP)</h3>
+        <p><strong>State: </strong>Open</p>
+        <p><strong>Product: </strong>Apache httpd 2.4.38</p>
+        <p><strong>Service Name: </strong>HTTP</p>
+        <p>
+          <strong>Vulnerabilities:</strong>
+        </p>
+        <div class="vulnerability">
+          <h4>Vulnerability Name: Clickjacking</h4>
+          <p><strong>Risk Level: </strong>None (estimated from name)</p>
+          <p><strong>CSVV Score: </strong>0.0 (estimated from risk level)</p>
+          <p>
+            <strong>Vulnerability Details:</strong>
+          </p>
+          <p>• Possible SQL injection vulnerability detected:
+		<br/>• URI: /index.php?id=1'
+		<br/>• Payload: id=1' OR '1'='1
+		<br/>• Output: SQL error detected</p>
+          <p>
+            <strong>Recommendations:</strong>
+          </p>
+          <p>No recommendations.</p>
+        </div>
+      </div>
+      <div class="service">
+        <h3>Service: Port 3306 (TCP)</h3>
+        <p><strong>State: </strong>Open</p>
+        <p><strong>Product: </strong>MySQL 5.7.23</p>
+        <p><strong>Service Name: </strong>MYSQL</p>
+        <p>
+          <strong>Vulnerabilities:</strong>
+        </p>
+        <div class="vulnerability">
+          <h4>Vulnerability Name: Sql-injection</h4>
+          <p><strong>Risk Level: </strong>High (estimated from name)</p>
+          <p><strong>CSVV Score: </strong>7.0 - 8.9 (estimated from risk level)</p>
+          <p>
+            <strong>Vulnerability Details:</strong>
+          </p>
+          <p>• Possible SQL injection vulnerability detected:
+		<br/>• URI: /login.php
+		<br/>• Payload: username=admin' OR '1'='1 --
+		<br/>• Output: Login successful</p>
+          <p>
+            <strong>Recommendations:</strong>
+          </p>
+          <p>[Generalised Recommendations for Sql-injection] To effectively address SQL injection vulnerabilities, employ the following strategies: Use prepared statements and parameterized queries to separate SQL code from data, ensuring malicious input cannot alter queries. Implement stored procedures, which encapsulate SQL logic within the database to minimize exposure to injection. Validate and sanitize all user inputs to adhere to expected formats, thereby rejecting potentially harmful data. Utilize ORM (Object-Relational Mapping) libraries to abstract SQL operations, reducing direct interaction with raw SQL. Restrict database user privileges to the minimum necessary for application functionality. Properly handle errors by avoiding the exposure of detailed SQL error messages to users; instead, log them securely. Regularly conduct security testing to identify and address vulnerabilities, and consider using web application firewalls (WAFs) to filter out malicious SQL attempts. Finally, keep all systems and libraries up to date with the latest security patches and updates to mitigate emerging threats.</p>
+        </div>
+      </div>
+    </div>
+    <div class="host">
+      <h2>Host: 192.168.1.20</h2>
+      <div class="service">
+        <h3>Service: Port 80 (TCP)</h3>
+        <p><strong>State: </strong>Open</p>
+        <p><strong>Product: </strong>Apache httpd 2.4.38</p>
+        <p><strong>Service Name: </strong>HTTP</p>
+        <p>
+          <strong>Vulnerabilities:</strong>
+        </p>
+        <div class="vulnerability">
+          <h4>Vulnerability Name: Sql-injection</h4>
+          <p><strong>Risk Level: </strong>High (estimated from name)</p>
+          <p><strong>CSVV Score: </strong>7.0 - 8.9 (estimated from risk level)</p>
+          <p>
+            <strong>Vulnerability Details:</strong>
+          </p>
+          <p>• Possible SQL injection vulnerability detected:
+		<br/>• URI: /view_data.php?record=5
+		<br/>• Payload: record=5' AND 1=1 --
+		<br/>• Output: SQL error detected</p>
+          <p>
+            <strong>Recommendations:</strong>
+          </p>
+          <p>[Generalised Recommendations for Sql-injection] To effectively address SQL injection vulnerabilities, employ the following strategies: Use prepared statements and parameterized queries to separate SQL code from data, ensuring malicious input cannot alter queries. Implement stored procedures, which encapsulate SQL logic within the database to minimize exposure to injection. Validate and sanitize all user inputs to adhere to expected formats, thereby rejecting potentially harmful data. Utilize ORM (Object-Relational Mapping) libraries to abstract SQL operations, reducing direct interaction with raw SQL. Restrict database user privileges to the minimum necessary for application functionality. Properly handle errors by avoiding the exposure of detailed SQL error messages to users; instead, log them securely. Regularly conduct security testing to identify and address vulnerabilities, and consider using web application firewalls (WAFs) to filter out malicious SQL attempts. Finally, keep all systems and libraries up to date with the latest security patches and updates to mitigate emerging threats.</p>
+        </div>
+      </div>
+      <div class="service">
+        <h3>Service: Port 3306 (TCP)</h3>
+        <p><strong>State: </strong>Open</p>
+        <p><strong>Product: </strong>MySQL 5.7.23</p>
+        <p><strong>Service Name: </strong>MYSQL</p>
+        <p>
+          <strong>Vulnerabilities:</strong>
+        </p>
+        <div class="vulnerability">
+          <h4>Vulnerability Name: Sql-injection</h4>
+          <p><strong>Risk Level: </strong>High (estimated from name)</p>
+          <p><strong>CSVV Score: </strong>7.0 - 8.9 (estimated from risk level)</p>
+          <p>
+            <strong>Vulnerability Details:</strong>
+          </p>
+          <p>• Possible SQL injection vulnerability detected:
+		<br/>• URI: /data.php?id=3
+		<br/>• Payload: id=3' UNION SELECT NULL, NULL, NULL --
+		<br/>• Output: SQL error detected</p>
+          <p>
+            <strong>Recommendations:</strong>
+          </p>
+          <p>[Generalised Recommendations for Sql-injection] To effectively address SQL injection vulnerabilities, employ the following strategies: Use prepared statements and parameterized queries to separate SQL code from data, ensuring malicious input cannot alter queries. Implement stored procedures, which encapsulate SQL logic within the database to minimize exposure to injection. Validate and sanitize all user inputs to adhere to expected formats, thereby rejecting potentially harmful data. Utilize ORM (Object-Relational Mapping) libraries to abstract SQL operations, reducing direct interaction with raw SQL. Restrict database user privileges to the minimum necessary for application functionality. Properly handle errors by avoiding the exposure of detailed SQL error messages to users; instead, log them securely. Regularly conduct security testing to identify and address vulnerabilities, and consider using web application firewalls (WAFs) to filter out malicious SQL attempts. Finally, keep all systems and libraries up to date with the latest security patches and updates to mitigate emerging threats.</p>
+        </div>
+      </div>
+    </div>
+    <div class="host">
+      <h2>Host: 192.168.1.30</h2>
+      <div class="service">
+        <h3>Service: Port 80 (TCP)</h3>
+        <p><strong>State: </strong>Open</p>
+        <p><strong>Product: </strong>Apache httpd 2.4.38</p>
+        <p><strong>Service Name: </strong>HTTP</p>
+        <p>
+          <strong>Vulnerabilities:</strong>
+        </p>
+        <div class="vulnerability">
+          <h4>Vulnerability Name: Sql-injection</h4>
+          <p><strong>Risk Level: </strong>High (estimated from name)</p>
+          <p><strong>CSVV Score: </strong>7.0 - 8.9 (estimated from risk level)</p>
+          <p>
+            <strong>Vulnerability Details:</strong>
+          </p>
+          <p>• Possible SQL injection vulnerability detected:
+		<br/>• URI: /submit.php
+		<br/>• Payload: data=xyz' OR '1'='1
+		<br/>• Output: SQL error detected</p>
+          <p>
+            <strong>Recommendations:</strong>
+          </p>
+          <p>[Generalised Recommendations for Sql-injection] To effectively address SQL injection vulnerabilities, employ the following strategies: Use prepared statements and parameterized queries to separate SQL code from data, ensuring malicious input cannot alter queries. Implement stored procedures, which encapsulate SQL logic within the database to minimize exposure to injection. Validate and sanitize all user inputs to adhere to expected formats, thereby rejecting potentially harmful data. Utilize ORM (Object-Relational Mapping) libraries to abstract SQL operations, reducing direct interaction with raw SQL. Restrict database user privileges to the minimum necessary for application functionality. Properly handle errors by avoiding the exposure of detailed SQL error messages to users; instead, log them securely. Regularly conduct security testing to identify and address vulnerabilities, and consider using web application firewalls (WAFs) to filter out malicious SQL attempts. Finally, keep all systems and libraries up to date with the latest security patches and updates to mitigate emerging threats.</p>
+        </div>
+      </div>
+      <div class="service">
+        <h3>Service: Port 3306 (TCP)</h3>
+        <p><strong>State: </strong>Open</p>
+        <p><strong>Product: </strong>MySQL 5.7.23</p>
+        <p><strong>Service Name: </strong>MYSQL</p>
+        <p>
+          <strong>Vulnerabilities:</strong>
+        </p>
+        <div class="vulnerability">
+          <h4>Vulnerability Name: Sql-injection</h4>
+          <p><strong>Risk Level: </strong>High (estimated from name)</p>
+          <p><strong>CSVV Score: </strong>7.0 - 8.9 (estimated from risk level)</p>
+          <p>
+            <strong>Vulnerability Details:</strong>
+          </p>
+          <p>• Possible SQL injection vulnerability detected:
+		<br/>• URI: /info.php?item=7
+		<br/>• Payload: item=7' AND 1=2 --
+		<br/>• Output: SQL error detected</p>
+          <p>
+            <strong>Recommendations:</strong>
+          </p>
+          <p>[Generalised Recommendations for Sql-injection] To effectively address SQL injection vulnerabilities, employ the following strategies: Use prepared statements and parameterized queries to separate SQL code from data, ensuring malicious input cannot alter queries. Implement stored procedures, which encapsulate SQL logic within the database to minimize exposure to injection. Validate and sanitize all user inputs to adhere to expected formats, thereby rejecting potentially harmful data. Utilize ORM (Object-Relational Mapping) libraries to abstract SQL operations, reducing direct interaction with raw SQL. Restrict database user privileges to the minimum necessary for application functionality. Properly handle errors by avoiding the exposure of detailed SQL error messages to users; instead, log them securely. Regularly conduct security testing to identify and address vulnerabilities, and consider using web application firewalls (WAFs) to filter out malicious SQL attempts. Finally, keep all systems and libraries up to date with the latest security patches and updates to mitigate emerging threats.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

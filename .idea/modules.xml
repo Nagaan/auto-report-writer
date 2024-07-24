@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/auto-report-writer.iml" filepath="$PROJECT_DIR$/.idea/auto-report-writer.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/auto-report-writing.iml" filepath="$PROJECT_DIR$/.idea/auto-report-writing.iml" />
+>>>>>>> 8dff96a357b386971f30cbdd6be5a1b81a56eb74
     </modules>
   </component>
 </project>
