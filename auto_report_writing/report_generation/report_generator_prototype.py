@@ -133,7 +133,7 @@ def main():
                 print(f"Could not determine report type for file: {file_path}")
 
         if html_files:
-            combined_html = 'Reports/Combined_Report.html'
+            combined_html = 'Reports/combined_report.html'
             try:
                 html_combiner(html_files, combined_html)
                 print_combined_report_generated(combined_html)

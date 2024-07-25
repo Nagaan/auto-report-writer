@@ -35,6 +35,7 @@
                     border-left: 2px solid #000;
                     padding-left: 8px;
                     margin-bottom: 8px;
+                    white-space: pre-wrap; /* Preserve whitespace and line breaks */
                     }
                     p {
                     margin: 5px 0;
@@ -73,26 +74,13 @@
 
     <!-- Template to match each vulnerability -->
     <xsl:template match="vulnerability">
-        <div class="service">
+        <div class="vulnerability">
             <p><strong>Vulnerability Name: </strong> <xsl:value-of select="@id" /></p>
             <p><strong>Risk Level: </strong> <xsl:value-of select="risk_level" /></p>
             <p><strong>CVSS Score: </strong> <xsl:value-of select="cvss_score" /></p>
             <p><strong>Vulnerability Details:</strong></p>
-            <div class="details">
-                <xsl:apply-templates select="service" />
-                <xsl:apply-templates select="parent::service/vulnerabilities" />
-            </div>
+            <xsl:value-of select="../vulnerabilities" />
         </div>
-    </xsl:template>
-
-    <!-- Template to match each vulnerabilities element -->
-    <xsl:template match="vulnerabilities">
-        <p>
-            <xsl:text>• </xsl:text><xsl:value-of select="substring-before(., ' URI: ')" /><br />
-            <xsl:text>• URI: </xsl:text><xsl:value-of select="substring-before(substring-after(., ' URI: '), ' Payload: ')" /><br />
-            <xsl:text>• Payload: </xsl:text><xsl:value-of select="substring-before(substring-after(., ' Payload: '), ' Output: ')" /><br />
-            <xsl:text>• Output: </xsl:text><xsl:value-of select="substring-after(., ' Output: ')" />
-        </p>
     </xsl:template>
 
 </xsl:stylesheet>
