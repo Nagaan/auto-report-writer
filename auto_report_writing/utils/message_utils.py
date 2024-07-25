@@ -51,6 +51,10 @@ def print_no_reports_generated():
     print("No valid report types found. No reports were generated.")
 
 
+def print_error_generating_graph(error):
+    print(error)
+
+
 def print_unknown_report_type(file_path):
     print(f"Unknown XML format or root element in file: {file_path}")
 
@@ -64,14 +68,13 @@ def print_exploit_details_for_host(host_address, exploit_count):
     print(f"\n[{host_address}] has {exploit_count} vulnerabilities:")
 
 
-def print_vulnerability_details(name, risk, csvv, description, result, recommendations):
+def print_vulnerability_details(name, risk, csvv, description, result):
     print(f"Vulnerability Name: {name}")
     print(f"Risk Level: {risk}")
     print(f"CSVV Score: {csvv} (estimated from risk level)")
     print(f"Vulnerability Details: ")
     print(f"\t Description: {description}")
     print(f"\t Result: {result}.")
-    print(f"Recommendations: {recommendations}")
     print("")
 
 
@@ -88,7 +91,7 @@ def print_service_details_for_host(host_address, service_count):
     print(f"\n[{host_address}] has {service_count} vulnerable services:")
 
 
-def print_service_vulnerability_details(script_id, risk_classification, csvv_score, port_id, port_protocol, state, product, service_name, script_output_formatted, recommendations):
+def print_service_vulnerability_details(script_id, risk_classification, csvv_score, port_id, port_protocol, state, product, service_name, script_output_formatted):
     print(f"Vulnerability Name: {script_id}")
     print(f"Risk Level: {risk_classification}")
     print(f"CSVV Score: {csvv_score}")
@@ -98,7 +101,6 @@ def print_service_vulnerability_details(script_id, risk_classification, csvv_sco
     print(f"\t Product: {product}")
     print(f"\t Service: {service_name}")
     print(f"\t Vulnerabilities: \n\t\t• {script_output_formatted}.")
-    print(f"Recommendations: {recommendations}")
     print("")
 
 

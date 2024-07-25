@@ -1,11 +1,8 @@
-from auto_report_writing.data_processing.xml_loader import load_xml
-from auto_report_writing.report_generation.determine_classification import cvss_from_risk_level, risk_level_from_name
-from auto_report_writing.report_generation.generate_recommendations import generate_recommendations_name
-from auto_report_writing.utils.message_utils import *
-
 from xml.etree.ElementTree import Element, SubElement, ElementTree
 import re
-
+from auto_report_writing.data_processing.xml_loader import load_xml
+from auto_report_writing.report_generation.determine_classification import cvss_from_risk_level, risk_level_from_name
+from auto_report_writing.utils.message_utils import *
 
 def generate_nmap_report(root):
     """
@@ -20,43 +17,45 @@ def generate_nmap_report(root):
 
         services = host.findall('.//port')
         for service in services:
-            script = service.find('script')
-            if script is not None:
-                port_id = service.get('portid')
-                port_protocol = service.get('protocol').upper()
-                state = service.find('state').get('state').capitalize()
-                service_elem = service.find('service')
-                product = service_elem.get('product') if service_elem is not None else 'N/A'
-                service_name = service_elem.get('name').upper() if service_elem is not None else 'N/A'
+            port_id = service.get('portid')
+            port_protocol = service.get('protocol').upper()
+            state = service.find('state').get('state').capitalize()
+            service_elem = service.find('service')
+            product = service_elem.get('product') if service_elem is not None else 'N/A'
+            service_name = service_elem.get('name').upper() if service_elem is not None else 'N/A'
+
+            scripts = service.findall('script')
+            for script in scripts:
                 script_id = script.get('id').capitalize()
                 script_output = script.get('output')
-                formatted_script_output = re.sub(r'\s{2,}', '\n\t\t ', script_output.strip())
 
+                # Format script output preserving important details
+                formatted_script_output = re.sub(r'&lt;br/&gt;', '\n', script_output.strip())
+                formatted_script_output = re.sub(r'\s{2,}', ' ', formatted_script_output)
+
+                # Determine risk level, CVSS score.
                 risk_level = risk_level_from_name(script_id)
                 cvss_score = cvss_from_risk_level(risk_level)
 
-                recommendations = generate_recommendations_name(script_id)
-
+                # Create the service element and its sub-elements
                 service_element = SubElement(host_element, 'service', portid=port_id, protocol=port_protocol)
                 SubElement(service_element, 'state').text = state
                 SubElement(service_element, 'product').text = product
                 SubElement(service_element, 'name').text = service_name
                 SubElement(service_element, 'vulnerabilities').text = formatted_script_output
 
+                # Add vulnerability details
                 vulnerability_element = SubElement(service_element, 'vulnerability', id=script_id)
                 SubElement(vulnerability_element, 'risk_level').text = risk_level
                 SubElement(vulnerability_element, 'cvss_score').text = str(cvss_score)
-                SubElement(vulnerability_element, 'recommendations').text = recommendations
 
     return ElementTree(report)
-
 
 def count_hosts(root):
     """
     Counts the number of hosts in the given Nmap XML root.
     """
     return len(root.findall('.//host'))
-
 
 def count_services_per_host(root):
     """
@@ -73,8 +72,7 @@ def count_services_per_host(root):
 
     return host_service_counts
 
-
-def print_nmod_details(root):
+def print_nmap_details(root):
     """
     Prints details for open services with vulnerabilities for each host.
     """
@@ -93,36 +91,34 @@ def print_nmod_details(root):
                 services = host.findall('.//port')
 
                 for service in services:
-                    script = service.find('script')
+                    scripts = service.findall('script')
                     service_element = service.find('service')
 
-                    if script is not None:
+                    for script in scripts:
                         port_id = service.get('portid')
                         port_protocol = service.get('protocol').upper()
                         state = service.find('state').get('state').capitalize()
                         product = service_element.get('product') if service_element is not None else 'N/A'
+                        service_name = service_element.get('name').upper() if service_element is not None else 'N/A'
 
                         script_id = script.get('id').capitalize()
                         script_output = script.get('output')
 
-                        script_output_formatted = re.sub(r'\s{2,}', '\n\t\t ', script_output.strip())
-                        service_name = service_element.get('name').upper() if service_element is not None else 'N/A'
+                        formatted_script_output = re.sub(r'&lt;br/&gt;', '\n', script_output.strip())
+                        formatted_script_output = re.sub(r'\s{2,}', ' ', formatted_script_output)
 
                         risk_classification = risk_level_from_name(script_id)
                         cvss_score = cvss_from_risk_level(risk_classification)
 
-                        recommendations = generate_recommendations_name(script_id)
-
                         print_service_vulnerability_details(
                             script_id, risk_classification, cvss_score, port_id, port_protocol,
-                            state, product, service_name, script_output_formatted, recommendations
+                            state, product, service_name, formatted_script_output
                         )
 
                 break
 
         else:
             print_no_services_found(host_address)
-
 
 def nmap_report(file_path, output_file):
     """

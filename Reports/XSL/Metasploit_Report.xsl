@@ -9,6 +9,7 @@
                 <style>
                     body { font-family: Arial, sans-serif; margin: 20px; font-size: 14px; }
                     h1 { color: #333; font-size: 20px; }
+                    h2 { margin-left: 5px; margin-top: 0; font-size: 16px; }
                     .host {
                     margin-bottom: 20px;
                     border: 1px solid #ddd;
@@ -29,7 +30,7 @@
                     padding-left: 8px;
                     margin-bottom: 8px;
                     }
-                    h2, p {
+                    p {
                     margin: 5px 0;
                     font-size: 14px;
                     }
@@ -59,12 +60,11 @@
             <p><strong>Vulnerability Name: </strong> <xsl:value-of select="name" /></p>
             <p><strong>Risk Level: </strong> <xsl:value-of select="risk" /></p>
             <p><strong>CVSS Score: </strong> <xsl:value-of select="cvss_score" /></p>
+            <p><strong>Vulnerability Details:</strong></p>
             <div class="details">
-                <p><strong>Vulnerability Details:</strong></p>
-                <p><xsl:value-of select="description" /></p>
-                <p><xsl:value-of select="result" /></p>
+                <p>• <xsl:value-of select="description" /></p>
+                <p>• <xsl:value-of select="result" /></p>
             </div>
-            <p><strong>Recommendations: </strong> <xsl:value-of select="recommendations" /></p>
         </div>
     </xsl:template>
 

@@ -1,6 +1,5 @@
 from auto_report_writing.data_processing.xml_loader import load_xml
 from auto_report_writing.report_generation.determine_classification import cvss_from_risk_level
-from auto_report_writing.report_generation.generate_recommendations import generate_recommendations_name
 from auto_report_writing.utils.message_utils import *
 
 from xml.etree.ElementTree import Element, SubElement, ElementTree
@@ -25,7 +24,6 @@ def generate_metasploit_report(root):
             result = exploit.find('result').text
             risk = exploit.find('risk').text
             cvss_score = cvss_from_risk_level(risk)
-            recommendations = generate_recommendations_name(name)
 
             exploit_element = SubElement(host_element, 'exploit', id=exploit_id)
             SubElement(exploit_element, 'name').text = name
@@ -33,7 +31,6 @@ def generate_metasploit_report(root):
             SubElement(exploit_element, 'cvss_score').text = f"{cvss_score}"
             SubElement(exploit_element, 'description').text = f"Description: {description}"
             SubElement(exploit_element, 'result').text = f"Result: {result}."
-            SubElement(exploit_element, 'recommendations').text = recommendations
 
     return ElementTree(report)
 
@@ -84,9 +81,8 @@ def print_exploit_details(root):
                     result = exploit.find('result').text
                     risk_classification = exploit.find('risk').text
                     cvss_score = cvss_from_risk_level(risk_classification)
-                    recommendations = generate_recommendations_name(name)
 
-                    print_vulnerability_details(name, risk_classification, cvss_score, description, result, recommendations)
+                    print_vulnerability_details(name, risk_classification, cvss_score, description, result)
 
                 break
 

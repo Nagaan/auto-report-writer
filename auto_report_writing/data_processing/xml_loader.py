@@ -1,5 +1,4 @@
 import xml.etree.ElementTree as EleTree
-from auto_report_writing.utils.message_utils import *
 
 
 def load_xml(file_path):
@@ -14,8 +13,8 @@ def load_xml(file_path):
         root = tree.getroot()
         return tree, root
     except EleTree.ParseError as e:
-        print_error_parsing_xml(e)
+        print(f"Error parsing XML: {e}")
         return None, None
     except FileNotFoundError:
-        print_file_not_found(file_path)
+        print(f"File not found: {file_path}")
         return None, None

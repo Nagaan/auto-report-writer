@@ -1,5 +1,4 @@
 from lxml import etree
-from auto_report_writing.utils.message_utils import *
 
 
 def xml_to_html(xml_file, xsl_file, output_html):
@@ -20,4 +19,4 @@ def xml_to_html(xml_file, xsl_file, output_html):
             f.write(etree.tostring(html_doc, pretty_print=True, encoding='UTF-8'))
 
     except Exception as e:
-        print_error_converting_xml_to_html(e)
+        print(f"Error converting XML to HTML: {e}")

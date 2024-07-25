@@ -5,28 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ee88f64-0ec1-47ec-9bcb-cb65576934c5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Reports/CSS/Common_Styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reports/HTML/Smod-1_Report.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reports/XML/Smod-1_Report.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reports/XSL/Smod-1_Report.xsl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reports/XSL/XSL_Template.xsl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auto_report_writing/report_generation/report_templates/smod1_report.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reports/HTML/Scapy_Report.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reports/XML/Scapy_Report.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reports/XSL/Scapy_Report.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auto_report_writing/data_processing/graph_generator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auto_report_writing/data_processing/import_directory.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auto_report_writing/report_generation/report_generator_prototype.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auto_report_writing/report_generation/report_templates/scapy_report.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Metasploit_Data.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Metasploit_Data.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notes/Design.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Notes/Design.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Reports/Combined_Report.html" beforeDir="false" afterPath="$PROJECT_DIR$/Reports/Combined_Report.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Reports/HTML/Metasploit_Report.html" beforeDir="false" afterPath="$PROJECT_DIR$/Reports/HTML/Metasploit_Report.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Reports/HTML/Nmap_Report.html" beforeDir="false" afterPath="$PROJECT_DIR$/Reports/HTML/Nmap_Report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reports/HTML/Smod-1_Report.html" beforeDir="false" afterPath="$PROJECT_DIR$/Reports/HTML/Smod-1_Report.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Reports/XML/Metasploit_Report.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Reports/XML/Metasploit_Report.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Reports/XML/Nmap_Report.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Reports/XML/Nmap_Report.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reports/XML/Smod-1_Report.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Reports/XML/Smod-1_Report.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Reports/XSL/Metasploit_Report.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/Reports/XSL/Metasploit_Report.xsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Reports/XSL/Nmap_Report.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/Reports/XSL/Nmap_Report.xsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reports/XSL/Smod-1_Report.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/Reports/XSL/Smod-1_Report.xsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reports/XSL/XSL_Template.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/Reports/XSL/XSL_Template.xsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auto-report-writer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/auto-report-writer.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auto_report_writing/data_processing/html_combiner.py" beforeDir="false" afterPath="$PROJECT_DIR$/auto_report_writing/data_processing/html_combiner.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auto_report_writing/data_processing/xml_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/auto_report_writing/data_processing/xml_loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auto_report_writing/data_processing/xml_to_html.py" beforeDir="false" afterPath="$PROJECT_DIR$/auto_report_writing/data_processing/xml_to_html.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auto_report_writing/report_generation/determine_classification.py" beforeDir="false" afterPath="$PROJECT_DIR$/auto_report_writing/report_generation/determine_classification.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auto_report_writing/report_generation/report_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/auto_report_writing/report_generation/report_generator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auto_report_writing/report_generation/report_templates/metasploit_report.py" beforeDir="false" afterPath="$PROJECT_DIR$/auto_report_writing/report_generation/report_templates/metasploit_report.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auto_report_writing/report_generation/report_templates/nmap_report.py" beforeDir="false" afterPath="$PROJECT_DIR$/auto_report_writing/report_generation/report_templates/nmap_report.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auto_report_writing/report_generation/report_templates/smod-1_report.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/auto_report_writing/report_generation/report_templates/smod1_report.py" beforeDir="false" afterPath="$PROJECT_DIR$/auto_report_writing/report_generation/report_templates/smod1_report.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auto_report_writing/utils/message_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/auto_report_writing/utils/message_utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,27 +65,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/c1333038/OneDrive - Cardiff University/Documents/Kali Linux/auto-report-writing&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/c1333038/OneDrive - Cardiff University/Documents/Kali Linux/auto-report-writing/auto-report-writer.iml",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "vcs.Git",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\c1333038\OneDrive - Cardiff University\Documents\Kali Linux\AutoReportWriting\auto_report_writing\report_generation\report_data" />
@@ -90,6 +100,74 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="DjangoTestsConfigurationType">
+      <module name="auto-report-writer" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="auto-report-writer" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="auto-report-writer" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <module name="auto-report-writer" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="auto-report-writer" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="xml_loader" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="AutoReportWriting" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -110,6 +188,46 @@
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Python.FlaskServer">
+      <module name="auto-report-writer" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <module name="auto-report-writer" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Autodetect">
+      <module name="auto-report-writer" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -148,7 +266,7 @@
       <workItem from="1721047832860" duration="31042000" />
       <workItem from="1721632730689" duration="49166000" />
       <workItem from="1721817367331" duration="36000" />
-      <workItem from="1721821850067" duration="772000" />
+      <workItem from="1721821850067" duration="27109000" />
     </task>
     <servers />
   </component>
@@ -170,9 +288,9 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/auto_report_writer$config_generator.coverage" NAME="config_generator Coverage Results" MODIFIED="1721849714392" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/auto_report_writing/configs" />
-    <SUITE FILE_PATH="coverage/AutoReportWriting$report_template.coverage" NAME="report_template Coverage Results" MODIFIED="1721048489858" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/auto_report_writing" />
-    <SUITE FILE_PATH="coverage/auto_report_writer$smod_1_report.coverage" NAME="smod-1_report Coverage Results" MODIFIED="1721850061607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/auto_report_writing/report_generation/report_templates" />
     <SUITE FILE_PATH="coverage/auto_report_writer$general_report.coverage" NAME="general_report Coverage Results" MODIFIED="1721829561482" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/auto_report_writing/report_generation/report_templates" />
+    <SUITE FILE_PATH="coverage/AutoReportWriting$report_template.coverage" NAME="report_template Coverage Results" MODIFIED="1721048489858" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/auto_report_writing" />
+    <SUITE FILE_PATH="coverage/auto_report_writer$config_generator.coverage" NAME="config_generator Coverage Results" MODIFIED="1721849714392" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/auto_report_writing/configs" />
+    <SUITE FILE_PATH="coverage/auto_report_writer$smod_1_report.coverage" NAME="smod-1_report Coverage Results" MODIFIED="1721850061607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/auto_report_writing/report_generation/report_templates" />
   </component>
 </project>

@@ -22,6 +22,18 @@
                     <result>Exploit successful: Meterpreter session opened</result>
                     <risk>Critical</risk>
                 </exploit>
+                <exploit id="4">
+                    <name>Heartbleed</name>
+                    <description>Information disclosure vulnerability in OpenSSL.</description>
+                    <result>Exploit successful: Sensitive information leaked</result>
+                    <risk>Medium</risk>
+                </exploit>
+                <exploit id="5">
+                    <name>Poodle</name>
+                    <description>Man-in-the-middle attack vulnerability in SSL 3.0.</description>
+                    <result>Exploit failed: Target not vulnerable</result>
+                    <risk>Low</risk>
+                </exploit>
             </exploits>
         </host>
         <host>
@@ -32,6 +44,35 @@
                     <description>Remote code execution vulnerability in Apache Struts 2.</description>
                     <result>Exploit successful: Command shell opened</result>
                     <risk>High</risk>
+                </exploit>
+                <exploit id="2">
+                    <name>BlueKeep</name>
+                    <description>Remote code execution vulnerability in Microsoft Windows RDP.</description>
+                    <result>Exploit successful: Remote access obtained</result>
+                    <risk>Critical</risk>
+                </exploit>
+                <exploit id="3">
+                    <name>Spectre</name>
+                    <description>Information disclosure vulnerability in CPUs.</description>
+                    <result>Exploit successful: Sensitive information leaked</result>
+                    <risk>Medium</risk>
+                </exploit>
+            </exploits>
+        </host>
+        <host>
+            <address>192.168.1.52</address>
+            <exploits>
+                <exploit id="1">
+                    <name>Meltdown</name>
+                    <description>Information disclosure vulnerability in CPUs.</description>
+                    <result>Exploit successful: Sensitive information leaked</result>
+                    <risk>Medium</risk>
+                </exploit>
+                <exploit id="2">
+                    <name>EternalBlue</name>
+                    <description>Remote code execution vulnerability in Microsoft Windows SMBv1.</description>
+                    <result>Exploit successful: Remote access obtained</result>
+                    <risk>Critical</risk>
                 </exploit>
             </exploits>
         </host>

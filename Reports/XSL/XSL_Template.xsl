@@ -70,7 +70,6 @@
                 <p><strong>Vulnerability Details:</strong></p>
                 <p><xsl:value-of select="details" /></p>
             </div>
-            <p><strong>Recommendations: </strong> <xsl:value-of select="recommendations" /></p>
         </div>
     </xsl:template>
 

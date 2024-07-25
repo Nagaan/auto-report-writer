@@ -14,7 +14,7 @@
   <script>
    document.addEventListener('DOMContentLoaded', function () {
             var ctx = document.getElementById('riskLevelPieChart').getContext('2d');
-            var riskLevelData = {"Critical": 2, "High": 7, "Medium": 0, "Low": 0, "Unknown": 2};
+            var riskLevelData = {"Critical": 4, "High": 2, "Medium": 3, "Low": 1, "Informational": 0};
             new Chart(ctx, {
                 type: 'pie',
                 data: {
@@ -24,17 +24,17 @@
                         data: Object.values(riskLevelData),
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',  // Critical
-                            'rgba(54, 162, 235, 0.2)',  // High
-                            'rgba(255, 206, 86, 0.2)',   // Medium
+                            'rgba(255, 155, 86, 0.2)',  // High
+                            'rgba(255, 230, 86, 0.2)',  // Medium
                             'rgba(75, 192, 192, 0.2)',   // Low
-                            'rgba(153, 102, 255, 0.2)'   // None
+                            'rgba(54, 162, 235, 0.2)'   // Informational
                         ],
                         borderColor: [
                             'rgba(255, 99, 132, 1)',  // Critical
-                            'rgba(54, 162, 235, 1)',  // High
-                            'rgba(255, 206, 86, 1)',   // Medium
+                            'rgba(255, 155, 86, 1)',  // High
+                            'rgba(255, 230, 86, 1)',  // Medium
                             'rgba(75, 192, 192, 1)',   // Low
-                            'rgba(153, 102, 255, 1)'   // None
+                            'rgba(54, 162, 235, 1)'   // Informational
                         ],
                         borderWidth: 1
                     }]
@@ -67,6 +67,7 @@
     <style>
      body { font-family: Arial, sans-serif; margin: 20px; font-size: 14px; }
                     h1 { color: #333; font-size: 20px; }
+                    h2 { margin-left: 5px; margin-top: 0; font-size: 16px; }
                     .host {
                     margin-bottom: 20px;
                     border: 1px solid #ddd;
@@ -87,7 +88,7 @@
                     padding-left: 8px;
                     margin-bottom: 8px;
                     }
-                    h2, p {
+                    p {
                     margin: 5px 0;
                     font-size: 14px;
                     }
@@ -123,25 +124,19 @@
        </strong>
        7.0 - 8.9 (estimated from risk level)
       </p>
-      <div class="details">
-       <p>
-        <strong>
-         Vulnerability Details:
-        </strong>
-       </p>
-       <p>
-        Description: Remote code execution in Microsoft Windows Server 2008.
-       </p>
-       <p>
-        Result: Exploit successful: Command shell opened.
-       </p>
-      </div>
       <p>
        <strong>
-        Recommendations:
+        Vulnerability Details:
        </strong>
-       Check the appropriate Microsoft Security Bulletin for recommendations: https://learn.microsoft.com/en-us/security-updates/securitybulletins/securitybulletins
       </p>
+      <div class="details">
+       <p>
+        • Description: Remote code execution in Microsoft Windows Server 2008.
+       </p>
+       <p>
+        • Result: Exploit successful: Command shell opened.
+       </p>
+      </div>
      </div>
      <div class="exploit">
       <p>
@@ -162,25 +157,19 @@
        </strong>
        9.0 - 10.0 (estimated from risk level)
       </p>
-      <div class="details">
-       <p>
-        <strong>
-         Vulnerability Details:
-        </strong>
-       </p>
-       <p>
-        Description: Remote code execution in Bash.
-       </p>
-       <p>
-        Result: Exploit successful: Remote access obtained.
-       </p>
-      </div>
       <p>
        <strong>
-        Recommendations:
+        Vulnerability Details:
        </strong>
-       No recommendations.
       </p>
+      <div class="details">
+       <p>
+        • Description: Remote code execution in Bash.
+       </p>
+       <p>
+        • Result: Exploit successful: Remote access obtained.
+       </p>
+      </div>
      </div>
      <div class="exploit">
       <p>
@@ -201,25 +190,85 @@
        </strong>
        9.0 - 10.0 (estimated from risk level)
       </p>
-      <div class="details">
-       <p>
-        <strong>
-         Vulnerability Details:
-        </strong>
-       </p>
-       <p>
-        Description: Remote code execution vulnerability in Microsoft Windows SMBv1.
-       </p>
-       <p>
-        Result: Exploit successful: Meterpreter session opened.
-       </p>
-      </div>
       <p>
        <strong>
-        Recommendations:
+        Vulnerability Details:
        </strong>
-       Check the appropriate Microsoft Security Bulletin for recommendations: https://learn.microsoft.com/en-us/security-updates/securitybulletins/securitybulletins
       </p>
+      <div class="details">
+       <p>
+        • Description: Remote code execution vulnerability in Microsoft Windows SMBv1.
+       </p>
+       <p>
+        • Result: Exploit successful: Meterpreter session opened.
+       </p>
+      </div>
+     </div>
+     <div class="exploit">
+      <p>
+       <strong>
+        Vulnerability Name:
+       </strong>
+       Heartbleed
+      </p>
+      <p>
+       <strong>
+        Risk Level:
+       </strong>
+       Medium
+      </p>
+      <p>
+       <strong>
+        CVSS Score:
+       </strong>
+       4.0 - 6.9 (estimated from risk level)
+      </p>
+      <p>
+       <strong>
+        Vulnerability Details:
+       </strong>
+      </p>
+      <div class="details">
+       <p>
+        • Description: Information disclosure vulnerability in OpenSSL.
+       </p>
+       <p>
+        • Result: Exploit successful: Sensitive information leaked.
+       </p>
+      </div>
+     </div>
+     <div class="exploit">
+      <p>
+       <strong>
+        Vulnerability Name:
+       </strong>
+       Poodle
+      </p>
+      <p>
+       <strong>
+        Risk Level:
+       </strong>
+       Low
+      </p>
+      <p>
+       <strong>
+        CVSS Score:
+       </strong>
+       0.1 - 3.9 (estimated from risk level)
+      </p>
+      <p>
+       <strong>
+        Vulnerability Details:
+       </strong>
+      </p>
+      <div class="details">
+       <p>
+        • Description: Man-in-the-middle attack vulnerability in SSL 3.0.
+       </p>
+       <p>
+        • Result: Exploit failed: Target not vulnerable.
+       </p>
+      </div>
      </div>
     </div>
     <div class="host">
@@ -245,648 +294,156 @@
        </strong>
        7.0 - 8.9 (estimated from risk level)
       </p>
+      <p>
+       <strong>
+        Vulnerability Details:
+       </strong>
+      </p>
       <div class="details">
        <p>
-        <strong>
-         Vulnerability Details:
-        </strong>
+        • Description: Remote code execution vulnerability in Apache Struts 2.
        </p>
        <p>
-        Description: Remote code execution vulnerability in Apache Struts 2.
-       </p>
-       <p>
-        Result: Exploit successful: Command shell opened.
-       </p>
-      </div>
-      <p>
-       <strong>
-        Recommendations:
-       </strong>
-       No recommendations.
-      </p>
-     </div>
-    </div>
-   </body>
-  </html>
-  <hr/>
-  <html>
-   <head>
-    <title>
-     Nmap Vulnerability Report
-    </title>
-    <style>
-     body { font-family: Arial, sans-serif; margin: 20px; font-size: 14px; }
-                    h1 { color: #333; font-size: 16px; }
-                    .host {
-                    margin-bottom: 20px;
-                    border: 1px solid #ddd;
-                    padding: 10px;
-                    border-left: 2px solid #000;
-                    border-right: 2px solid #000;
-                    background-color: #f9f9f9;
-                    }
-                    .service {
-                    margin: 0;
-                    border-top: 1px solid #ddd;
-                    padding: 8px;
-                    background-color: #fff;
-                    }
-                    .vulnerability {
-                    margin-left: 10px;
-                    border-left: 2px solid #000;
-                    padding-left: 8px;
-                    margin-bottom: 8px;
-                    }
-                    .details {
-                    margin-left: 10px;
-                    border-left: 2px solid #000;
-                    padding-left: 8px;
-                    margin-bottom: 8px;
-                    }
-                    h2, h3, p {
-                    margin: 5px 0;
-                    font-size: 14px;
-                    }
-                    strong {
-                    font-weight: bold;
-                    }
-    </style>
-   </head>
-   <body>
-    <h1>
-     Nmap Vulnerability Report
-    </h1>
-    <div class="host">
-     <h2>
-      Host: 192.168.1.10
-     </h2>
-     <div class="service">
-      <h3>
-       Service: Port 80 (TCP)
-      </h3>
-      <p>
-       <strong>
-        State:
-       </strong>
-       Open
-      </p>
-      <p>
-       <strong>
-        Product:
-       </strong>
-       Apache httpd 2.4.38
-      </p>
-      <p>
-       <strong>
-        Service Name:
-       </strong>
-       HTTP
-      </p>
-      <p>
-       <strong>
-        Vulnerabilities:
-       </strong>
-      </p>
-      <div class="vulnerability">
-       <p>
-        <strong>
-         Vulnerability Name:
-        </strong>
-        Clickjacking
-       </p>
-       <p>
-        <strong>
-         Risk Level:
-        </strong>
-        None (estimated from name)
-       </p>
-       <p>
-        <strong>
-         CVSS Score:
-        </strong>
-        0.0 (estimated from risk level)
-       </p>
-       <div class="details">
-        <p>
-         <strong>
-          Vulnerability Details:
-         </strong>
-        </p>
-        <p>
-         • Possible SQL injection vulnerability detected:
-         <br/>
-         • URI: /index.php?id=1'
-         <br/>
-         • Payload: id=1' OR '1'='1
-         <br/>
-         • Output: SQL error detected
-        </p>
-       </div>
-       <p>
-        <strong>
-         Recommendations:
-        </strong>
-        No recommendations.
+        • Result: Exploit successful: Command shell opened.
        </p>
       </div>
      </div>
-     <div class="service">
-      <h3>
-       Service: Port 3306 (TCP)
-      </h3>
-      <p>
-       <strong>
-        State:
-       </strong>
-       Open
-      </p>
-      <p>
-       <strong>
-        Product:
-       </strong>
-       MySQL 5.7.23
-      </p>
-      <p>
-       <strong>
-        Service Name:
-       </strong>
-       MYSQL
-      </p>
-      <p>
-       <strong>
-        Vulnerabilities:
-       </strong>
-      </p>
-      <div class="vulnerability">
-       <p>
-        <strong>
-         Vulnerability Name:
-        </strong>
-        Sql-injection
-       </p>
-       <p>
-        <strong>
-         Risk Level:
-        </strong>
-        High (estimated from name)
-       </p>
-       <p>
-        <strong>
-         CVSS Score:
-        </strong>
-        7.0 - 8.9 (estimated from risk level)
-       </p>
-       <div class="details">
-        <p>
-         <strong>
-          Vulnerability Details:
-         </strong>
-        </p>
-        <p>
-         • Possible SQL injection vulnerability detected:
-         <br/>
-         • URI: /login.php
-         <br/>
-         • Payload: username=admin' OR '1'='1 --
-         <br/>
-         • Output: Login successful
-        </p>
-       </div>
-       <p>
-        <strong>
-         Recommendations:
-        </strong>
-        [Generalised Recommendations for Sql-injection] To effectively address SQL injection vulnerabilities, employ the following strategies: Use prepared statements and parameterized queries to separate SQL code from data, ensuring malicious input cannot alter queries. Implement stored procedures, which encapsulate SQL logic within the database to minimize exposure to injection. Validate and sanitize all user inputs to adhere to expected formats, thereby rejecting potentially harmful data. Utilize ORM (Object-Relational Mapping) libraries to abstract SQL operations, reducing direct interaction with raw SQL. Restrict database user privileges to the minimum necessary for application functionality. Properly handle errors by avoiding the exposure of detailed SQL error messages to users; instead, log them securely. Regularly conduct security testing to identify and address vulnerabilities, and consider using web application firewalls (WAFs) to filter out malicious SQL attempts. Finally, keep all systems and libraries up to date with the latest security patches and updates to mitigate emerging threats.
-       </p>
-      </div>
-     </div>
-    </div>
-    <div class="host">
-     <h2>
-      Host: 192.168.1.20
-     </h2>
-     <div class="service">
-      <h3>
-       Service: Port 80 (TCP)
-      </h3>
-      <p>
-       <strong>
-        State:
-       </strong>
-       Open
-      </p>
-      <p>
-       <strong>
-        Product:
-       </strong>
-       Apache httpd 2.4.38
-      </p>
-      <p>
-       <strong>
-        Service Name:
-       </strong>
-       HTTP
-      </p>
-      <p>
-       <strong>
-        Vulnerabilities:
-       </strong>
-      </p>
-      <div class="vulnerability">
-       <p>
-        <strong>
-         Vulnerability Name:
-        </strong>
-        Sql-injection
-       </p>
-       <p>
-        <strong>
-         Risk Level:
-        </strong>
-        High (estimated from name)
-       </p>
-       <p>
-        <strong>
-         CVSS Score:
-        </strong>
-        7.0 - 8.9 (estimated from risk level)
-       </p>
-       <div class="details">
-        <p>
-         <strong>
-          Vulnerability Details:
-         </strong>
-        </p>
-        <p>
-         • Possible SQL injection vulnerability detected:
-         <br/>
-         • URI: /view_data.php?record=5
-         <br/>
-         • Payload: record=5' AND 1=1 --
-         <br/>
-         • Output: SQL error detected
-        </p>
-       </div>
-       <p>
-        <strong>
-         Recommendations:
-        </strong>
-        [Generalised Recommendations for Sql-injection] To effectively address SQL injection vulnerabilities, employ the following strategies: Use prepared statements and parameterized queries to separate SQL code from data, ensuring malicious input cannot alter queries. Implement stored procedures, which encapsulate SQL logic within the database to minimize exposure to injection. Validate and sanitize all user inputs to adhere to expected formats, thereby rejecting potentially harmful data. Utilize ORM (Object-Relational Mapping) libraries to abstract SQL operations, reducing direct interaction with raw SQL. Restrict database user privileges to the minimum necessary for application functionality. Properly handle errors by avoiding the exposure of detailed SQL error messages to users; instead, log them securely. Regularly conduct security testing to identify and address vulnerabilities, and consider using web application firewalls (WAFs) to filter out malicious SQL attempts. Finally, keep all systems and libraries up to date with the latest security patches and updates to mitigate emerging threats.
-       </p>
-      </div>
-     </div>
-     <div class="service">
-      <h3>
-       Service: Port 3306 (TCP)
-      </h3>
-      <p>
-       <strong>
-        State:
-       </strong>
-       Open
-      </p>
-      <p>
-       <strong>
-        Product:
-       </strong>
-       MySQL 5.7.23
-      </p>
-      <p>
-       <strong>
-        Service Name:
-       </strong>
-       MYSQL
-      </p>
-      <p>
-       <strong>
-        Vulnerabilities:
-       </strong>
-      </p>
-      <div class="vulnerability">
-       <p>
-        <strong>
-         Vulnerability Name:
-        </strong>
-        Sql-injection
-       </p>
-       <p>
-        <strong>
-         Risk Level:
-        </strong>
-        High (estimated from name)
-       </p>
-       <p>
-        <strong>
-         CVSS Score:
-        </strong>
-        7.0 - 8.9 (estimated from risk level)
-       </p>
-       <div class="details">
-        <p>
-         <strong>
-          Vulnerability Details:
-         </strong>
-        </p>
-        <p>
-         • Possible SQL injection vulnerability detected:
-         <br/>
-         • URI: /data.php?id=3
-         <br/>
-         • Payload: id=3' UNION SELECT NULL, NULL, NULL --
-         <br/>
-         • Output: SQL error detected
-        </p>
-       </div>
-       <p>
-        <strong>
-         Recommendations:
-        </strong>
-        [Generalised Recommendations for Sql-injection] To effectively address SQL injection vulnerabilities, employ the following strategies: Use prepared statements and parameterized queries to separate SQL code from data, ensuring malicious input cannot alter queries. Implement stored procedures, which encapsulate SQL logic within the database to minimize exposure to injection. Validate and sanitize all user inputs to adhere to expected formats, thereby rejecting potentially harmful data. Utilize ORM (Object-Relational Mapping) libraries to abstract SQL operations, reducing direct interaction with raw SQL. Restrict database user privileges to the minimum necessary for application functionality. Properly handle errors by avoiding the exposure of detailed SQL error messages to users; instead, log them securely. Regularly conduct security testing to identify and address vulnerabilities, and consider using web application firewalls (WAFs) to filter out malicious SQL attempts. Finally, keep all systems and libraries up to date with the latest security patches and updates to mitigate emerging threats.
-       </p>
-      </div>
-     </div>
-    </div>
-    <div class="host">
-     <h2>
-      Host: 192.168.1.30
-     </h2>
-     <div class="service">
-      <h3>
-       Service: Port 80 (TCP)
-      </h3>
-      <p>
-       <strong>
-        State:
-       </strong>
-       Open
-      </p>
-      <p>
-       <strong>
-        Product:
-       </strong>
-       Apache httpd 2.4.38
-      </p>
-      <p>
-       <strong>
-        Service Name:
-       </strong>
-       HTTP
-      </p>
-      <p>
-       <strong>
-        Vulnerabilities:
-       </strong>
-      </p>
-      <div class="vulnerability">
-       <p>
-        <strong>
-         Vulnerability Name:
-        </strong>
-        Sql-injection
-       </p>
-       <p>
-        <strong>
-         Risk Level:
-        </strong>
-        High (estimated from name)
-       </p>
-       <p>
-        <strong>
-         CVSS Score:
-        </strong>
-        7.0 - 8.9 (estimated from risk level)
-       </p>
-       <div class="details">
-        <p>
-         <strong>
-          Vulnerability Details:
-         </strong>
-        </p>
-        <p>
-         • Possible SQL injection vulnerability detected:
-         <br/>
-         • URI: /submit.php
-         <br/>
-         • Payload: data=xyz' OR '1'='1
-         <br/>
-         • Output: SQL error detected
-        </p>
-       </div>
-       <p>
-        <strong>
-         Recommendations:
-        </strong>
-        [Generalised Recommendations for Sql-injection] To effectively address SQL injection vulnerabilities, employ the following strategies: Use prepared statements and parameterized queries to separate SQL code from data, ensuring malicious input cannot alter queries. Implement stored procedures, which encapsulate SQL logic within the database to minimize exposure to injection. Validate and sanitize all user inputs to adhere to expected formats, thereby rejecting potentially harmful data. Utilize ORM (Object-Relational Mapping) libraries to abstract SQL operations, reducing direct interaction with raw SQL. Restrict database user privileges to the minimum necessary for application functionality. Properly handle errors by avoiding the exposure of detailed SQL error messages to users; instead, log them securely. Regularly conduct security testing to identify and address vulnerabilities, and consider using web application firewalls (WAFs) to filter out malicious SQL attempts. Finally, keep all systems and libraries up to date with the latest security patches and updates to mitigate emerging threats.
-       </p>
-      </div>
-     </div>
-     <div class="service">
-      <h3>
-       Service: Port 3306 (TCP)
-      </h3>
-      <p>
-       <strong>
-        State:
-       </strong>
-       Open
-      </p>
-      <p>
-       <strong>
-        Product:
-       </strong>
-       MySQL 5.7.23
-      </p>
-      <p>
-       <strong>
-        Service Name:
-       </strong>
-       MYSQL
-      </p>
-      <p>
-       <strong>
-        Vulnerabilities:
-       </strong>
-      </p>
-      <div class="vulnerability">
-       <p>
-        <strong>
-         Vulnerability Name:
-        </strong>
-        Sql-injection
-       </p>
-       <p>
-        <strong>
-         Risk Level:
-        </strong>
-        High (estimated from name)
-       </p>
-       <p>
-        <strong>
-         CVSS Score:
-        </strong>
-        7.0 - 8.9 (estimated from risk level)
-       </p>
-       <div class="details">
-        <p>
-         <strong>
-          Vulnerability Details:
-         </strong>
-        </p>
-        <p>
-         • Possible SQL injection vulnerability detected:
-         <br/>
-         • URI: /info.php?item=7
-         <br/>
-         • Payload: item=7' AND 1=2 --
-         <br/>
-         • Output: SQL error detected
-        </p>
-       </div>
-       <p>
-        <strong>
-         Recommendations:
-        </strong>
-        [Generalised Recommendations for Sql-injection] To effectively address SQL injection vulnerabilities, employ the following strategies: Use prepared statements and parameterized queries to separate SQL code from data, ensuring malicious input cannot alter queries. Implement stored procedures, which encapsulate SQL logic within the database to minimize exposure to injection. Validate and sanitize all user inputs to adhere to expected formats, thereby rejecting potentially harmful data. Utilize ORM (Object-Relational Mapping) libraries to abstract SQL operations, reducing direct interaction with raw SQL. Restrict database user privileges to the minimum necessary for application functionality. Properly handle errors by avoiding the exposure of detailed SQL error messages to users; instead, log them securely. Regularly conduct security testing to identify and address vulnerabilities, and consider using web application firewalls (WAFs) to filter out malicious SQL attempts. Finally, keep all systems and libraries up to date with the latest security patches and updates to mitigate emerging threats.
-       </p>
-      </div>
-     </div>
-    </div>
-   </body>
-  </html>
-  <hr/>
-  <html>
-   <head>
-    <title>
-     Smod-1 Report
-    </title>
-    <style>
-     body { font-family: Arial, sans-serif; margin: 20px; font-size: 14px; }
-                    h1 { color: #333; font-size: 20px; }
-                    .host {
-                    margin-bottom: 20px;
-                    border: 1px solid #ddd;
-                    padding: 10px;
-                    border-left: 2px solid #000;
-                    border-right: 2px solid #000;
-                    background-color: #f9f9f9;
-                    }
-                    .attempt {
-                    margin: 0;
-                    border-top: 1px solid #ddd;
-                    padding: 8px;
-                    background-color: #fff;
-                    }
-                    .details {
-                    margin-left: 10px;
-                    border-left: 2px solid #000;
-                    padding-left: 8px;
-                    margin-bottom: 8px;
-                    }
-                    h2, p {
-                    margin: 5px 0;
-                    font-size: 14px;
-                    }
-                    strong {
-                    font-weight: bold;
-                    }
-    </style>
-   </head>
-   <body>
-    <h1>
-     Smod-1 Report
-    </h1>
-    <div class="host">
-     <p>
-      <strong>
-       Host:
-      </strong>
-      192.168.1.80
-     </p>
-     <div class="attempt">
+     <div class="exploit">
       <p>
        <strong>
         Vulnerability Name:
        </strong>
-       Unauthorized Access
+       BlueKeep
       </p>
       <p>
        <strong>
         Risk Level:
        </strong>
-       Unknown (estimated from name)
+       Critical
       </p>
       <p>
        <strong>
         CVSS Score:
        </strong>
-       0.0 (estimated from risk level)
+       9.0 - 10.0 (estimated from risk level)
+      </p>
+      <p>
+       <strong>
+        Vulnerability Details:
+       </strong>
       </p>
       <div class="details">
        <p>
-        <strong>
-         Vulnerability Details:
-        </strong>
+        • Description: Remote code execution vulnerability in Microsoft Windows RDP.
        </p>
        <p>
-        Successfully gained access to the PLC and modified configuration settings.
-       </p>
-       <p>
-        Timestamp: 2024-07-15T13:00:00
+        • Result: Exploit successful: Remote access obtained.
        </p>
       </div>
-      <p>
-       <strong>
-        Recommendations:
-       </strong>
-       No recommendations.
-      </p>
      </div>
-    </div>
-    <div class="host">
-     <p>
-      <strong>
-       Host:
-      </strong>
-      192.168.1.100
-     </p>
-     <div class="attempt">
+     <div class="exploit">
       <p>
        <strong>
         Vulnerability Name:
        </strong>
-       Denial of Service
+       Spectre
       </p>
       <p>
        <strong>
         Risk Level:
        </strong>
-       Unknown (estimated from name)
+       Medium
       </p>
       <p>
        <strong>
         CVSS Score:
        </strong>
-       0.0 (estimated from risk level)
+       4.0 - 6.9 (estimated from risk level)
+      </p>
+      <p>
+       <strong>
+        Vulnerability Details:
+       </strong>
       </p>
       <div class="details">
        <p>
-        <strong>
-         Vulnerability Details:
-        </strong>
+        • Description: Information disclosure vulnerability in CPUs.
        </p>
        <p>
-        Successfully launched DoS attack causing PLC to crash.
-       </p>
-       <p>
-        Timestamp: 2024-07-15T14:00:00
+        • Result: Exploit successful: Sensitive information leaked.
        </p>
       </div>
+     </div>
+    </div>
+    <div class="host">
+     <h2>
+      Host: 192.168.1.52
+     </h2>
+     <div class="exploit">
       <p>
        <strong>
-        Recommendations:
+        Vulnerability Name:
        </strong>
-       No recommendations.
+       Meltdown
       </p>
+      <p>
+       <strong>
+        Risk Level:
+       </strong>
+       Medium
+      </p>
+      <p>
+       <strong>
+        CVSS Score:
+       </strong>
+       4.0 - 6.9 (estimated from risk level)
+      </p>
+      <p>
+       <strong>
+        Vulnerability Details:
+       </strong>
+      </p>
+      <div class="details">
+       <p>
+        • Description: Information disclosure vulnerability in CPUs.
+       </p>
+       <p>
+        • Result: Exploit successful: Sensitive information leaked.
+       </p>
+      </div>
+     </div>
+     <div class="exploit">
+      <p>
+       <strong>
+        Vulnerability Name:
+       </strong>
+       EternalBlue
+      </p>
+      <p>
+       <strong>
+        Risk Level:
+       </strong>
+       Critical
+      </p>
+      <p>
+       <strong>
+        CVSS Score:
+       </strong>
+       9.0 - 10.0 (estimated from risk level)
+      </p>
+      <p>
+       <strong>
+        Vulnerability Details:
+       </strong>
+      </p>
+      <div class="details">
+       <p>
+        • Description: Remote code execution vulnerability in Microsoft Windows SMBv1.
+       </p>
+       <p>
+        • Result: Exploit successful: Remote access obtained.
+       </p>
+      </div>
      </div>
     </div>
    </body>

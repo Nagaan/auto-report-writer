@@ -9,6 +9,7 @@
                 <style>
                     body { font-family: Arial, sans-serif; margin: 20px; font-size: 14px; }
                     h1 { color: #333; font-size: 16px; }
+                    h2 { margin-left: 5px; margin-top: 0; font-size: 16px; }
                     .host {
                     margin-bottom: 20px;
                     border: 1px solid #ddd;
@@ -35,7 +36,7 @@
                     padding-left: 8px;
                     margin-bottom: 8px;
                     }
-                    h2, h3, p {
+                    p {
                     margin: 5px 0;
                     font-size: 14px;
                     }
@@ -62,26 +63,25 @@
     <!-- Template to match each service -->
     <xsl:template match="service">
         <div class="service">
-            <h3>Service: Port <xsl:value-of select="@portid"/> (<xsl:value-of select="@protocol"/>)</h3>
+            <p><strong>Service: </strong> Port <xsl:value-of select="@portid"/> (<xsl:value-of select="@protocol"/>)</p>
             <p><strong>State: </strong> <xsl:value-of select="state" /></p>
             <p><strong>Product: </strong> <xsl:value-of select="product" /></p>
             <p><strong>Service Name: </strong> <xsl:value-of select="name" /></p>
-            <p><strong>Vulnerabilities:</strong></p>
             <xsl:apply-templates select="vulnerability" />
         </div>
     </xsl:template>
 
     <!-- Template to match each vulnerability -->
     <xsl:template match="vulnerability">
-        <div class="vulnerability">
+        <div class="service">
             <p><strong>Vulnerability Name: </strong> <xsl:value-of select="@id" /></p>
             <p><strong>Risk Level: </strong> <xsl:value-of select="risk_level" /></p>
             <p><strong>CVSS Score: </strong> <xsl:value-of select="cvss_score" /></p>
+            <p><strong>Vulnerability Details:</strong></p>
             <div class="details">
-                <p><strong>Vulnerability Details:</strong></p>
-                <xsl:apply-templates select="preceding-sibling::vulnerabilities[1]" />
+                <xsl:apply-templates select="service" />
+                <xsl:apply-templates select="parent::service/vulnerabilities" />
             </div>
-            <p><strong>Recommendations: </strong> <xsl:value-of select="recommendations" /></p>
         </div>
     </xsl:template>
 

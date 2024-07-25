@@ -1,6 +1,5 @@
 from auto_report_writing.data_processing.xml_loader import load_xml
 from auto_report_writing.report_generation.determine_classification import cvss_from_risk_level, risk_level_from_name
-from auto_report_writing.report_generation.generate_recommendations import generate_recommendations_name
 from auto_report_writing.utils.message_utils import *
 
 from xml.etree.ElementTree import Element, SubElement, ElementTree
@@ -24,7 +23,6 @@ def generate_smod1_report(root):
             # Generate Risk Level and CVSS Score using functions
             risk_level = risk_level_from_name(vulnerability_name)  # Replace with your actual function
             cvss_score = cvss_from_risk_level(risk_level)
-            recommendations = generate_recommendations_name(vulnerability_name)
 
             attempt_element = SubElement(report, 'attempt', id=attempt.get('id'))
             SubElement(attempt_element, 'target').text = target
@@ -41,9 +39,6 @@ def generate_smod1_report(root):
             commands_element = SubElement(attempt_element, 'commands')
             for command in commands:
                 SubElement(commands_element, 'command').text = command.text
-
-            # Adding recommendations
-            SubElement(attempt_element, 'recommendations').text = recommendations
 
     return ElementTree(report)
 
@@ -73,7 +68,6 @@ def print_exploit_details_smod1(root):
 
             risk_level = risk_level_from_name(vulnerability_name)  # Replace with your actual function
             cvss_score = cvss_from_risk_level(risk_level)
-            recommendations = generate_recommendations_name(vulnerability_name)
 
             print(f"Host: {target}")
             print(f"Vulnerability Name: {vulnerability_name}")
@@ -82,7 +76,6 @@ def print_exploit_details_smod1(root):
             print(f"Details: {details}")
             print(f"Timestamp: {timestamp}")
             print(f"Commands: {', '.join(commands)}")
-            print(f"Recommendations: {recommendations}")
             print("")
 
 

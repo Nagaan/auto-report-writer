@@ -1,14 +1,43 @@
 Design a standardised report template that captures essential information:
 
-    Vulnerability Details
-        Classification
-            Critical/High/Medium/Low/Informational
-        Vulnerability Name
-            CVSS Score
-            CVSS Vector
-            Vulnerability Description
-            Recommendations
-            Vulnerable Instances
+    Project Summary
+        Overall Risk Rating
+            Having considered the potential outcomes and the risk levels
+            assessed for each documented testing activity, the automated
+            report generator has considered the overall risk exposure
+            regarding malicious actors' attempts to breach and/or control
+            resources within their information environment to be {average
+            risk level here}, as determined based on the data provided as
+            well as the average CVSS score of {average cvss score here}.
+
+        RISK LEVEL COUNT PIE CHART HERE
+
+        Recommendations
+            Based on the results achieved during the penetration tests,
+            the automated report generator makes the following
+            recommendations (presented in order of priority):
+
+            • Patch {highest level vulnerability} vulnerabilities:
+                - [List all {Vulnerability Names} with Risk Level: "{highest
+                  level vulnerability}"]
+            • Run automated penetration testing tool on a {weekly,
+                fortnightly, monthly, or quarterly basis depending on the
+                {Risk Level}}.
+
+    Scope
+        The following penetration testing tools were used in the
+        automated penetration tests, and their results were used by the
+        automated report generator to generate an approximate risk rating,
+        CVSS score, and recommendations:
+        • [List all pen testing reports involved in the document.]
+
+    {Pen Testing Tool Name} Report
+        Host: [IP that is being tested on]
+            Vulnerability Name: [Name of the vulnerability/exploit]
+                Risk Level: [If not already in the report to extract, generated based on name]
+                CVSS Score: [If not already in the report to extract, generated based on risk level]
+                Vulnerability Details: [All other elements of the vulnerability/exploit and their details/information listed below]
+                    • {Element Name}: [Information extracted from related element name]
 
 Define a structured format for presenting the report:
 

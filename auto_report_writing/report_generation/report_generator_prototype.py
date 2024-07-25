@@ -46,25 +46,18 @@ def create_output_dir(path):
 
 def load_report_functions_from_dir(directory):
     """
-    Load and register report functions from the specified directory.
+    Dynamically load report functions from modules in the specified directory.
     """
-    report_functions = {}
     modules = import_directory(directory)
+    report_functions = {}
 
     for module_name, module in modules.items():
-        # Print available functions for debugging
-        functions = {name: obj for name, obj in module.__dict__.items() if callable(obj)}
-        print(f"Contents of module {module_name}: {list(functions.keys())}")
-
-        # Determine the function name to use
-        report_func_name = f"{module_name}"  # Matches the exact name in modules
-        report_func = functions.get(report_func_name)
-
+        # Assume the report function is named `{module_name}_report` in each module
+        report_func = getattr(module, f"{module_name}_report", None)
         if report_func:
-            report_functions[report_func_name] = report_func
-            print(f"Loaded report function: {report_func_name} from module {module_name}")
+            report_functions[module_name] = report_func
         else:
-            print(f"No report function named {report_func_name} found in module {module_name}")
+            print(f"No report function found in module {module_name}")
 
     return report_functions
 
@@ -80,13 +73,11 @@ def generate_file_names(report_type):
         'html_file': f"{base_name}.html"
     }
 
-
 def process_report(report_type, file_path, xml_dir, xsl_dir, html_dir, report_functions):
     """
     Process a report by generating XML and HTML files based on the report type.
     """
-    report_func_name = f"{report_type}_report"  # Adjusted to match function names in modules
-    report_func = report_functions.get(report_func_name)
+    report_func = report_functions.get(report_type)
 
     if report_func is None:
         raise ValueError(f"Unknown report type: {report_type}")
@@ -107,7 +98,6 @@ def process_report(report_type, file_path, xml_dir, xsl_dir, html_dir, report_fu
         return output_html
     else:
         raise FileNotFoundError(f"Generated XML file not found: {output_xml}")
-
 
 def main():
     file_paths = get_file_paths("Select one or more XML files")
@@ -130,7 +120,6 @@ def main():
             _, root = load_xml(file_path)
             if root is not None:
                 report_type = root.tag
-                print(f"Detected report type: {report_type}")  # Debug print statement
                 try:
                     html_file = process_report(report_type, file_path, xml_dir, xsl_dir, html_dir, report_functions)
                     html_files.append(html_file)
