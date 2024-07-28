@@ -10,7 +10,6 @@ from auto_report_writing.data_processing.html_combiner import html_combiner
 from auto_report_writing.data_processing.graph_generator import generate_graph_from_html
 from auto_report_writing.data_processing.xml_to_html import xml_to_html
 from auto_report_writing.data_processing.xml_loader import load_xml
-from auto_report_writing.utils.message_utils import *
 from auto_report_writing.data_processing.import_directory import import_directory
 
 
@@ -67,15 +66,15 @@ def process_report(report_type, file_path, xml_dir, xsl_dir, html_dir, report_cl
             input_xsl = os.path.join(xsl_dir, file_names['xsl_file'])
             output_html = os.path.join(html_dir, file_names['html_file'])
 
-            print_generating_report(closest_match, file_path)
+            print(f"Generating {closest_match} report from {file_path}...")
             try:
                 report_instance = report_class(file_path, output_xml)
                 report_instance.run()
 
                 if os.path.exists(output_xml):
                     xml_to_html(output_xml, input_xsl, output_html)
-                    print_xml_report_generated(output_xml)
-                    print_html_report_generated(output_html)
+                    print(f"XML report generated and saved as '{output_xml}'.")
+                    print(f"HTML report generated and saved as '{output_html}'.")
                     return output_html
                 else:
                     raise FileNotFoundError(f"Generated XML file not found: {output_xml}")
@@ -125,18 +124,18 @@ def main():
             combined_html = './reports/combined_report.html'
             try:
                 html_combiner(html_files, combined_html)
-                print_combined_report_generated(combined_html)
+                print(f"Combined HTML report generated and saved as '{combined_html}'.")
                 try:
                     generate_graph_from_html(combined_html)
                 except Exception as e:
-                    print_error_generating_graph(e)
+                    print(f"Error generating graph: {e}")
             except Exception as e:
-                print_error_combining_html(e)
+                print(f"Error combining HTML reports: {e}")
         else:
-            print_no_reports_generated()
+            print("No valid report types found. No reports were generated.")
             messagebox.showinfo("No Reports Generated", "No valid reports found. No combined report was generated.")
     else:
-        print_no_files_selected()
+        print("No files selected. No reports will be generated.")
         messagebox.showinfo("No Files Selected", "No files selected. No reports will be generated.")
 
 
