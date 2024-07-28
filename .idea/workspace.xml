@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ee88f64-0ec1-47ec-9bcb-cb65576934c5" name="Changes" comment="Updating comments and docrstrings.">
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="6ee88f64-0ec1-47ec-9bcb-cb65576934c5" name="Changes" comment="Adding requirements.txt and README.md. Adjusted .gitignore file as well.">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -157,7 +156,7 @@
       <workItem from="1721980315106" duration="5190000" />
       <workItem from="1722095321837" duration="3147000" />
       <workItem from="1722121528905" duration="595000" />
-      <workItem from="1722158870536" duration="21146000" />
+      <workItem from="1722158870536" duration="21592000" />
     </task>
     <task id="LOCAL-00001" summary="Implementing classes for report templates.">
       <option name="closed" value="true" />
@@ -191,7 +190,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722201232721</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Adding requirements.txt and README.md. Adjusted .gitignore file as well.">
+      <option name="closed" value="true" />
+      <created>1722202084248</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1722202084248</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,7 +221,8 @@
     <MESSAGE value="Removing obsolete files." />
     <MESSAGE value="Removing utils directory and contents." />
     <MESSAGE value="Updating comments and docrstrings." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updating comments and docrstrings." />
+    <MESSAGE value="Adding requirements.txt and README.md. Adjusted .gitignore file as well." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding requirements.txt and README.md. Adjusted .gitignore file as well." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/auto_report_writer$vulnerability_report.coverage" NAME="vulnerability_report Coverage Results" MODIFIED="1722163640918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/auto_report_writing/temp" />
