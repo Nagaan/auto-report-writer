@@ -1,14 +1,26 @@
 import json
 from bs4 import BeautifulSoup
 from collections import Counter
+import os
 
 
 def extract_risk_levels_from_html(html_file):
     """
     Extracts and counts the occurrences of risk levels from the combined HTML file.
+
+    :param html_file: (str) Path to the HTML file.
+    :return: (dict) A dictionary with risk levels as keys and their counts as values.
     """
-    with open(html_file, 'r', encoding='utf-8') as f:
-        soup = BeautifulSoup(f, 'html.parser')
+    if not os.path.isfile(html_file):
+        print(f"Error: The file {html_file} does not exist.")
+        return {level: 0 for level in ['Critical', 'High', 'Medium', 'Low', 'Informational']}
+
+    try:
+        with open(html_file, 'r', encoding='utf-8') as f:
+            soup = BeautifulSoup(f, 'html.parser')
+    except Exception as e:
+        print(f"Error reading HTML file {html_file}: {e}")
+        return {level: 0 for level in ['Critical', 'High', 'Medium', 'Low', 'Informational']}
 
     risk_levels = ['Critical', 'High', 'Medium', 'Low', 'Informational']
     risk_count = Counter()
@@ -30,81 +42,54 @@ def extract_risk_levels_from_html(html_file):
 def append_graph_to_html(html_file, risk_data):
     """
     Appends a pie chart to the top of the HTML file based on the risk data.
+
+    :param html_file: (str) Path to the HTML file.
+    :param risk_data: (dict) A dictionary with risk levels and their counts.
     """
     json_data = json.dumps(risk_data)
 
-    graph_html = f"""
-    <div style="width: 50%; margin: auto;">
-        <canvas id="riskLevelPieChart" width="400" height="400"></canvas>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {{
-            var ctx = document.getElementById('riskLevelPieChart').getContext('2d');
-            var riskLevelData = {json_data};
-            new Chart(ctx, {{
-                type: 'pie',
-                data: {{
-                    labels: Object.keys(riskLevelData),
-                    datasets: [{{
-                        label: 'Proportion of Vulnerabilities',
-                        data: Object.values(riskLevelData),
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',  // Critical
-                            'rgba(255, 155, 86, 0.2)',  // High
-                            'rgba(255, 230, 86, 0.2)',  // Medium
-                            'rgba(75, 192, 192, 0.2)',   // Low
-                            'rgba(54, 162, 235, 0.2)'   // Informational
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',  // Critical
-                            'rgba(255, 155, 86, 1)',  // High
-                            'rgba(255, 230, 86, 1)',  // Medium
-                            'rgba(75, 192, 192, 1)',   // Low
-                            'rgba(54, 162, 235, 1)'   // Informational
-                        ],
-                        borderWidth: 1
-                    }}]
-                }},
-                options: {{
-                    responsive: true,
-                    plugins: {{
-                        legend: {{
-                            position: 'top',
-                        }},
-                        tooltip: {{
-                            callbacks: {{
-                                label: function(tooltipItem) {{
-                                    var label = tooltipItem.label;
-                                    var value = tooltipItem.raw;
-                                    return label + ': ' + value;
-                                }}
-                            }}
-                        }}
-                    }}
-                }}
-            }});
-        }});
-    </script>
-    """
+    template_path = 'auto_report_writing/data_processing/resources/graph_template.html'
+    if not os.path.isfile(template_path):
+        print(f"Error: The template file {template_path} does not exist.")
+        return
 
-    with open(html_file, 'r+', encoding='utf-8') as f:
-        soup = BeautifulSoup(f, 'html.parser')
-        body = soup.find('body')
+    try:
+        # Read the template file
+        with open(template_path, 'r', encoding='utf-8') as template_file:
+            graph_html = template_file.read().replace('{json_data}', json_data)
 
-        if body:
-            # Insert the graph HTML at the beginning of the body
-            body.insert(0, BeautifulSoup(graph_html, 'html.parser'))
+    except Exception as e:
+        print(f"Error reading template file {template_path}: {e}")
+        return
 
-        # Write the modified HTML back to the file
-        f.seek(0)
-        f.write(str(soup.prettify()))
-        f.truncate()
+    if not os.path.isfile(html_file):
+        print(f"Error: The file {html_file} does not exist.")
+        return
+
+    try:
+        with open(html_file, 'r+', encoding='utf-8') as f:
+            soup = BeautifulSoup(f, 'html.parser')
+            body = soup.find('body')
+
+            if body:
+                # Insert the graph HTML at the beginning of the body
+                body.insert(0, BeautifulSoup(graph_html, 'html.parser'))
+
+            # Write the modified HTML back to the file
+            f.seek(0)
+            f.write(str(soup.prettify()))
+            f.truncate()
+
+    except Exception as e:
+        print(f"Error updating HTML file {html_file}: {e}")
 
 
 def generate_graph_from_html(html_file):
     """
-    Extract risk data from the HTML file and append a pie chart to it.
+    Extracts risk data from the HTML file and appends a pie chart to it.
+
+    :param html_file: (str) Path to the HTML file.
     """
     risk_data = extract_risk_levels_from_html(html_file)
-    append_graph_to_html(html_file, risk_data)
+    if risk_data:  # Only append graph if risk_data was successfully extracted
+        append_graph_to_html(html_file, risk_data)

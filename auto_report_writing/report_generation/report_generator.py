@@ -1,10 +1,7 @@
 import os
-import sys
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from fuzzywuzzy import process
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 from auto_report_writing.data_processing.html_combiner import html_combiner
 from auto_report_writing.data_processing.graph_generator import generate_graph_from_html
@@ -45,7 +42,7 @@ def load_report_classes_from_dir(directory):
 
 
 def generate_file_names(report_type):
-    base_name = f"{report_type}_report"
+    base_name = f"{report_type.lower()}_report"
     return {
         'xml_file': f"{base_name}.xml",
         'xsl_file': f"{base_name}.xsl",
@@ -67,27 +64,23 @@ def process_report(report_type, file_path, xml_dir, xsl_dir, html_dir, report_cl
             output_html = os.path.join(html_dir, file_names['html_file'])
 
             print(f"Generating {closest_match} report from {file_path}...")
-            try:
-                report_instance = report_class(file_path, output_xml)
-                report_instance.run()
+            report_instance = report_class(file_path, output_xml)
+            report_instance.run()
 
-                if os.path.exists(output_xml):
-                    xml_to_html(output_xml, input_xsl, output_html)
-                    print(f"XML report generated and saved as '{output_xml}'.")
-                    print(f"HTML report generated and saved as '{output_html}'.")
-                    return output_html
-                else:
-                    raise FileNotFoundError(f"Generated XML file not found: {output_xml}")
-            except Exception as e:
-                print(f"Error processing report class: {e}")
-                raise
+            if os.path.exists(output_xml):
+                xml_to_html(output_xml, input_xsl, output_html)
+                print(f"XML report generated and saved as '{output_xml}'.")
+                print(f"HTML report generated and saved as '{output_html}'.")
+                return output_html
+            else:
+                raise FileNotFoundError(f"Generated XML file not found: {output_xml}")
         else:
             raise ValueError(f"Class not found for report type: {closest_match}")
     else:
         raise ValueError(f"No matching report class found for report type: {report_type}")
 
 
-def main():
+def report_generator():
     file_paths = get_file_paths("Select one or more XML files")
 
     if file_paths:
@@ -115,8 +108,6 @@ def main():
                     print(f"Error: {e}")
                 except FileNotFoundError as e:
                     print(f"File error: {e}")
-                except Exception as e:
-                    print(f"Unexpected error: {e}")
             else:
                 print(f"Could not determine report type for file: {file_path}")
 
@@ -125,10 +116,7 @@ def main():
             try:
                 html_combiner(html_files, combined_html)
                 print(f"Combined HTML report generated and saved as '{combined_html}'.")
-                try:
-                    generate_graph_from_html(combined_html)
-                except Exception as e:
-                    print(f"Error generating graph: {e}")
+                generate_graph_from_html(combined_html)  # This function already has its own error handling
             except Exception as e:
                 print(f"Error combining HTML reports: {e}")
         else:
@@ -137,7 +125,3 @@ def main():
     else:
         print("No files selected. No reports will be generated.")
         messagebox.showinfo("No Files Selected", "No files selected. No reports will be generated.")
-
-
-if __name__ == '__main__':
-    main()

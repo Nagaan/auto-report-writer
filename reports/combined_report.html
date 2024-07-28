@@ -13,51 +13,51 @@
   </script>
   <script>
    document.addEventListener('DOMContentLoaded', function () {
-            var ctx = document.getElementById('riskLevelPieChart').getContext('2d');
-            var riskLevelData = {"Critical": 4, "High": 2, "Medium": 3, "Low": 1, "Informational": 0};
-            new Chart(ctx, {
-                type: 'pie',
-                data: {
-                    labels: Object.keys(riskLevelData),
-                    datasets: [{
-                        label: 'Proportion of Vulnerabilities',
-                        data: Object.values(riskLevelData),
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',  // Critical
-                            'rgba(255, 155, 86, 0.2)',  // High
-                            'rgba(255, 230, 86, 0.2)',  // Medium
-                            'rgba(75, 192, 192, 0.2)',   // Low
-                            'rgba(54, 162, 235, 0.2)'   // Informational
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',  // Critical
-                            'rgba(255, 155, 86, 1)',  // High
-                            'rgba(255, 230, 86, 1)',  // Medium
-                            'rgba(75, 192, 192, 1)',   // Low
-                            'rgba(54, 162, 235, 1)'   // Informational
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(tooltipItem) {
-                                    var label = tooltipItem.label;
-                                    var value = tooltipItem.raw;
-                                    return label + ': ' + value;
-                                }
+        var ctx = document.getElementById('riskLevelPieChart').getContext('2d');
+        var riskLevelData = {"Critical": 4, "High": 2, "Medium": 3, "Low": 1, "Informational": 0};
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: Object.keys(riskLevelData),
+                datasets: [{
+                    label: 'Proportion of Vulnerabilities',
+                    data: Object.values(riskLevelData),
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',  // Critical
+                        'rgba(255, 155, 86, 0.2)',  // High
+                        'rgba(255, 230, 86, 0.2)',  // Medium
+                        'rgba(75, 192, 192, 0.2)',   // Low
+                        'rgba(54, 162, 235, 0.2)'   // Informational
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',  // Critical
+                        'rgba(255, 155, 86, 1)',  // High
+                        'rgba(255, 230, 86, 1)',  // Medium
+                        'rgba(75, 192, 192, 1)',   // Low
+                        'rgba(54, 162, 235, 1)'   // Informational
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                var label = tooltipItem.label;
+                                var value = tooltipItem.raw;
+                                return label + ': ' + value;
                             }
                         }
                     }
                 }
-            });
+            }
         });
+    });
   </script>
   <html>
    <head>
