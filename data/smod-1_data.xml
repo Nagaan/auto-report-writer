@@ -5,7 +5,7 @@
             <target>192.168.1.80</target>
             <device>Modbus PLC</device>
             <vulnerability>Unauthorized Access</vulnerability>
-            <result>Exploited</result>
+            <result>Success</result>
             <details>Successfully gained access to the PLC and modified configuration settings.</details>
             <timestamp>2024-07-15T13:00:00</timestamp>
             <commands>
