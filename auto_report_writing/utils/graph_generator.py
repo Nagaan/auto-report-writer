@@ -48,7 +48,7 @@ def append_graph_to_html(html_file, risk_data):
     """
     json_data = json.dumps(risk_data)
 
-    template_path = 'auto_report_writing/data_processing/resources/graph_template.html'
+    template_path = 'auto_report_writing/resources/graph_template.html'
     if not os.path.isfile(template_path):
         print(f"Error: The template file {template_path} does not exist.")
         return

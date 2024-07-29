@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project Summary</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    h1 {
+      color: #333;
+      font-size: 20px;
+    }
+
+    h2 {
+      margin-left: 5px;
+      margin-top: 0;
+      font-size: 16px;
+    }
+
+    .summary_container {
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-left: 2px solid #000; /* Black left border */
+      border-right: 2px solid #000; /* Black right border */
+      background-color: #f9f9f9; /* Light background for summary */
+    }
+
+    .summary_recommendation {
+      margin: 0;
+      padding: 8px;
+      /*background-color: #fff;  White background for recommendations */
+    }
+
+    .inner {
+      margin: -5px 0 0;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      padding: 8px;
+      background-color: #fff;
+    }
+
+    p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    strong {
+      font-weight: bold;
+    }
+
+    ul {
+      padding-left: 20px; /* Indentation for list items */
+    }
+
+    /* Adding styling for the hover effect on recommendation items */
+    .summary_recommendation li:hover {
+      background-color: #e9ecef; /* Light gray background on hover */
+      cursor: pointer; /* Pointer cursor on hover */
+    }
+  </style>
+</head>
+<body>
+<div class="summary_container">
+  <h2>Recommendations</h2>
+  <div class="inner">
+    <p>Based on the results achieved during the penetration tests, the automated report generator makes the following recommendations (presented in order of priority):</p>
+    <ul>
+      <li>Patch <strong>{highest_vulnerability}</strong> vulnerabilities:
+        <ul class="summary_recommendation">
+          {vulnerability_list} <!-- should be a list of vulnerability names -->
+        </ul>
+      </li>
+      <li>Run automated penetration testing tool on a <strong>{testing_frequency}</strong> basis depending on the overall risk rating.</li>
+    </ul>
+  </div>
+</div>
+<div class="summary_container">
+  <h2>Scope</h2>
+  <div class="inner">
+    <p>Results from the following penetration tools were detected and processed by the Automated Report Writer (ARW):
+    <ul class="summary_recommendation">
+      {report_type_list} <!-- should be a list of vulnerability names -->
+    </ul>
+  </div>
+</div>
+
+
+</body>
+</html>

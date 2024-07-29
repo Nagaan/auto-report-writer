@@ -1,6 +1,6 @@
 from xml.etree.ElementTree import ElementTree, Element, SubElement
 
-from auto_report_writing.report_generation.determine_classification import cvss_from_risk_level
+from auto_report_writing.data_processing.determine_classification import cvss_from_risk_level
 from auto_report_writing.report_generation.report_templates.base_report import BaseReport
 
 

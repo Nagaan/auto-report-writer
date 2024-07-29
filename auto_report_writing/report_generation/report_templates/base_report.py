@@ -23,6 +23,13 @@ class BaseReport:
                 # Implement report formatting logic here.
                 return ElementTree(report)
 
+    The following template should be followed when formatting the XML:
+        Vulnerability Name: [Name of the vulnerability/exploit]
+            Risk Level: [If not already in the report to extract, use determine_classification.py: risk_level_from_name]
+            CVSS Score: [If not already in the report to extract, use determine_classification.py: cvss_from_risk_level]
+            Vulnerability Details: [All other relevant elements of the vulnerability/exploit and their details/information listed below]
+                • {Element Name}: [Information extracted from related element name]
+
     :param file_path: (str) Path to the input XML file.
     :param output_file: (str) Path where the output XML file will be saved.
     """

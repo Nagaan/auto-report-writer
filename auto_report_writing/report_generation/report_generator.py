@@ -4,11 +4,11 @@ from tkinter import filedialog, messagebox
 from fuzzywuzzy import process
 
 from auto_report_writing.data_processing.html_combiner import html_combiner
-from auto_report_writing.data_processing.graph_generator import generate_graph_from_html
-from auto_report_writing.data_processing.summary_generator import generate_summary_from_html
 from auto_report_writing.data_processing.xml_to_html import xml_to_html
 from auto_report_writing.data_processing.xml_loader import load_xml
 from auto_report_writing.data_processing.import_directory import import_directory
+from auto_report_writing.utils.graph_generator import generate_graph_from_html
+from auto_report_writing.utils.summary_generator import generate_summary_from_html
 
 
 def get_file_paths(prompt):

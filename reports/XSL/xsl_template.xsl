@@ -12,7 +12,7 @@
                 <style>
                     body { font-family: Arial, sans-serif; margin: 20px; font-size: 14px; }
                     h1 { color: #333; font-size: 20px; }
-                    .repeating_root {
+                    .host {
                     margin-bottom: 20px;
                     border: 1px solid #ddd;
                     padding: 10px;
@@ -20,7 +20,7 @@
                     border-right: 2px solid #000;
                     background-color: #f9f9f9;
                     }
-                    .repeating_subroot {
+                    .vulnerabilities {
                     margin: 0;
                     border-top: 1px solid #ddd;
                     padding: 8px;
@@ -52,17 +52,17 @@
         </html>
     </xsl:template>
 
-    <!-- Template to match each repeating_root -->
-    <xsl:template match="repeating_root">
-        <div class="repeating_root">
+    <!-- Template to match each host -->
+    <xsl:template match="host">
+        <div class="host">
             <h2>Host: <xsl:value-of select="." /></h2>
-            <xsl:apply-templates select="repeating_subroot" />
+            <xsl:apply-templates select="vulnerabilities" />
         </div>
     </xsl:template>
 
-    <!-- Template to match each repeating_subroot -->
-    <xsl:template match="repeating_subroot">
-        <div class="repeating_subroot">
+    <!-- Template to match each vulnerability -->
+    <xsl:template match="vulnerabilities">
+        <div class="vulnerabilities">
             <p><strong>Vulnerability Name: </strong> <xsl:value-of select="name" /></p>
             <p><strong>Risk Level: </strong> <xsl:value-of select="risk" /></p>
             <p><strong>CVSS Score: </strong> <xsl:value-of select="cvss_score" /></p>

@@ -70,10 +70,6 @@
 <div class="summary_container">
     <h2>Report Summary</h2>
     <div class="inner">
-        <p>Results from the following penetration tools were detected by the Automated Report Writer (ARW):
-            <ul class="summary_recommendation">
-                {report_type_list} <!-- should be a list of vulnerability names -->
-            </ul>
         <p>Overall Risk Rating: <strong>{weighted_risk_level}</strong></p>
         <p>The overall risk rating, derived from the Risk Rating Matrix, reflects the average risk levels of identified
             vulnerabilities. This rating incorporates a 25% bias towards critical-level vulnerabilities and a 10% bias
@@ -103,6 +99,15 @@
                 </ul>
             </li>
             <li>Run automated penetration testing tool on a <strong>{testing_frequency}</strong> basis depending on the overall risk rating.</li>
+        </ul>
+    </div>
+</div>
+<div class="summary_container">
+    <h2>Scope</h2>
+    <div class="inner">
+        <p>Results from the following penetration tools were detected and processed by the Automated Report Writer (ARW):
+        <ul class="summary_recommendation">
+            {report_type_list} <!-- should be a list of vulnerability names -->
         </ul>
     </div>
 </div>

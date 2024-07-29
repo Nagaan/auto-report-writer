@@ -144,7 +144,7 @@ def extract_data_from_html(html_file):
 
 
 def generate_project_summary(average_risk_level, average_cvss_score, highest_vulnerability, highest_level_vulnerabilities_list, testing_frequency):
-    template_path = 'auto_report_writing/data_processing/resources/summary_template.html'
+    template_path = 'auto_report_writing/resources/summary_template.html'
     if not os.path.isfile(template_path):
         print(f"Error: The template file {template_path} does not exist.")
         return ""
