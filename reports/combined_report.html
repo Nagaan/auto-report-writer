@@ -1,12 +1,199 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
  <head>
+  <meta charset="utf-8"/>
   <title>
    Combined Report
   </title>
+  <style>
+   body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            font-size: 14px;
+            color: #333;
+            max-width: 841px; /* Width of A3 in pixels */
+            margin: 20px auto; /* Center the body and add top/bottom margin */
+            padding: 20px; /* Optional: add padding for aesthetics */
+            }
+        hr {
+            border: 1px solid #ddd; /* Style for horizontal rules */
+            margin: 20px 0; /* Margin for separation */
+        }
+  </style>
  </head>
  <body>
-  <div style="width: 50%; margin: auto;">
-   <canvas height="400" id="riskLevelPieChart" width="400">
+  <!DOCTYPE html>
+  <html lang="en">
+   <head>
+    <meta charset="utf-8"/>
+    <title>
+     Project Summary
+    </title>
+    <style>
+     body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 20px;
+        }
+
+        h2 {
+            margin-left: 5px;
+            margin-top: 0;
+            font-size: 16px;
+        }
+
+        .summary_container {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-left: 2px solid #000; /* Black left border */
+            border-right: 2px solid #000; /* Black right border */
+            background-color: #f9f9f9; /* Light background for summary */
+        }
+
+        .summary_recommendation {
+            margin: 0;
+            padding: 8px;
+            /*background-color: #fff;  White background for recommendations */
+        }
+
+        .inner {
+            margin: -5px 0 0;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            padding: 8px;
+            background-color: #fff;
+        }
+
+        p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        ul {
+            padding-left: 20px; /* Indentation for list items */
+        }
+
+        /* Adding styling for the hover effect on recommendation items */
+        .summary_recommendation li:hover {
+            background-color: #e9ecef; /* Light gray background on hover */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+    </style>
+   </head>
+   <body>
+    <h1>
+     Automated Report
+    </h1>
+    <div class="summary_container">
+     <h2>
+      Report Summary
+     </h2>
+     <div class="inner">
+      <p>
+       Results from the following penetration tools were detected by the Automated Report Writer (ARW):
+       <ul class="summary_recommendation">
+        <li>
+         Metasploit
+        </li>
+        <!-- should be a list of vulnerability names -->
+       </ul>
+       <p>
+        Overall Risk Rating:
+        <strong>
+         Critical
+        </strong>
+       </p>
+       <p>
+        The overall risk rating, derived from the Risk Rating Matrix, reflects the average risk levels of identified
+            vulnerabilities. This rating incorporates a 25% bias towards critical-level vulnerabilities and a 10% bias
+            towards high-level vulnerabilities, effectively emphasising the most significant risks. The ARW tool
+            assesses overall risk exposure, considering the potential impact of malicious actors attempting to exploit
+            these vulnerabilities to compromise or control resources within the information environment. As such, the
+            overall risk rating of
+        <strong>
+         Critical
+        </strong>
+        serves as an indicator for prioritising
+            security efforts and implementing necessary safeguards.
+       </p>
+       <br/>
+       <p>
+        Average CVSS Score:
+        <strong>
+         8.24
+        </strong>
+       </p>
+       <p>
+        The Average CVSS Score provides a quantitative measure of the severity of identified vulnerabilities,
+            calculated using the Common Vulnerability Scoring System (CVSS). The ARW tool computes the average score
+            based on the highest CVSS values of detected vulnerabilities. For penetration testing tools that do not
+            generate CVSS scores of detected vulnerabilities, the ARW will estimate the CVSS based on the risk level of
+            the vulnerability. An Average CVSS Score of
+        <strong>
+         8.24
+        </strong>
+        underscores the need for
+            focused attention on vulnerabilities that pose the greatest risk to the system's security and integrity.
+       </p>
+      </p>
+     </div>
+    </div>
+    <div class="summary_container">
+     <h2>
+      Recommendations
+     </h2>
+     <div class="inner">
+      <p>
+       Based on the results achieved during the penetration tests, the automated report generator makes the following recommendations (presented in order of priority):
+      </p>
+      <ul>
+       <li>
+        Patch
+        <strong>
+         Critical
+        </strong>
+        vulnerabilities:
+        <ul class="summary_recommendation">
+         <li>
+          Shellshock
+         </li>
+         <li>
+          MS17-010
+         </li>
+         <li>
+          BlueKeep
+         </li>
+         <li>
+          EternalBlue
+         </li>
+         <!-- should be a list of vulnerability names -->
+        </ul>
+       </li>
+       <li>
+        Run automated penetration testing tool on a
+        <strong>
+         weekly
+        </strong>
+        basis depending on the overall risk rating.
+       </li>
+      </ul>
+     </div>
+    </div>
+   </body>
+  </html>
+  <div style="width: 100%; margin: auto; max-height: 50vh; overflow: auto;">
+   <canvas id="riskLevelPieChart">
    </canvas>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/chart.js">
@@ -14,7 +201,8 @@
   <script>
    document.addEventListener('DOMContentLoaded', function () {
         var ctx = document.getElementById('riskLevelPieChart').getContext('2d');
-        var riskLevelData = {"Critical": 4, "High": 2, "Medium": 3, "Low": 1, "Informational": 0};
+        var riskLevelData = {"Critical": 4, "High": 2, "Medium": 3, "Low": 1, "Informational": 0}; // This will be replaced with actual JSON data
+
         new Chart(ctx, {
             type: 'pie',
             data: {
@@ -41,6 +229,7 @@
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: false, // Allow chart to fill the container
                 plugins: {
                     legend: {
                         position: 'top',
@@ -65,10 +254,10 @@
      Metasploit Vulnerability Report
     </title>
     <style>
-     body { font-family: Arial, sans-serif; margin: 20px; font-size: 14px; }
-                    h1 { color: #333; font-size: 20px; }
-                    h2 { margin-left: 5px; margin-top: 0; font-size: 16px; }
-                    .host {
+     .metasploit-body { font-family: Arial, sans-serif; margin: 20px; font-size: 14px; }
+                    .metasploit-h1 { color: #333; font-size: 20px; }
+                    .metasploit-h2 { margin-left: 5px; margin-top: 0; font-size: 16px; }
+                    .metasploit-host {
                     margin-bottom: 20px;
                     border: 1px solid #ddd;
                     padding: 10px;
@@ -76,371 +265,371 @@
                     border-right: 2px solid #000;
                     background-color: #f9f9f9;
                     }
-                    .exploit {
-                    margin: 0;
+                    .metasploit-exploit {
+                    margin: -5px 0 0;
                     border-top: 1px solid #ddd;
                     padding: 8px;
                     background-color: #fff;
                     }
-                    .details {
+                    .metasploit-details {
                     margin-left: 10px;
                     border-left: 2px solid #000;
                     padding-left: 8px;
                     margin-bottom: 8px;
                     }
-                    p {
+                    .metasploit-p {
                     margin: 5px 0;
                     font-size: 14px;
                     }
-                    strong {
+                    .metasploit-strong {
                     font-weight: bold;
                     }
     </style>
    </head>
-   <body>
-    <h1>
+   <body class="metasploit-body">
+    <h1 class="metasploit-h1">
      Metasploit Vulnerability Report
     </h1>
-    <div class="host">
-     <h2>
+    <div class="metasploit-host">
+     <h2 class="metasploit-h2">
       Host: 192.168.1.50
      </h2>
-     <div class="exploit">
-      <p>
-       <strong>
+     <div class="metasploit-exploit">
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Vulnerability Name:
        </strong>
        MS08-067
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Risk Level:
        </strong>
        High
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         CVSS Score:
        </strong>
        7.0 - 8.9 (estimated from risk level)
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Vulnerability Details:
        </strong>
       </p>
-      <div class="details">
-       <p>
+      <div class="metasploit-details">
+       <p class="metasploit-p">
         • Description: Remote code execution in Microsoft Windows Server 2008.
        </p>
-       <p>
+       <p class="metasploit-p">
         • Result: Exploit successful: Command shell opened.
        </p>
       </div>
      </div>
-     <div class="exploit">
-      <p>
-       <strong>
+     <div class="metasploit-exploit">
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Vulnerability Name:
        </strong>
        Shellshock
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Risk Level:
        </strong>
        Critical
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         CVSS Score:
        </strong>
        9.0 - 10.0 (estimated from risk level)
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Vulnerability Details:
        </strong>
       </p>
-      <div class="details">
-       <p>
+      <div class="metasploit-details">
+       <p class="metasploit-p">
         • Description: Remote code execution in Bash.
        </p>
-       <p>
+       <p class="metasploit-p">
         • Result: Exploit successful: Remote access obtained.
        </p>
       </div>
      </div>
-     <div class="exploit">
-      <p>
-       <strong>
+     <div class="metasploit-exploit">
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Vulnerability Name:
        </strong>
        MS17-010
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Risk Level:
        </strong>
        Critical
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         CVSS Score:
        </strong>
        9.0 - 10.0 (estimated from risk level)
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Vulnerability Details:
        </strong>
       </p>
-      <div class="details">
-       <p>
+      <div class="metasploit-details">
+       <p class="metasploit-p">
         • Description: Remote code execution vulnerability in Microsoft Windows SMBv1.
        </p>
-       <p>
+       <p class="metasploit-p">
         • Result: Exploit successful: Meterpreter session opened.
        </p>
       </div>
      </div>
-     <div class="exploit">
-      <p>
-       <strong>
+     <div class="metasploit-exploit">
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Vulnerability Name:
        </strong>
        Heartbleed
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Risk Level:
        </strong>
        Medium
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         CVSS Score:
        </strong>
        4.0 - 6.9 (estimated from risk level)
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Vulnerability Details:
        </strong>
       </p>
-      <div class="details">
-       <p>
+      <div class="metasploit-details">
+       <p class="metasploit-p">
         • Description: Information disclosure vulnerability in OpenSSL.
        </p>
-       <p>
+       <p class="metasploit-p">
         • Result: Exploit successful: Sensitive information leaked.
        </p>
       </div>
      </div>
-     <div class="exploit">
-      <p>
-       <strong>
+     <div class="metasploit-exploit">
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Vulnerability Name:
        </strong>
        Poodle
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Risk Level:
        </strong>
        Low
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         CVSS Score:
        </strong>
        0.1 - 3.9 (estimated from risk level)
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Vulnerability Details:
        </strong>
       </p>
-      <div class="details">
-       <p>
+      <div class="metasploit-details">
+       <p class="metasploit-p">
         • Description: Man-in-the-middle attack vulnerability in SSL 3.0.
        </p>
-       <p>
+       <p class="metasploit-p">
         • Result: Exploit failed: Target not vulnerable.
        </p>
       </div>
      </div>
     </div>
-    <div class="host">
-     <h2>
+    <div class="metasploit-host">
+     <h2 class="metasploit-h2">
       Host: 192.168.1.51
      </h2>
-     <div class="exploit">
-      <p>
-       <strong>
+     <div class="metasploit-exploit">
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Vulnerability Name:
        </strong>
        Apache Struts 2 OGNL Injection
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Risk Level:
        </strong>
        High
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         CVSS Score:
        </strong>
        7.0 - 8.9 (estimated from risk level)
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Vulnerability Details:
        </strong>
       </p>
-      <div class="details">
-       <p>
+      <div class="metasploit-details">
+       <p class="metasploit-p">
         • Description: Remote code execution vulnerability in Apache Struts 2.
        </p>
-       <p>
+       <p class="metasploit-p">
         • Result: Exploit successful: Command shell opened.
        </p>
       </div>
      </div>
-     <div class="exploit">
-      <p>
-       <strong>
+     <div class="metasploit-exploit">
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Vulnerability Name:
        </strong>
        BlueKeep
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Risk Level:
        </strong>
        Critical
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         CVSS Score:
        </strong>
        9.0 - 10.0 (estimated from risk level)
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Vulnerability Details:
        </strong>
       </p>
-      <div class="details">
-       <p>
+      <div class="metasploit-details">
+       <p class="metasploit-p">
         • Description: Remote code execution vulnerability in Microsoft Windows RDP.
        </p>
-       <p>
+       <p class="metasploit-p">
         • Result: Exploit successful: Remote access obtained.
        </p>
       </div>
      </div>
-     <div class="exploit">
-      <p>
-       <strong>
+     <div class="metasploit-exploit">
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Vulnerability Name:
        </strong>
        Spectre
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Risk Level:
        </strong>
        Medium
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         CVSS Score:
        </strong>
        4.0 - 6.9 (estimated from risk level)
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Vulnerability Details:
        </strong>
       </p>
-      <div class="details">
-       <p>
+      <div class="metasploit-details">
+       <p class="metasploit-p">
         • Description: Information disclosure vulnerability in CPUs.
        </p>
-       <p>
+       <p class="metasploit-p">
         • Result: Exploit successful: Sensitive information leaked.
        </p>
       </div>
      </div>
     </div>
-    <div class="host">
-     <h2>
+    <div class="metasploit-host">
+     <h2 class="metasploit-h2">
       Host: 192.168.1.52
      </h2>
-     <div class="exploit">
-      <p>
-       <strong>
+     <div class="metasploit-exploit">
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Vulnerability Name:
        </strong>
        Meltdown
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Risk Level:
        </strong>
        Medium
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         CVSS Score:
        </strong>
        4.0 - 6.9 (estimated from risk level)
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Vulnerability Details:
        </strong>
       </p>
-      <div class="details">
-       <p>
+      <div class="metasploit-details">
+       <p class="metasploit-p">
         • Description: Information disclosure vulnerability in CPUs.
        </p>
-       <p>
+       <p class="metasploit-p">
         • Result: Exploit successful: Sensitive information leaked.
        </p>
       </div>
      </div>
-     <div class="exploit">
-      <p>
-       <strong>
+     <div class="metasploit-exploit">
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Vulnerability Name:
        </strong>
        EternalBlue
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Risk Level:
        </strong>
        Critical
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         CVSS Score:
        </strong>
        9.0 - 10.0 (estimated from risk level)
       </p>
-      <p>
-       <strong>
+      <p class="metasploit-p">
+       <strong class="metasploit-strong">
         Vulnerability Details:
        </strong>
       </p>
-      <div class="details">
-       <p>
+      <div class="metasploit-details">
+       <p class="metasploit-p">
         • Description: Remote code execution vulnerability in Microsoft Windows SMBv1.
        </p>
-       <p>
+       <p class="metasploit-p">
         • Result: Exploit successful: Remote access obtained.
        </p>
       </div>
@@ -449,5 +638,8 @@
    </body>
   </html>
   <hr/>
+  <p>
+   This report has been generated by the Automated Report Writer (ARW) tool.
+  </p>
  </body>
 </html>

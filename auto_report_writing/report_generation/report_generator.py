@@ -5,6 +5,7 @@ from fuzzywuzzy import process
 
 from auto_report_writing.data_processing.html_combiner import html_combiner
 from auto_report_writing.data_processing.graph_generator import generate_graph_from_html
+from auto_report_writing.data_processing.summary_generator import generate_summary_from_html
 from auto_report_writing.data_processing.xml_to_html import xml_to_html
 from auto_report_writing.data_processing.xml_loader import load_xml
 from auto_report_writing.data_processing.import_directory import import_directory
@@ -50,7 +51,7 @@ def generate_file_names(report_type):
     }
 
 
-def process_report(report_type, file_path, xml_dir, xsl_dir, html_dir, report_classes):
+def process_report(report_type, file_path, xml_dir, xsl_dir, html_dir, report_classes, report_type_list):
     available_classes = list(report_classes.keys())
     closest_match, score = process.extractOne(report_type, available_classes)
 
@@ -71,6 +72,10 @@ def process_report(report_type, file_path, xml_dir, xsl_dir, html_dir, report_cl
                 xml_to_html(output_xml, input_xsl, output_html)
                 print(f"XML report generated and saved as '{output_xml}'.")
                 print(f"HTML report generated and saved as '{output_html}'.")
+
+                # Append the report type to the report_type_list
+                report_type_list.append(closest_match.replace('Report', ''))  # Store the report type without 'Report' suffix
+
                 return output_html
             else:
                 raise FileNotFoundError(f"Generated XML file not found: {output_xml}")
@@ -95,6 +100,7 @@ def report_generator():
         report_classes = load_report_classes_from_dir(report_templates_dir)
 
         html_files = []
+        report_type_list = []  # Initialize the list to store report types
 
         for file_path in file_paths:
             _, root = load_xml(file_path)
@@ -102,7 +108,7 @@ def report_generator():
                 report_type = root.tag
                 print(f"Detected report type: {report_type}")
                 try:
-                    html_file = process_report(report_type, file_path, xml_dir, xsl_dir, html_dir, report_classes)
+                    html_file = process_report(report_type, file_path, xml_dir, xsl_dir, html_dir, report_classes, report_type_list)
                     html_files.append(html_file)
                 except ValueError as e:
                     print(f"Error: {e}")
@@ -114,9 +120,16 @@ def report_generator():
         if html_files:
             combined_html = './reports/combined_report.html'
             try:
+                # Create the combined HTML report
                 html_combiner(html_files, combined_html)
                 print(f"Combined HTML report generated and saved as '{combined_html}'.")
-                generate_graph_from_html(combined_html)  # This function already has its own error handling
+
+                # Extract risk data and generate a graph
+                generate_graph_from_html(combined_html)
+
+                # Generate the project summary
+                generate_summary_from_html(combined_html, report_type_list)  # Pass the report type list
+
             except Exception as e:
                 print(f"Error combining HTML reports: {e}")
         else:

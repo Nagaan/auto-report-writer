@@ -1,11 +1,12 @@
-<div style="width: 50%; margin: auto;">
-    <canvas id="riskLevelPieChart" width="400" height="400"></canvas>
+<div style="width: 100%; margin: auto; max-height: 50vh; overflow: auto;">
+    <canvas id="riskLevelPieChart"></canvas>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var ctx = document.getElementById('riskLevelPieChart').getContext('2d');
-        var riskLevelData = {json_data};
+        var riskLevelData = {json_data}; // This will be replaced with actual JSON data
+
         new Chart(ctx, {
             type: 'pie',
             data: {
@@ -32,6 +33,7 @@
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: false, // Allow chart to fill the container
                 plugins: {
                     legend: {
                         position: 'top',

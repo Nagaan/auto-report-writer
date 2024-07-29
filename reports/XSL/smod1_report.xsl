@@ -7,10 +7,10 @@
             <head>
                 <title>Smod-1 Report</title>
                 <style>
-                    body { font-family: Arial, sans-serif; margin: 20px; font-size: 14px; }
-                    h1 { color: #333; font-size: 20px; }
-                    h2 { margin-left: 5px; margin-top: 0; font-size: 16px; }
-                    .host {
+                    .smod1-body { font-family: Arial, sans-serif; margin: 20px; font-size: 14px; }
+                    .smod1-h1 { color: #333; font-size: 20px; }
+                    .smod1-h2 { margin-left: 5px; margin-top: 0; font-size: 16px; }
+                    .smod1-host {
                     margin-bottom: 20px;
                     border: 1px solid #ddd;
                     padding: 10px;
@@ -18,29 +18,29 @@
                     border-right: 2px solid #000;
                     background-color: #f9f9f9;
                     }
-                    .attempt {
-                    margin: 0;
+                    .smod1-attempt {
+                    margin: -5px 0 0;
                     border-top: 1px solid #ddd;
                     padding: 8px;
                     background-color: #fff;
                     }
-                    .details {
+                    .smod1-details {
                     margin-left: 10px;
                     border-left: 2px solid #000;
                     padding-left: 8px;
                     margin-bottom: 8px;
                     }
-                    h2, p {
+                    .smod1-p, .smod1-strong {
                     margin: 5px 0;
                     font-size: 14px;
                     }
-                    strong {
+                    .smod1-strong {
                     font-weight: bold;
                     }
                 </style>
             </head>
-            <body>
-                <h1>Smod-1 Report</h1>
+            <body class="smod1-body">
+                <h1 class="smod1-h1">Smod-1 Report</h1>
                 <xsl:apply-templates select="attempt" />
             </body>
         </html>
@@ -48,16 +48,16 @@
 
     <!-- Template to match each attempt -->
     <xsl:template match="attempt">
-        <div class="host">
-            <h2>Host: <xsl:value-of select="target" /></h2>
-            <div class="attempt">
-                <p><strong>Vulnerability Name: </strong> <xsl:value-of select="vulnerability" /></p>
-                <p><strong>Risk Level: </strong> <xsl:value-of select="risk_level" /></p>
-                <p><strong>CVSS Score: </strong> <xsl:value-of select="cvss_score" /></p>
-                <p><strong>Vulnerability Details:</strong></p>
-                <div class="details">
-                    <p>• <xsl:value-of select="vulnerability_details/details" /></p>
-                    <p>• <xsl:value-of select="vulnerability_details/timestamp" /></p>
+        <div class="smod1-host">
+            <h2 class="smod1-h2">Host: <xsl:value-of select="target" /></h2>
+            <div class="smod1-attempt">
+                <p class="smod1-p"><strong class="smod1-strong">Vulnerability Name: </strong> <xsl:value-of select="vulnerability" /></p>
+                <p class="smod1-p"><strong class="smod1-strong">Risk Level: </strong> <xsl:value-of select="risk_level" /></p>
+                <p class="smod1-p"><strong class="smod1-strong">CVSS Score: </strong> <xsl:value-of select="cvss_score" /></p>
+                <p class="smod1-p"><strong class="smod1-strong">Vulnerability Details:</strong></p>
+                <div class="smod1-details">
+                    <p class="smod1-p">• <xsl:value-of select="vulnerability_details/details" /></p>
+                    <p class="smod1-p">• <xsl:value-of select="vulnerability_details/timestamp" /></p>
                 </div>
             </div>
         </div>

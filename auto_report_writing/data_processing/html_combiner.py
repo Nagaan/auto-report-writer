@@ -6,23 +6,28 @@ def html_combiner(html_files, output_file):
     :param output_file: (str) Path to the output HTML file.
     """
     try:
-        # Opens the file in write mode.
+        # Read the template file
+        with open('auto_report_writing/data_processing/resources/combined_template.html', 'r', encoding='utf-8') as template_file:
+            template = template_file.read()
+
+        combined_content = ''
+
+        for html_file in html_files:  # Loops through the html_files list.
+            try:
+                # Opens the file in read mode.
+                with open(html_file, 'r', encoding='utf-8') as infile:
+                    combined_content += infile.read()  # Read content of each file and concatenate it.
+                    combined_content += '<hr>\n'  # Adding a separator between reports.
+
+            except Exception as e:
+                print(f"Error reading {html_file}: {e}")
+
+        # Replace the placeholder in the template with the combined content
+        final_html = template.replace('{content}', combined_content)
+
+        # Write the final HTML to the output file
         with open(output_file, 'w', encoding='utf-8') as outfile:
-            # Appends the HTML opening tags to the top of the file.
-            outfile.write('<html><head><title>Combined Report</title></head><body>\n')
-
-            for html_file in html_files:  # Loops through the html_files list.
-                try:
-                    # Opens the file in read mode.
-                    with open(html_file, 'r', encoding='utf-8') as infile:
-                        outfile.write(infile.read())  # Reads the content of the file and outputs it to the output file.
-                        outfile.write('<hr>\n')  # Adding a separator between reports.
-
-                except Exception as e:
-                    print(f"Error reading {html_file}: {e}")
-
-            # Appends the HTML closing tags to the bottom of the file.
-            outfile.write('</body></html>\n')
+            outfile.write(final_html)
 
     except Exception as e:
-        print(f"Error writing to {output_file}: {e}")
+        print(f"Error processing files: {e}")

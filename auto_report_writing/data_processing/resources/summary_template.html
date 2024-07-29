@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 20px;
+        }
+
+        h2 {
+            margin-left: 5px;
+            margin-top: 0;
+            font-size: 16px;
+        }
+
+        .summary_container {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-left: 2px solid #000; /* Black left border */
+            border-right: 2px solid #000; /* Black right border */
+            background-color: #f9f9f9; /* Light background for summary */
+        }
+
+        .summary_recommendation {
+            margin: 0;
+            padding: 8px;
+            /*background-color: #fff;  White background for recommendations */
+        }
+
+        .inner {
+            margin: -5px 0 0;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            padding: 8px;
+            background-color: #fff;
+        }
+
+        p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        ul {
+            padding-left: 20px; /* Indentation for list items */
+        }
+
+        /* Adding styling for the hover effect on recommendation items */
+        .summary_recommendation li:hover {
+            background-color: #e9ecef; /* Light gray background on hover */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+    </style>
+</head>
+<body>
+<h1>Automated Report</h1>
+<div class="summary_container">
+    <h2>Report Summary</h2>
+    <div class="inner">
+        <p>Results from the following penetration tools were detected by the Automated Report Writer (ARW):
+            <ul class="summary_recommendation">
+                {report_type_list} <!-- should be a list of vulnerability names -->
+            </ul>
+        <p>Overall Risk Rating: <strong>{weighted_risk_level}</strong></p>
+        <p>The overall risk rating, derived from the Risk Rating Matrix, reflects the average risk levels of identified
+            vulnerabilities. This rating incorporates a 25% bias towards critical-level vulnerabilities and a 10% bias
+            towards high-level vulnerabilities, effectively emphasising the most significant risks. The ARW tool
+            assesses overall risk exposure, considering the potential impact of malicious actors attempting to exploit
+            these vulnerabilities to compromise or control resources within the information environment. As such, the
+            overall risk rating of <strong>{weighted_risk_level}</strong> serves as an indicator for prioritising
+            security efforts and implementing necessary safeguards.</p>
+
+        <br><p>Average CVSS Score: <strong>{average_cvss_score}</strong></p>
+        <p>The Average CVSS Score provides a quantitative measure of the severity of identified vulnerabilities,
+            calculated using the Common Vulnerability Scoring System (CVSS). The ARW tool computes the average score
+            based on the highest CVSS values of detected vulnerabilities. For penetration testing tools that do not
+            generate CVSS scores of detected vulnerabilities, the ARW will estimate the CVSS based on the risk level of
+            the vulnerability. An Average CVSS Score of <strong>{average_cvss_score}</strong> underscores the need for
+            focused attention on vulnerabilities that pose the greatest risk to the system's security and integrity.</p>
+    </div>
+</div>
+<div class="summary_container">
+    <h2>Recommendations</h2>
+    <div class="inner">
+        <p>Based on the results achieved during the penetration tests, the automated report generator makes the following recommendations (presented in order of priority):</p>
+        <ul>
+            <li>Patch <strong>{highest_vulnerability}</strong> vulnerabilities:
+                <ul class="summary_recommendation">
+                    {vulnerability_list} <!-- should be a list of vulnerability names -->
+                </ul>
+            </li>
+            <li>Run automated penetration testing tool on a <strong>{testing_frequency}</strong> basis depending on the overall risk rating.</li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

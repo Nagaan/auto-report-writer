@@ -7,10 +7,10 @@
             <head>
                 <title>Metasploit Vulnerability Report</title>
                 <style>
-                    body { font-family: Arial, sans-serif; margin: 20px; font-size: 14px; }
-                    h1 { color: #333; font-size: 20px; }
-                    h2 { margin-left: 5px; margin-top: 0; font-size: 16px; }
-                    .host {
+                    .metasploit-body { font-family: Arial, sans-serif; margin: 20px; font-size: 14px; }
+                    .metasploit-h1 { color: #333; font-size: 20px; }
+                    .metasploit-h2 { margin-left: 5px; margin-top: 0; font-size: 16px; }
+                    .metasploit-host {
                     margin-bottom: 20px;
                     border: 1px solid #ddd;
                     padding: 10px;
@@ -18,29 +18,29 @@
                     border-right: 2px solid #000;
                     background-color: #f9f9f9;
                     }
-                    .exploit {
-                    margin: 0;
+                    .metasploit-exploit {
+                    margin: -5px 0 0;
                     border-top: 1px solid #ddd;
                     padding: 8px;
                     background-color: #fff;
                     }
-                    .details {
+                    .metasploit-details {
                     margin-left: 10px;
                     border-left: 2px solid #000;
                     padding-left: 8px;
                     margin-bottom: 8px;
                     }
-                    p {
+                    .metasploit-p {
                     margin: 5px 0;
                     font-size: 14px;
                     }
-                    strong {
+                    .metasploit-strong {
                     font-weight: bold;
                     }
                 </style>
             </head>
-            <body>
-                <h1>Metasploit Vulnerability Report</h1>
+            <body class="metasploit-body">
+                <h1 class="metasploit-h1">Metasploit Vulnerability Report</h1>
                 <xsl:apply-templates select="host" />
             </body>
         </html>
@@ -48,22 +48,22 @@
 
     <!-- Template to match each host -->
     <xsl:template match="host">
-        <div class="host">
-            <h2>Host: <xsl:value-of select="address/@addr" /></h2>
+        <div class="metasploit-host">
+            <h2 class="metasploit-h2">Host: <xsl:value-of select="address/@addr" /></h2>
             <xsl:apply-templates select="exploit" />
         </div>
     </xsl:template>
 
     <!-- Template to match each exploit -->
     <xsl:template match="exploit">
-        <div class="exploit">
-            <p><strong>Vulnerability Name: </strong> <xsl:value-of select="name" /></p>
-            <p><strong>Risk Level: </strong> <xsl:value-of select="risk" /></p>
-            <p><strong>CVSS Score: </strong> <xsl:value-of select="cvss_score" /></p>
-            <p><strong>Vulnerability Details:</strong></p>
-            <div class="details">
-                <p>• <xsl:value-of select="description" /></p>
-                <p>• <xsl:value-of select="result" /></p>
+        <div class="metasploit-exploit">
+            <p class="metasploit-p"><strong class="metasploit-strong">Vulnerability Name: </strong> <xsl:value-of select="name" /></p>
+            <p class="metasploit-p"><strong class="metasploit-strong">Risk Level: </strong> <xsl:value-of select="risk" /></p>
+            <p class="metasploit-p"><strong class="metasploit-strong">CVSS Score: </strong> <xsl:value-of select="cvss_score" /></p>
+            <p class="metasploit-p"><strong class="metasploit-strong">Vulnerability Details:</strong></p>
+            <div class="metasploit-details">
+                <p class="metasploit-p">• <xsl:value-of select="description" /></p>
+                <p class="metasploit-p">• <xsl:value-of select="result" /></p>
             </div>
         </div>
     </xsl:template>

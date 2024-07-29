@@ -2,10 +2,10 @@
   <head>
     <title>Smod-1 Report</title>
     <style>
-                    body { font-family: Arial, sans-serif; margin: 20px; font-size: 14px; }
-                    h1 { color: #333; font-size: 20px; }
-                    h2 { margin-left: 5px; margin-top: 0; font-size: 16px; }
-                    .host {
+                    .smod1-body { font-family: Arial, sans-serif; margin: 20px; font-size: 14px; }
+                    .smod1-h1 { color: #333; font-size: 20px; }
+                    .smod1-h2 { margin-left: 5px; margin-top: 0; font-size: 16px; }
+                    .smod1-host {
                     margin-bottom: 20px;
                     border: 1px solid #ddd;
                     padding: 10px;
@@ -13,56 +13,56 @@
                     border-right: 2px solid #000;
                     background-color: #f9f9f9;
                     }
-                    .attempt {
-                    margin: 0;
+                    .smod1-attempt {
+                    margin: -5px 0 0;
                     border-top: 1px solid #ddd;
                     padding: 8px;
                     background-color: #fff;
                     }
-                    .details {
+                    .smod1-details {
                     margin-left: 10px;
                     border-left: 2px solid #000;
                     padding-left: 8px;
                     margin-bottom: 8px;
                     }
-                    h2, p {
+                    .smod1-p, .smod1-strong {
                     margin: 5px 0;
                     font-size: 14px;
                     }
-                    strong {
+                    .smod1-strong {
                     font-weight: bold;
                     }
                 </style>
   </head>
-  <body>
-    <h1>Smod-1 Report</h1>
-    <div class="host">
-      <h2>Host: 192.168.1.80</h2>
-      <div class="attempt">
-        <p><strong>Vulnerability Name: </strong>Unauthorized Access</p>
-        <p><strong>Risk Level: </strong>Informational (estimated from name)</p>
-        <p><strong>CVSS Score: </strong>0.0 (estimated from risk level)</p>
-        <p>
-          <strong>Vulnerability Details:</strong>
+  <body class="smod1-body">
+    <h1 class="smod1-h1">Smod-1 Report</h1>
+    <div class="smod1-host">
+      <h2 class="smod1-h2">Host: 192.168.1.80</h2>
+      <div class="smod1-attempt">
+        <p class="smod1-p"><strong class="smod1-strong">Vulnerability Name: </strong>Unauthorized Access</p>
+        <p class="smod1-p"><strong class="smod1-strong">Risk Level: </strong>Informational (estimated from name)</p>
+        <p class="smod1-p"><strong class="smod1-strong">CVSS Score: </strong>0.0 (estimated from risk level)</p>
+        <p class="smod1-p">
+          <strong class="smod1-strong">Vulnerability Details:</strong>
         </p>
-        <div class="details">
-          <p>• Successfully gained access to the PLC and modified configuration settings.</p>
-          <p>• Timestamp: 2024-07-15T13:00:00</p>
+        <div class="smod1-details">
+          <p class="smod1-p">• Successfully gained access to the PLC and modified configuration settings.</p>
+          <p class="smod1-p">• Timestamp: 2024-07-15T13:00:00</p>
         </div>
       </div>
     </div>
-    <div class="host">
-      <h2>Host: 192.168.1.100</h2>
-      <div class="attempt">
-        <p><strong>Vulnerability Name: </strong>Denial of Service</p>
-        <p><strong>Risk Level: </strong>Informational (estimated from name)</p>
-        <p><strong>CVSS Score: </strong>0.0 (estimated from risk level)</p>
-        <p>
-          <strong>Vulnerability Details:</strong>
+    <div class="smod1-host">
+      <h2 class="smod1-h2">Host: 192.168.1.100</h2>
+      <div class="smod1-attempt">
+        <p class="smod1-p"><strong class="smod1-strong">Vulnerability Name: </strong>Denial of Service</p>
+        <p class="smod1-p"><strong class="smod1-strong">Risk Level: </strong>Informational (estimated from name)</p>
+        <p class="smod1-p"><strong class="smod1-strong">CVSS Score: </strong>0.0 (estimated from risk level)</p>
+        <p class="smod1-p">
+          <strong class="smod1-strong">Vulnerability Details:</strong>
         </p>
-        <div class="details">
-          <p>• Successfully launched DoS attack causing PLC to crash.</p>
-          <p>• Timestamp: 2024-07-15T14:00:00</p>
+        <div class="smod1-details">
+          <p class="smod1-p">• Successfully launched DoS attack causing PLC to crash.</p>
+          <p class="smod1-p">• Timestamp: 2024-07-15T14:00:00</p>
         </div>
       </div>
     </div>
