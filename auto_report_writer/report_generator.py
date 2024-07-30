@@ -3,10 +3,12 @@ import tkinter as tk
 from tkinter import filedialog, messagebox
 from fuzzywuzzy import process
 
+from auto_report_writer.utils.custom_logger import logger
 from auto_report_writer.utils.html_combiner import html_combiner
 from auto_report_writer.utils.xml_to_html import xml_to_html
 from auto_report_writer.utils.xml_loader import load_xml
 from auto_report_writer.utils.html_to_docx import convert_html_to_docx
+from auto_report_writer.utils.html_to_pdf import convert_html_to_pdf
 from auto_report_writer.utils.import_directory import import_directory
 from auto_report_writer.graph_generator import generate_graph_from_html
 from auto_report_writer.summary_generator import generate_summary_from_html
@@ -86,6 +88,58 @@ def process_report(report_type, file_path, xml_dir, xsl_dir, html_dir, report_cl
         raise ValueError(f"No matching report class found for report type: {report_type}")
 
 
+def ask_user_conversion_options():
+    """
+    Custom dialog with buttons to ask the user what conversion to perform.
+    Returns 'docx', 'pdf', or 'both' based on user selection.
+    If the dialog is closed, it returns None.
+    """
+    def on_button_click(choice):
+        nonlocal user_choice
+        user_choice = choice  # Set the user's choice
+        dialog.quit()  # Close the dialog
+
+    # Create a new Tkinter window
+    dialog = tk.Tk()
+    dialog.title("Convert Report")
+
+    # Center the dialog on the screen
+    dialog_width = 400
+    dialog_height = 100
+    screen_width = dialog.winfo_screenwidth()
+    screen_height = dialog.winfo_screenheight()
+    x = (screen_width // 2) - (dialog_width // 2)
+    y = (screen_height // 2) - (dialog_height // 2)
+    dialog.geometry(f'{dialog_width}x{dialog_height}+{x}+{y}')
+
+    user_choice = None  # Variable to store user choice
+
+    # Create a label above the buttons
+    label = tk.Label(dialog, text="The report has been generated as HTML.\nAlso generate the report as...", wraplength=300)
+    label.pack(pady=10)
+
+    # Frame for buttons
+    button_frame = tk.Frame(dialog)
+    button_frame.pack(pady=10)
+
+    # Create buttons for each conversion option and place them side by side
+    pdf_button = tk.Button(button_frame, text="PDF", command=lambda: on_button_click('pdf'), width=10)
+    pdf_button.pack(side=tk.LEFT, padx=5)
+
+    docx_button = tk.Button(button_frame, text="DOCX", command=lambda: on_button_click('docx'), width=10)
+    docx_button.pack(side=tk.LEFT, padx=5)
+
+    both_button = tk.Button(button_frame, text="Both", command=lambda: on_button_click('both'), width=10)
+    both_button.pack(side=tk.LEFT, padx=5)
+
+    dialog.protocol("WM_DELETE_WINDOW", dialog.quit)  # Handle window close
+
+    # Start the Tkinter main loop
+    dialog.mainloop()
+
+    return user_choice  # Return None if no choice is made (dialog closed)
+
+
 def report_generator():
     file_paths = get_file_paths("Select one or more XML files")
 
@@ -126,17 +180,31 @@ def report_generator():
                 print(f"Combined HTML report generated and saved as '{combined_html}'.")
 
                 # Extract risk data and generate a graph
-                generate_graph_from_html(combined_html)
+                generate_graph_from_html(combined_htmls)
 
                 # Generate the project summary
-                generate_summary_from_html(combined_html, report_type_list)  # Pass the report type list
+                generate_summary_from_html(combined_html, report_type_list)
 
-                # Output docx file.
-                combined_docx = './reports/combined_report.docx'
-                convert_html_to_docx(combined_html, combined_docx)
+                # Ask the user how they want to convert the HTML
+                conversion_choice = ask_user_conversion_options()  # noqa: "doesn't return anything" error.
+
+                # Only perform conversions if the user made a choice
+                if conversion_choice is not None:
+                    # Define output file paths
+                    combined_docx = './reports/combined_report.docx'
+                    combined_pdf = './reports/combined_report.pdf'
+
+                    # Perform conversions based on user's choice
+                    if conversion_choice == "docx":
+                        convert_html_to_docx(combined_html, combined_docx)
+                    elif conversion_choice == "pdf":
+                        convert_html_to_pdf(combined_html, combined_pdf)
+                    elif conversion_choice == "both":
+                        convert_html_to_docx(combined_html, combined_docx)
+                        convert_html_to_pdf(combined_html, combined_pdf)
 
             except Exception as e:
-                print(f"Error combining HTML reports: {e}")
+                logger.error(f"Error combining HTML reports: {e}")
         else:
             print("No valid report types found. No reports were generated.")
             messagebox.showinfo("No Reports Generated", "No valid reports found. No combined report was generated.")

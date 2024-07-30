@@ -48,6 +48,7 @@
         p {
             margin: 5px 0;
             font-size: 14px;
+            text-align: justify;
         }
 
         strong {
@@ -105,10 +106,11 @@
 <div class="summary_container">
     <h2>Scope</h2>
     <div class="inner">
-        <p>Results from the following penetration tools were detected and processed by the Automated Report Writer (ARW):
-        <ul class="summary_recommendation">
+        <p>The following penetration testing tools were detected and processed by the ARW tool.
+            Their results were used by the ARW to generate, where needed, an approximate risk rating, CVSS score, and recommendations:
+        <ul class="summary_recommendation"><ul>
             {report_type_list} <!-- should be a list of vulnerability names -->
-        </ul>
+        </ul></ul>
     </div>
 </div>
 </body>

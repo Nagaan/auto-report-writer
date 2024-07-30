@@ -88,7 +88,5 @@ information obtained from automated tests.
     Write a script that populates the various fields of the report with data from the inputs.
     Finally, output the result.
         XSL + XML -> HTML
-            Use xsltproc (Linux) to apply the XSL to the XML, creating the HTML.
-                xsltproc fileName.xsl fileName.xml > output.html
 
 python auto_report_writing/report_template.py Data/DataRaw/Metasploit_Data_Raw.xml

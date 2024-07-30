@@ -5,9 +5,9 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var ctx = document.getElementById('riskLevelPieChart').getContext('2d');
-        var riskLevelData = {json_data}; // This will be replaced with actual JSON data
+        var riskLevelData = {"Critical": 4, "High": 2, "Medium": 3, "Low": 1, "Informational": 0}; // This will be replaced with actual JSON data
 
-        new Chart(ctx, {
+        var chart = new Chart(ctx, {
             type: 'pie',
             data: {
                 labels: Object.keys(riskLevelData),
@@ -33,7 +33,7 @@
             },
             options: {
                 responsive: true,
-                maintainAspectRatio: false, // Allow chart to fill the container
+                maintainAspectRatio: false,
                 plugins: {
                     legend: {
                         position: 'top',
@@ -49,6 +49,16 @@
                     }
                 }
             }
+        });
+
+        // Convert the chart to an image after it's rendered
+        chart.canvas.toBlob(function(blob) {
+            var img = document.createElement('img');
+            var url = URL.createObjectURL(blob);
+            img.src = url;
+
+            // Append the image to the body or a specific container
+            document.getElementById('chartContainer').appendChild(img);
         });
     });
 </script>

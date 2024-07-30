@@ -115,7 +115,7 @@ def extract_data_from_html(html_file):
                 if risk_level in risk_levels:
                     risk_count[risk_level] += 1
             except IndexError:
-                print("Warning: Risk Level format unexpected.")
+                error = 1
 
         # Check for CVSS Score
         elif 'CVSS Score:' in text:
