@@ -7,7 +7,7 @@ def html_combiner(html_files, output_file):
     """
     try:
         # Read the template file
-        with open('auto_report_writing/resources/combined_template.html', 'r', encoding='utf-8') as template_file:
+        with open('auto_report_writer/resources/combined_template.html', 'r', encoding='utf-8') as template_file:
             template = template_file.read()
 
         combined_content = ''

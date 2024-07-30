@@ -3,13 +3,13 @@ import tkinter as tk
 from tkinter import filedialog, messagebox
 from fuzzywuzzy import process
 
-from auto_report_writing.data_processing.html_combiner import html_combiner
-from auto_report_writing.data_processing.xml_to_html import xml_to_html
-from auto_report_writing.data_processing.xml_loader import load_xml
-from auto_report_writing.data_processing.html_to_docx import convert_html_to_docx
-from auto_report_writing.data_processing.import_directory import import_directory
-from auto_report_writing.utils.graph_generator import generate_graph_from_html
-from auto_report_writing.utils.summary_generator import generate_summary_from_html
+from auto_report_writer.utils.html_combiner import html_combiner
+from auto_report_writer.utils.xml_to_html import xml_to_html
+from auto_report_writer.utils.xml_loader import load_xml
+from auto_report_writer.utils.html_to_docx import convert_html_to_docx
+from auto_report_writer.utils.import_directory import import_directory
+from auto_report_writer.graph_generator import generate_graph_from_html
+from auto_report_writer.summary_generator import generate_summary_from_html
 
 
 def get_file_paths(prompt):
@@ -97,8 +97,8 @@ def report_generator():
         create_output_dir(xsl_dir)
         create_output_dir(html_dir)
 
-        report_templates_dir = 'auto_report_writing/report_generation/report_templates'
-        report_classes = load_report_classes_from_dir(report_templates_dir)
+        report_classes_dir = './auto_report_writer/report_classes'
+        report_classes = load_report_classes_from_dir(report_classes_dir)
 
         html_files = []
         report_type_list = []  # Initialize the list to store report types

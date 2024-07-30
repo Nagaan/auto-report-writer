@@ -1,8 +1,8 @@
 import re
 from xml.etree.ElementTree import ElementTree, Element, SubElement
 
-from auto_report_writing.data_processing.determine_classification import cvss_from_risk_level, risk_level_from_name
-from auto_report_writing.report_generation.report_templates.base_report import BaseReport
+from auto_report_writer.utils.determine_classification import cvss_from_risk_level, risk_level_from_name
+from auto_report_writer.report_classes.base_report import BaseReport
 
 
 class NmapReport(BaseReport):

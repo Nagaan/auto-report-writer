@@ -1,4 +1,4 @@
-from auto_report_writing.data_processing.xml_loader import load_xml
+from auto_report_writer.utils.xml_loader import load_xml
 
 
 class BaseReport:

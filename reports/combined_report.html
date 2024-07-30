@@ -103,7 +103,7 @@
       <p>
        Overall Risk Rating:
        <strong>
-        High
+        Critical
        </strong>
       </p>
       <p>
@@ -114,7 +114,7 @@
             these vulnerabilities to compromise or control resources within the information environment. As such, the
             overall risk rating of
        <strong>
-        High
+        Critical
        </strong>
        serves as an indicator for prioritising
             security efforts and implementing necessary safeguards.
@@ -123,7 +123,7 @@
       <p>
        Average CVSS Score:
        <strong>
-        7.27
+        8.24
        </strong>
       </p>
       <p>
@@ -133,7 +133,7 @@
             generate CVSS scores of detected vulnerabilities, the ARW will estimate the CVSS based on the risk level of
             the vulnerability. An Average CVSS Score of
        <strong>
-        7.27
+        8.24
        </strong>
        underscores the need for
             focused attention on vulnerabilities that pose the greatest risk to the system's security and integrity.
@@ -174,7 +174,7 @@
        <li>
         Run automated penetration testing tool on a
         <strong>
-         fortnightly
+         weekly
         </strong>
         basis depending on the overall risk rating.
        </li>
@@ -192,12 +192,6 @@
         <li>
          Metasploit
         </li>
-        <li>
-         Nmap
-        </li>
-        <li>
-         Smod1
-        </li>
         <!-- should be a list of vulnerability names -->
        </ul>
       </p>
@@ -214,7 +208,7 @@
   <script>
    document.addEventListener('DOMContentLoaded', function () {
         var ctx = document.getElementById('riskLevelPieChart').getContext('2d');
-        var riskLevelData = {"Critical": 4, "High": 7, "Medium": 3, "Low": 2, "Informational": 2}; // This will be replaced with actual JSON data
+        var riskLevelData = {"Critical": 4, "High": 2, "Medium": 3, "Low": 1, "Informational": 0}; // This will be replaced with actual JSON data
 
         new Chart(ctx, {
             type: 'pie',
@@ -644,518 +638,6 @@
        </p>
        <p class="metasploit-p">
         • Result: Exploit successful: Remote access obtained.
-       </p>
-      </div>
-     </div>
-    </div>
-   </body>
-  </html>
-  <hr/>
-  <html>
-   <head>
-    <title>
-     Nmap Vulnerability Report
-    </title>
-    <style>
-     .nmap-body { font-family: Arial, sans-serif; margin: 20px; font-size: 14px; }
-                    .nmap-h2 { color: #333; font-size: 20px; }
-                    .nmap-h3 { margin-left: 5px; margin-top: 0; font-size: 16px; }
-                    .nmap-host {
-                    margin-bottom: 20px;
-                    border: 1px solid #ddd;
-                    padding: 10px;
-                    border-left: 2px solid #000;
-                    border-right: 2px solid #000;
-                    background-color: #f9f9f9;
-                    }
-                    .nmap-service {
-                    margin: -5px 0 0;
-                    border-top: 1px solid #ddd;
-                    padding: 8px;
-                    background-color: #fff;
-                    }
-                    .nmap-vulnerability {
-                    margin-left: 10px;
-                    border-left: 2px solid #000;
-                    padding-left: 8px;
-                    margin-bottom: 8px;
-                    }
-                    .nmap-details {
-                    margin-left: 10px;
-                    border-left: 2px solid #000;
-                    padding-left: 8px;
-                    margin-bottom: 8px;
-                    white-space: pre-wrap; /* Preserve whitespace and line breaks */
-                    }
-                    .nmap-p {
-                    margin: 5px 0;
-                    font-size: 14px;
-                    }
-                    .nmap-strong {
-                    font-weight: bold;
-                    }
-    </style>
-   </head>
-   <body class="nmap-body">
-    <h2 class="nmap-h2">
-     Nmap Vulnerability Report
-    </h2>
-    <div class="nmap-host">
-     <h3 class="nmap-h3">
-      Host: 192.168.1.10
-     </h3>
-     <div class="nmap-service">
-      <p class="nmap-p">
-       <strong class="nmap-strong">
-        Service:
-       </strong>
-       Port 80 (TCP)
-      </p>
-      <p class="nmap-p">
-       <strong class="nmap-strong">
-        State:
-       </strong>
-       Open
-      </p>
-      <p class="nmap-p">
-       <strong class="nmap-strong">
-        Product:
-       </strong>
-       Apache httpd 2.4.38
-      </p>
-      <p class="nmap-p">
-       <strong class="nmap-strong">
-        Service Name:
-       </strong>
-       HTTP
-      </p>
-      <div class="nmap-vulnerability">
-       <p class="nmap-p">
-        <strong class="nmap-strong">
-         Vulnerability Name:
-        </strong>
-        Clickjacking
-       </p>
-       <p class="nmap-p">
-        <strong class="nmap-strong">
-         Risk Level:
-        </strong>
-        Low (estimated from name)
-       </p>
-       <p class="nmap-p">
-        <strong class="nmap-strong">
-         CVSS Score:
-        </strong>
-        0.1 - 3.9 (estimated from risk level)
-       </p>
-       <p class="nmap-p">
-        <strong class="nmap-strong">
-         Vulnerability Details:
-        </strong>
-       </p>
-       <div class="nmap-details">
-        Possible SQL injection vulnerability detected: URI: /index.php?id=1' Payload: id=1' OR '1'='1 Output: SQL error detected
-       </div>
-      </div>
-     </div>
-     <div class="nmap-service">
-      <p class="nmap-p">
-       <strong class="nmap-strong">
-        Service:
-       </strong>
-       Port 3306 (TCP)
-      </p>
-      <p class="nmap-p">
-       <strong class="nmap-strong">
-        State:
-       </strong>
-       Open
-      </p>
-      <p class="nmap-p">
-       <strong class="nmap-strong">
-        Product:
-       </strong>
-       MySQL 5.7.23
-      </p>
-      <p class="nmap-p">
-       <strong class="nmap-strong">
-        Service Name:
-       </strong>
-       MYSQL
-      </p>
-      <div class="nmap-vulnerability">
-       <p class="nmap-p">
-        <strong class="nmap-strong">
-         Vulnerability Name:
-        </strong>
-        Sql-injection
-       </p>
-       <p class="nmap-p">
-        <strong class="nmap-strong">
-         Risk Level:
-        </strong>
-        High (estimated from name)
-       </p>
-       <p class="nmap-p">
-        <strong class="nmap-strong">
-         CVSS Score:
-        </strong>
-        7.0 - 8.9 (estimated from risk level)
-       </p>
-       <p class="nmap-p">
-        <strong class="nmap-strong">
-         Vulnerability Details:
-        </strong>
-       </p>
-       <div class="nmap-details">
-        Possible SQL injection vulnerability detected: URI: /login.php Payload: username=admin' OR '1'='1 -- Output: Login successful
-       </div>
-      </div>
-     </div>
-    </div>
-    <div class="nmap-host">
-     <h3 class="nmap-h3">
-      Host: 192.168.1.20
-     </h3>
-     <div class="nmap-service">
-      <p class="nmap-p">
-       <strong class="nmap-strong">
-        Service:
-       </strong>
-       Port 80 (TCP)
-      </p>
-      <p class="nmap-p">
-       <strong class="nmap-strong">
-        State:
-       </strong>
-       Open
-      </p>
-      <p class="nmap-p">
-       <strong class="nmap-strong">
-        Product:
-       </strong>
-       Apache httpd 2.4.38
-      </p>
-      <p class="nmap-p">
-       <strong class="nmap-strong">
-        Service Name:
-       </strong>
-       HTTP
-      </p>
-      <div class="nmap-vulnerability">
-       <p class="nmap-p">
-        <strong class="nmap-strong">
-         Vulnerability Name:
-        </strong>
-        Sql-injection
-       </p>
-       <p class="nmap-p">
-        <strong class="nmap-strong">
-         Risk Level:
-        </strong>
-        High (estimated from name)
-       </p>
-       <p class="nmap-p">
-        <strong class="nmap-strong">
-         CVSS Score:
-        </strong>
-        7.0 - 8.9 (estimated from risk level)
-       </p>
-       <p class="nmap-p">
-        <strong class="nmap-strong">
-         Vulnerability Details:
-        </strong>
-       </p>
-       <div class="nmap-details">
-        Possible SQL injection vulnerability detected: URI: /view_data.php?record=5 Payload: record=5' AND 1=1 -- Output: SQL error detected
-       </div>
-      </div>
-     </div>
-     <div class="nmap-service">
-      <p class="nmap-p">
-       <strong class="nmap-strong">
-        Service:
-       </strong>
-       Port 3306 (TCP)
-      </p>
-      <p class="nmap-p">
-       <strong class="nmap-strong">
-        State:
-       </strong>
-       Open
-      </p>
-      <p class="nmap-p">
-       <strong class="nmap-strong">
-        Product:
-       </strong>
-       MySQL 5.7.23
-      </p>
-      <p class="nmap-p">
-       <strong class="nmap-strong">
-        Service Name:
-       </strong>
-       MYSQL
-      </p>
-      <div class="nmap-vulnerability">
-       <p class="nmap-p">
-        <strong class="nmap-strong">
-         Vulnerability Name:
-        </strong>
-        Sql-injection
-       </p>
-       <p class="nmap-p">
-        <strong class="nmap-strong">
-         Risk Level:
-        </strong>
-        High (estimated from name)
-       </p>
-       <p class="nmap-p">
-        <strong class="nmap-strong">
-         CVSS Score:
-        </strong>
-        7.0 - 8.9 (estimated from risk level)
-       </p>
-       <p class="nmap-p">
-        <strong class="nmap-strong">
-         Vulnerability Details:
-        </strong>
-       </p>
-       <div class="nmap-details">
-        Possible SQL injection vulnerability detected: URI: /data.php?id=3 Payload: id=3' UNION SELECT NULL, NULL, NULL -- Output: SQL error detected
-       </div>
-      </div>
-     </div>
-    </div>
-    <div class="nmap-host">
-     <h3 class="nmap-h3">
-      Host: 192.168.1.30
-     </h3>
-     <div class="nmap-service">
-      <p class="nmap-p">
-       <strong class="nmap-strong">
-        Service:
-       </strong>
-       Port 80 (TCP)
-      </p>
-      <p class="nmap-p">
-       <strong class="nmap-strong">
-        State:
-       </strong>
-       Open
-      </p>
-      <p class="nmap-p">
-       <strong class="nmap-strong">
-        Product:
-       </strong>
-       Apache httpd 2.4.38
-      </p>
-      <p class="nmap-p">
-       <strong class="nmap-strong">
-        Service Name:
-       </strong>
-       HTTP
-      </p>
-      <div class="nmap-vulnerability">
-       <p class="nmap-p">
-        <strong class="nmap-strong">
-         Vulnerability Name:
-        </strong>
-        Sql-injection
-       </p>
-       <p class="nmap-p">
-        <strong class="nmap-strong">
-         Risk Level:
-        </strong>
-        High (estimated from name)
-       </p>
-       <p class="nmap-p">
-        <strong class="nmap-strong">
-         CVSS Score:
-        </strong>
-        7.0 - 8.9 (estimated from risk level)
-       </p>
-       <p class="nmap-p">
-        <strong class="nmap-strong">
-         Vulnerability Details:
-        </strong>
-       </p>
-       <div class="nmap-details">
-        Possible SQL injection vulnerability detected: URI: /submit.php Payload: data=xyz' OR '1'='1 Output: SQL error detected
-       </div>
-      </div>
-     </div>
-     <div class="nmap-service">
-      <p class="nmap-p">
-       <strong class="nmap-strong">
-        Service:
-       </strong>
-       Port 3306 (TCP)
-      </p>
-      <p class="nmap-p">
-       <strong class="nmap-strong">
-        State:
-       </strong>
-       Open
-      </p>
-      <p class="nmap-p">
-       <strong class="nmap-strong">
-        Product:
-       </strong>
-       MySQL 5.7.23
-      </p>
-      <p class="nmap-p">
-       <strong class="nmap-strong">
-        Service Name:
-       </strong>
-       MYSQL
-      </p>
-      <div class="nmap-vulnerability">
-       <p class="nmap-p">
-        <strong class="nmap-strong">
-         Vulnerability Name:
-        </strong>
-        Sql-injection
-       </p>
-       <p class="nmap-p">
-        <strong class="nmap-strong">
-         Risk Level:
-        </strong>
-        High (estimated from name)
-       </p>
-       <p class="nmap-p">
-        <strong class="nmap-strong">
-         CVSS Score:
-        </strong>
-        7.0 - 8.9 (estimated from risk level)
-       </p>
-       <p class="nmap-p">
-        <strong class="nmap-strong">
-         Vulnerability Details:
-        </strong>
-       </p>
-       <div class="nmap-details">
-        Possible SQL injection vulnerability detected: URI: /info.php?item=7 Payload: item=7' AND 1=2 -- Output: SQL error detected
-       </div>
-      </div>
-     </div>
-    </div>
-   </body>
-  </html>
-  <hr/>
-  <html>
-   <head>
-    <title>
-     Smod-1 Report
-    </title>
-    <style>
-     .smod1-body { font-family: Arial, sans-serif; margin: 20px; font-size: 14px; }
-                    .smod1-h2 { color: #333; font-size: 20px; }
-                    .smod1-h3 { margin-left: 5px; margin-top: 0; font-size: 16px; }
-                    .smod1-host {
-                    margin-bottom: 20px;
-                    border: 1px solid #ddd;
-                    padding: 10px;
-                    border-left: 2px solid #000;
-                    border-right: 2px solid #000;
-                    background-color: #f9f9f9;
-                    }
-                    .smod1-attempt {
-                    margin: -5px 0 0;
-                    border-top: 1px solid #ddd;
-                    padding: 8px;
-                    background-color: #fff;
-                    }
-                    .smod1-details {
-                    margin-left: 10px;
-                    border-left: 2px solid #000;
-                    padding-left: 8px;
-                    margin-bottom: 8px;
-                    }
-                    .smod1-p, .smod1-strong {
-                    margin: 5px 0;
-                    font-size: 14px;
-                    }
-                    .smod1-strong {
-                    font-weight: bold;
-                    }
-    </style>
-   </head>
-   <body class="smod1-body">
-    <h2 class="smod1-h2">
-     Smod-1 Report
-    </h2>
-    <div class="smod1-host">
-     <h3 class="smod1-h3">
-      Host: 192.168.1.80
-     </h3>
-     <div class="smod1-attempt">
-      <p class="smod1-p">
-       <strong class="smod1-strong">
-        Vulnerability Name:
-       </strong>
-       Unauthorized Access
-      </p>
-      <p class="smod1-p">
-       <strong class="smod1-strong">
-        Risk Level:
-       </strong>
-       Informational (estimated from name)
-      </p>
-      <p class="smod1-p">
-       <strong class="smod1-strong">
-        CVSS Score:
-       </strong>
-       0.0 (estimated from risk level)
-      </p>
-      <p class="smod1-p">
-       <strong class="smod1-strong">
-        Vulnerability Details:
-       </strong>
-      </p>
-      <div class="smod1-details">
-       <p class="smod1-p">
-        • Successfully gained access to the PLC and modified configuration settings.
-       </p>
-       <p class="smod1-p">
-        • Timestamp: 2024-07-15T13:00:00
-       </p>
-      </div>
-     </div>
-    </div>
-    <div class="smod1-host">
-     <h3 class="smod1-h3">
-      Host: 192.168.1.100
-     </h3>
-     <div class="smod1-attempt">
-      <p class="smod1-p">
-       <strong class="smod1-strong">
-        Vulnerability Name:
-       </strong>
-       Denial of Service
-      </p>
-      <p class="smod1-p">
-       <strong class="smod1-strong">
-        Risk Level:
-       </strong>
-       Informational (estimated from name)
-      </p>
-      <p class="smod1-p">
-       <strong class="smod1-strong">
-        CVSS Score:
-       </strong>
-       0.0 (estimated from risk level)
-      </p>
-      <p class="smod1-p">
-       <strong class="smod1-strong">
-        Vulnerability Details:
-       </strong>
-      </p>
-      <div class="smod1-details">
-       <p class="smod1-p">
-        • Successfully launched DoS attack causing PLC to crash.
-       </p>
-       <p class="smod1-p">
-        • Timestamp: 2024-07-15T14:00:00
        </p>
       </div>
      </div>
