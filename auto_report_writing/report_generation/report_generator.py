@@ -6,6 +6,7 @@ from fuzzywuzzy import process
 from auto_report_writing.data_processing.html_combiner import html_combiner
 from auto_report_writing.data_processing.xml_to_html import xml_to_html
 from auto_report_writing.data_processing.xml_loader import load_xml
+from auto_report_writing.data_processing.html_to_docx import convert_html_to_docx
 from auto_report_writing.data_processing.import_directory import import_directory
 from auto_report_writing.utils.graph_generator import generate_graph_from_html
 from auto_report_writing.utils.summary_generator import generate_summary_from_html
@@ -129,6 +130,10 @@ def report_generator():
 
                 # Generate the project summary
                 generate_summary_from_html(combined_html, report_type_list)  # Pass the report type list
+
+                # Output docx file.
+                combined_docx = './reports/combined_report.docx'
+                convert_html_to_docx(combined_html, combined_docx)
 
             except Exception as e:
                 print(f"Error combining HTML reports: {e}")

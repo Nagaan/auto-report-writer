@@ -162,3 +162,4 @@ cython_debug/
 #.idea/
 .idea/workspace.xml
 .idea/misc.xml
+/pandoc-3.3-windows-x86_64.msi

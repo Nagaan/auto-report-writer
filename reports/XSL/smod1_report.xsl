@@ -8,8 +8,8 @@
                 <title>Smod-1 Report</title>
                 <style>
                     .smod1-body { font-family: Arial, sans-serif; margin: 20px; font-size: 14px; }
-                    .smod1-h1 { color: #333; font-size: 20px; }
-                    .smod1-h2 { margin-left: 5px; margin-top: 0; font-size: 16px; }
+                    .smod1-h2 { color: #333; font-size: 20px; }
+                    .smod1-h3 { margin-left: 5px; margin-top: 0; font-size: 16px; }
                     .smod1-host {
                     margin-bottom: 20px;
                     border: 1px solid #ddd;
@@ -40,7 +40,7 @@
                 </style>
             </head>
             <body class="smod1-body">
-                <h1 class="smod1-h1">Smod-1 Report</h1>
+                <h2 class="smod1-h2">Smod-1 Report</h2>
                 <xsl:apply-templates select="attempt" />
             </body>
         </html>
@@ -49,7 +49,7 @@
     <!-- Template to match each attempt -->
     <xsl:template match="attempt">
         <div class="smod1-host">
-            <h2 class="smod1-h2">Host: <xsl:value-of select="target" /></h2>
+            <h3 class="smod1-h3">Host: <xsl:value-of select="target" /></h3>
             <div class="smod1-attempt">
                 <p class="smod1-p"><strong class="smod1-strong">Vulnerability Name: </strong> <xsl:value-of select="vulnerability" /></p>
                 <p class="smod1-p"><strong class="smod1-strong">Risk Level: </strong> <xsl:value-of select="risk_level" /></p>

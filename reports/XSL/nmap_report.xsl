@@ -8,8 +8,8 @@
                 <title>Nmap Vulnerability Report</title>
                 <style>
                     .nmap-body { font-family: Arial, sans-serif; margin: 20px; font-size: 14px; }
-                    .nmap-h1 { color: #333; font-size: 20px; }
-                    .nmap-h2 { margin-left: 5px; margin-top: 0; font-size: 16px; }
+                    .nmap-h2 { color: #333; font-size: 20px; }
+                    .nmap-h3 { margin-left: 5px; margin-top: 0; font-size: 16px; }
                     .nmap-host {
                     margin-bottom: 20px;
                     border: 1px solid #ddd;
@@ -47,7 +47,7 @@
                 </style>
             </head>
             <body class="nmap-body">
-                <h1 class="nmap-h1">Nmap Vulnerability Report</h1>
+                <h2 class="nmap-h2">Nmap Vulnerability Report</h2>
                 <xsl:apply-templates select="host" />
             </body>
         </html>
@@ -56,7 +56,7 @@
     <!-- Template to match each host -->
     <xsl:template match="host">
         <div class="nmap-host">
-            <h2 class="nmap-h2">Host: <xsl:value-of select="address/@addr" /></h2>
+            <h3 class="nmap-h3">Host: <xsl:value-of select="address/@addr" /></h3>
             <xsl:apply-templates select="service" />
         </div>
     </xsl:template>

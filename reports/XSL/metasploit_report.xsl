@@ -8,8 +8,8 @@
                 <title>Metasploit Vulnerability Report</title>
                 <style>
                     .metasploit-body { font-family: Arial, sans-serif; margin: 20px; font-size: 14px; }
-                    .metasploit-h1 { color: #333; font-size: 20px; }
-                    .metasploit-h2 { margin-left: 5px; margin-top: 0; font-size: 16px; }
+                    .metasploit-h2 { color: #333; font-size: 20px; }
+                    .metasploit-h3 { margin-left: 5px; margin-top: 0; font-size: 16px; }
                     .metasploit-host {
                     margin-bottom: 20px;
                     border: 1px solid #ddd;
@@ -40,7 +40,7 @@
                 </style>
             </head>
             <body class="metasploit-body">
-                <h1 class="metasploit-h1">Metasploit Vulnerability Report</h1>
+                <h2 class="metasploit-h2">Metasploit Vulnerability Report</h2>
                 <xsl:apply-templates select="host" />
             </body>
         </html>
@@ -49,7 +49,7 @@
     <!-- Template to match each host -->
     <xsl:template match="host">
         <div class="metasploit-host">
-            <h2 class="metasploit-h2">Host: <xsl:value-of select="address/@addr" /></h2>
+            <h3 class="metasploit-h3">Host: <xsl:value-of select="address/@addr" /></h3>
             <xsl:apply-templates select="exploit" />
         </div>
     </xsl:template>
