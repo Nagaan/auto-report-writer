@@ -1,4 +1,5 @@
 from auto_report_writer.utils.xml_loader import load_xml
+from auto_report_writer.utils.custom_logger import logger
 
 
 class BaseReport:
@@ -63,7 +64,7 @@ class BaseReport:
         try:
             report_tree.write(self.output_file, encoding='utf-8', xml_declaration=True)
         except Exception as e:
-            print(f"Error processing report class: {e}")
+            logger.error(f"Error processing report class: {e}")
 
     def run(self):
         """
@@ -73,4 +74,4 @@ class BaseReport:
             report_tree = self.generate_report()
             self.save_report(report_tree)
         else:
-            print("Failed to load the XML file. No report generated.")
+            logger.warn("Failed to load the XML file. No report generated.")

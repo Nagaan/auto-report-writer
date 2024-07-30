@@ -1,5 +1,6 @@
 import shutil
 import pdfkit
+from auto_report_writer.utils.custom_logger import logger
 
 
 def is_wkhtmltopdf_installed():
@@ -21,11 +22,11 @@ def convert_html_to_pdf(input_file, output_file):
     try:
         # Check if wkhtmltopdf is available
         if not is_wkhtmltopdf_installed():
-            print("wkhtmltopdf not found. Please install it.")
+            logger.warn("wkhtmltopdf not found. Please install it.")
             return
 
         # Convert HTML to PDF
         pdfkit.from_file(input_file, output_file)
-        print(f"Successfully converted {input_file} to {output_file}")
+        logger.info(f"Successfully converted {input_file} to {output_file}")
     except Exception as e:
-        print(f"Error converting {input_file} to PDF: {e}")
+        logger.error(f"Error converting {input_file} to PDF: {e}")

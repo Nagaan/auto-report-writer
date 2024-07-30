@@ -1,3 +1,6 @@
+from auto_report_writer.utils.custom_logger import logger
+
+
 def html_combiner(html_files, output_file):
     """
     Combine multiple HTML files into one HTML file.
@@ -20,7 +23,7 @@ def html_combiner(html_files, output_file):
                     combined_content += '<hr>\n'  # Adding a separator between reports.
 
             except Exception as e:
-                print(f"Error reading {html_file}: {e}")
+                logger.error(f"Error reading {html_file}: {e}")
 
         # Replace the placeholder in the template with the combined content
         final_html = template.replace('{content}', combined_content)
@@ -30,4 +33,4 @@ def html_combiner(html_files, output_file):
             outfile.write(final_html)
 
     except Exception as e:
-        print(f"Error processing files: {e}")
+        logger.error(f"Error processing files: {e}")

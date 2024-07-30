@@ -1,5 +1,6 @@
-import importlib.util
 import os
+import importlib.util
+from auto_report_writer.utils.custom_logger import logger
 
 
 def import_directory(directory):
@@ -21,12 +22,12 @@ def import_directory(directory):
                     module = importlib.util.module_from_spec(spec)
                     spec.loader.exec_module(module)
                     modules[module_name] = module
-                    print(f"Successfully loaded module: {module_name} from report_templates")
+                    logger.info(f"Successfully loaded module: {module_name} from report_templates")
 
                 else:
-                    print(f"Failed to load module: {module_name} from report_templates")
+                    logger.warn(f"Failed to load module: {module_name} from report_templates")
 
             except Exception as e:
-                print(f"Error loading module {module_name}: {e}")
+                logger.error(f"Error loading module {module_name}: {e}")
 
     return modules

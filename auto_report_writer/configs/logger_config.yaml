@@ -1,0 +1,53 @@
+version: 1
+disable_existing_loggers: false
+
+formatters:
+  simple:
+    format: '%(levelname)s: %(message)s'
+  detailed:
+    format: '[%(asctime)s] %(filename)s (line: %(lineno)d) - %(levelname)s: %(message)s'
+    datefmt: '%Y-%m-%d - %H:%M:%S'
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    formatter: simple
+    level: DEBUG
+
+  dev_console:
+    class: logging.StreamHandler
+    formatter: detailed
+    level: DEBUG
+
+  app_log:
+    class: logging.FileHandler
+    formatter: detailed
+    level: WARNING
+    filename: logs/app.log
+    mode: a
+
+  dev_log:
+    class: logging.FileHandler
+    formatter: detailed
+    level: DEBUG
+    filename: logs/dev.log
+    mode: a
+
+loggers:
+  logger:
+    level: DEBUG
+    handlers:
+      - console
+      - app_log
+    propagate: no
+
+  dev_logger:
+    level: DEBUG
+    handlers:
+      - dev_console
+      - dev_log
+    propagate: no
+
+root:
+  level: DEBUG
+  handlers:

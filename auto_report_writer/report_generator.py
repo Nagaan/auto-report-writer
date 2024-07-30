@@ -2,7 +2,6 @@ import os
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from fuzzywuzzy import process
-
 from auto_report_writer.utils.custom_logger import logger
 from auto_report_writer.utils.html_combiner import html_combiner
 from auto_report_writer.utils.xml_to_html import xml_to_html
@@ -38,9 +37,9 @@ def load_report_classes_from_dir(directory):
 
         if report_class:
             report_classes[report_class_name] = report_class
-            print(f"Loaded report class: {report_class_name} from module {module_name}")
+            logger.info(f"Loaded report class: {report_class_name} from module {module_name}")
         else:
-            print(f"No report class named {report_class_name} found in module {module_name}")
+            logger.warn(f"No report class named {report_class_name} found in module {module_name}")
 
     return report_classes
 
@@ -61,20 +60,20 @@ def process_report(report_type, file_path, xml_dir, xsl_dir, html_dir, report_cl
     if closest_match and score > 50:
         report_class = report_classes.get(closest_match)
         if report_class:
-            print(f"Using report class: {closest_match} with a score of {score}")
+            logger.info(f"Using report class: {closest_match} with a score of {score}")
             file_names = generate_file_names(closest_match.replace('Report', ''))
             output_xml = os.path.join(xml_dir, file_names['xml_file'])
             input_xsl = os.path.join(xsl_dir, file_names['xsl_file'])
             output_html = os.path.join(html_dir, file_names['html_file'])
 
-            print(f"Generating {closest_match} report from {file_path}...")
+            logger.info(f"Generating {closest_match} report from {file_path}...")
             report_instance = report_class(file_path, output_xml)
             report_instance.run()
 
             if os.path.exists(output_xml):
                 xml_to_html(output_xml, input_xsl, output_html)
-                print(f"XML report generated and saved as '{output_xml}'.")
-                print(f"HTML report generated and saved as '{output_html}'.")
+                logger.info(f"XML report generated and saved as '{output_xml}'.")
+                logger.info(f"HTML report generated and saved as '{output_html}'.")
 
                 # Append the report type to the report_type_list
                 report_type_list.append(closest_match.replace('Report', ''))  # Store the report type without 'Report' suffix
@@ -161,26 +160,26 @@ def report_generator():
             _, root = load_xml(file_path)
             if root is not None:
                 report_type = root.tag
-                print(f"Detected report type: {report_type}")
+                logger.info(f"Detected report type: {report_type}")
                 try:
                     html_file = process_report(report_type, file_path, xml_dir, xsl_dir, html_dir, report_classes, report_type_list)
                     html_files.append(html_file)
                 except ValueError as e:
-                    print(f"Error: {e}")
+                    logger.error(f"Error: {e}")
                 except FileNotFoundError as e:
-                    print(f"File error: {e}")
+                    logger.error(f"File not found: {e}")
             else:
-                print(f"Could not determine report type for file: {file_path}")
+                logger.warn(f"Could not determine report type for file: {file_path}")
 
         if html_files:
             combined_html = './reports/combined_report.html'
             try:
                 # Create the combined HTML report
                 html_combiner(html_files, combined_html)
-                print(f"Combined HTML report generated and saved as '{combined_html}'.")
+                logger.info(f"Combined HTML report generated and saved as '{combined_html}'.")
 
                 # Extract risk data and generate a graph
-                generate_graph_from_html(combined_htmls)
+                generate_graph_from_html(combined_html)
 
                 # Generate the project summary
                 generate_summary_from_html(combined_html, report_type_list)
@@ -206,8 +205,8 @@ def report_generator():
             except Exception as e:
                 logger.error(f"Error combining HTML reports: {e}")
         else:
-            print("No valid report types found. No reports were generated.")
+            logger.warn("No valid report types found. No reports were generated.")
             messagebox.showinfo("No Reports Generated", "No valid reports found. No combined report was generated.")
     else:
-        print("No files selected. No reports will be generated.")
+        logger.warn("No files selected. No reports will be generated.")
         messagebox.showinfo("No Files Selected", "No files selected. No reports will be generated.")

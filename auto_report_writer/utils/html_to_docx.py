@@ -1,5 +1,6 @@
 import shutil
 import pypandoc
+from auto_report_writer.utils.custom_logger import logger
 
 
 def is_pandoc_installed():
@@ -28,10 +29,10 @@ def convert_html_to_docx(input_file, output_file):
     try:
         # Check if pandoc is available, if not download it
         if not is_pandoc_installed():
-            print("Pandoc not found. Downloading...")
+            logger.info("Pandoc not found. Downloading...")
             download_pandoc()
 
         pypandoc.convert_file(input_file, 'docx', outputfile=output_file)
-        print(f"Successfully converted {input_file} to {output_file}")
+        logger.info(f"Successfully converted {input_file} to {output_file}")
     except Exception as e:
-        print(f"Error converting {input_file} to DOCX: {e}")
+        logger.error(f"Error converting {input_file} to DOCX: {e}")

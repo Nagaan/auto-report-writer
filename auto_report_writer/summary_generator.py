@@ -1,7 +1,8 @@
 import os
+import re
 from bs4 import BeautifulSoup
 from collections import Counter
-import re
+from auto_report_writer.utils.custom_logger import logger
 
 
 def calculate_average_risk_level(risk_counts):
@@ -85,14 +86,14 @@ def determine_testing_frequency(average_risk_level):
 
 def extract_data_from_html(html_file):
     if not os.path.isfile(html_file):
-        print(f"Error: The file {html_file} does not exist.")
+        logger.error(f"Error: The file {html_file} does not exist.")
         return [], Counter(), []
 
     try:
         with open(html_file, 'r', encoding='utf-8') as f:
             soup = BeautifulSoup(f, 'html.parser')
     except Exception as e:
-        print(f"Error reading HTML file {html_file}: {e}")
+        logger.error(f"Error reading HTML file {html_file}: {e}")
         return [], Counter(), []
 
     risk_levels = ['Critical', 'High', 'Medium', 'Low', 'Informational']
@@ -124,7 +125,7 @@ def extract_data_from_html(html_file):
                 score_range = text.split('CVSS Score:')[-1].strip()
                 cvss_scores.append(score_range)  # Append the raw score string
             except IndexError:
-                print("Warning: CVSS Score format unexpected.")
+                logger.warn("CVSS Score format unexpected.")
 
         # Check for Vulnerability Name
         elif 'Vulnerability Name:' in text:
@@ -135,10 +136,7 @@ def extract_data_from_html(html_file):
                 if vulnerability_name and risk_level in risk_levels:
                     vulnerabilities.append((vulnerability_name, risk_level))  # Store vulnerability with its risk level
             except IndexError:
-                print("Warning: Vulnerability Name format unexpected.")
-
-    # Print vulnerabilities to check for validity
-    print(vulnerabilities)
+                logger.warn("Vulnerability Name format unexpected.")
 
     return cvss_scores, risk_count, vulnerabilities
 
@@ -146,7 +144,7 @@ def extract_data_from_html(html_file):
 def generate_project_summary(average_risk_level, average_cvss_score, highest_vulnerability, highest_level_vulnerabilities_list, testing_frequency):
     template_path = './auto_report_writer/resources/summary_template.html'
     if not os.path.isfile(template_path):
-        print(f"Error: The template file {template_path} does not exist.")
+        logger.error(f"The template file {template_path} does not exist.")
         return ""
 
     try:
@@ -170,13 +168,13 @@ def generate_project_summary(average_risk_level, average_cvss_score, highest_vul
         return summary_html
 
     except Exception as e:
-        print(f"Error reading template file {template_path}: {e}")
+        logger.error(f"Error reading template file {template_path}: {e}")
         return ""
 
 
 def append_summary_to_html(html_file, project_summary):
     if not os.path.isfile(html_file):
-        print(f"Error: The file {html_file} does not exist.")
+        logger.error(f"Error: The file {html_file} does not exist.")
         return
 
     try:
@@ -192,7 +190,7 @@ def append_summary_to_html(html_file, project_summary):
             f.truncate()
 
     except Exception as e:
-        print(f"Error updating HTML file {html_file}: {e}")
+        logger.error(f"Error updating HTML file {html_file}: {e}")
 
 
 def generate_summary_from_html(html_file, report_type_list):
