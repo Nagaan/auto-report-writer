@@ -34,6 +34,8 @@ Auto Report Writer is a Python-based project designed to automate the generation
 
 ## Usage
 1. Prepare your data files in the `data` directory.
+   1. Ensure related class files are available in the `auto_report_writer/report_classes` directory.
+   2. Ensure related XSL files are available in the `reports/XSL` directory.
 2. Run the main script to initialise file selection:
     ```bash
     python auto_report_writer.py
