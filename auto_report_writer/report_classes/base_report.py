@@ -48,7 +48,7 @@ class BaseReport:
 
     def generate_report(self):
         """
-        Generates the report. This method should be implemented by subclasses.
+        Generates the class report. This method should be implemented by subclasses.
 
         :return: Should return an ElementTree representing the report.
         :raises NotImplementedError: Must be implemented by subclasses.
@@ -57,9 +57,9 @@ class BaseReport:
 
     def save_report(self, report_tree):
         """
-        Saves the generated report to the specified output file.
+        Saves the generated class report to the specified output file.
 
-        :param report_tree: An ElementTree representing the report.
+        :param report_tree: An ElementTree representing the class report.
         """
         try:
             report_tree.write(self.output_file, encoding='utf-8', xml_declaration=True)
@@ -68,10 +68,10 @@ class BaseReport:
 
     def run(self):
         """
-        Runs the report generation process.
+        Runs the class report generation process.
         """
         if self.root is not None:
             report_tree = self.generate_report()
             self.save_report(report_tree)
         else:
-            logger.warn("Failed to load the XML file. No report generated.")
+            logger.warn("Failed to load the XML file. No class report generated.")

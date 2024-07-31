@@ -20,7 +20,7 @@ def xml_to_html(xml_file, xsl_file, output_html):
         html_doc = transform(xml_doc)
 
         # Saving the HTML file.
-        with open(output_html, 'wb') as f:  # 'wb' opens the file for writing in binary mode.
+        with open(output_html, 'wb') as f:  # Opens the file for writing in binary-mode (wb).
             f.write(etree.tostring(html_doc, pretty_print=True, encoding='UTF-8'))  # type: ignore
 
     except Exception as e:
