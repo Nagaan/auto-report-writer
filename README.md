@@ -8,7 +8,6 @@ Auto Report Writer is a Python-based project designed to automate the generation
 - [Usage](#usage)
 - [Project Structure](#project-structure)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 - Automatic report generation from XML data.
