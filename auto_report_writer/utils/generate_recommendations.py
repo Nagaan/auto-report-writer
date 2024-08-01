@@ -1,3 +1,5 @@
+# Incomplete file. Not implemented in final product.
+
 from openai import OpenAI
 import re
 
