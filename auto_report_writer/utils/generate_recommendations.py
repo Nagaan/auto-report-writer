@@ -33,7 +33,7 @@ date with the latest security patches and updates to mitigate emerging threats."
 
 def generate_recommendations_openai(vulnerability_details):
 
-    client = OpenAI(api_key="sk-proj-94X4V3oIt7f9gK5jAgyHT3BlbkFJ3TXSz1J0jTEa7T8Mr3br")
+    client = OpenAI(api_key="[API Key removed due to public nature of repository.]")
 
     recommendations = client.chat.completions.create(
         model="gpt-3.5-turbo",
