@@ -57,6 +57,3 @@ Auto Report Writer is a Python-based project designed to automate the generation
 
 ## Contributing
 Contributions are welcome! Keep in mind the project is in active development.
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
