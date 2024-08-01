@@ -1,3 +1,5 @@
+# Incomplete file. Not implemented in final product.
+
 import tkinter as tk
 from tkinter import filedialog, messagebox
 import xml.etree.ElementTree as ET
