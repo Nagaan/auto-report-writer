@@ -36,6 +36,10 @@ in-line within the relevant HTML templates which, although works,
 requires a lot of unnecessary class restrictions.
 
 <MINOR>
+• Link recommended vulnerabilities to corresponding vulnerability:
+Create some sort of link between the vulnerabilities recommended for
+patching and the corresponding vulnerability details.
+
 • Alternate graph generation for non-JS compatible reports:
 Provide an alternate version of the GRAPH (PNG) that can then be appended
 to the PDF/DOCX, as the current graph does not display when the HTML is

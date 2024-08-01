@@ -32,44 +32,40 @@ def risk_level_from_name(vulnerability_name):
     # Normalising the input string.
     normalised_name = vulnerability_name.lower().replace('-', ' ').replace('_', ' ')
 
-    # Defining regex patterns for each risk classification level, including script IDs
+    # Defining regex patterns for each risk classification level
     critical_patterns = [
-        r"remote\s+code\s+execution|command\s+injection|deserialization|rce|arbitrary\s+code",
-        r"file\s+upload|remote\s+command|vnc\s+authentication\s+bypass|heartbleed",
-        r"apache\s+struts\s+remote\s+code\s+execution|cve\s+\d{4}-\d{4,5}",
-        r"http\s+sql\s+injection|heartbleed|cve\s+\d{4}-\d{4,5}",
-        r"acarsd\s+info|afp\s+path\s+vuln|cassandra\s+brute|clamav\s+exec|distcc\s+cve2004-2687",
-        r"jdwp\s+exec|jdwp\s+inject|jdwp\s+info|jdwp\s+version",
-        r"oracle\s+brute|oracle\s+brute\s+stealth|oracle\s+enum\s+users|oracle\s+sid\s+brute|oracle\s+tns\s+version"
+        r"remote\s+code\s+execution|command\s+injection|deserialization|arbitrary\s+code|file\s+upload",
+        r"vnc\s+authentication\s+bypass|heartbleed|apache\s+struts\s+remote\s+code\s+execution",
+        r"cve\s+\d{4}-\d{4,5}|http\s+sql\s+injection",
+        r"broken\s+authentication|broken\s+access\s+control|remote\s+command",
+        # Added DoS related patterns
+        r"denial\s+of\s+service|dos|d-o-s|distributed\s+denial\s+of\s+service|ddos",
+        # Added unauthorized access patterns
+        r"unauthorized\s+access|unauthorised\s+access|unauthenticated\s+access"
     ]
 
     high_patterns = [
-        r"sql\s+injection|sql\s+error|sql\s+query|xss|file\s+inclusion|path\s+traversal|xxe",
-        r"cross\s+site\s+scripting|http\s+split|http\s+pollution|smb\s+vuln|smb\s+remote\s+code\s+execution",
-        r"cve\s+\d{4}-\d{4,5}",
-        r"ssl\s+poodle|http\s*vuln|mysql\s*vuln|modbus\s*vuln",
-        r"afp\s+brute|ajp\s+auth|ajp\s+brute|citrix\s+brute\s+xml|cvs\s+brute",
-        r"imap\s+brute|irc\s+brute|irc\s+sasl\s+brute|membase\s+brute|mongodb\s+brute|mysql\s+brute|nexpose\s+brute|nessus\s+brute|omp2\s+brute|openvas\s+otp\s+brute|radware\s+brute|smb\s+brute|xss\s+info"
+        r"sql\s+injection|xss|file\s+inclusion|path\s+traversal|xxe",
+        r"cross\s+site\s+scripting|http\s+pollution|smb\s+remote\s+code\s+execution",
+        r"cve\s+\d{4}-\d{4,5}|ssl\s+poodle|http\s*vuln|mysql\s*vuln|modbus\s*vuln",
+        r"csrf|insecure\s+direct\s+object\s+references|security\s+misconfiguration|insufficient\s+logging",
+        r"missing\s+auth|unvalidated\s+redirects|server-side\s+request\s+forgery"
     ]
 
     medium_patterns = [
-        r"directory\s+traversal|open\s+redirect|insecure\s+deserialization|missing\s+auth",
-        r"session\s+fixation|insecure\s+config|unsecured\s+storage|security\s+misconfig|http\s+security\s+header",
-        r"modbus\s+uninitialized\s+register|cve\s+\d{4}-\d{4,5}",
-        r"broadcast\s+dhcp\s+discover|broadcast\s+dns\s+service\s+discovery|broadcast\s+networker\s+discover|couchdb\s+databases|couchdb\s+stats",
-        r"iap2\s+version|icap\s+info|iec\s+identify|ike\s+version|imap\s+capabilities|impress\s+remote\s+discover|informix\s+query|informix\s+tables|ipmi\s+cipher\s+zero|ipmi\s+version|ipv6\s+multicast\s+mld\s+list|ipv6\s+node\s+info|ipv6\s+ra\s*flood|knx\s+gateway\s+discover|knx\s+gateway\s+info|krb5\s+enum\s+users|ldap\s+novell\s+getpass|ldap\s+rootdse|ldap\s+search|llmnr\s+resolve|lltd\s+discovery|lu\s+enum|maxdb\s+info|mcafee\s+epo\s+agent|memcached\s+info|metasploit\s+info|mssql\s+info|nmap\s+info|nmap\s+scan|nmap\s+scan\s+info"
+        r"directory\s+traversal|open\s+redirect|insecure\s+deserialization|session\s+fixation",
+        r"insecure\s+config|unsecured\s+storage|security\s+misconfiguration|http\s+security\s+header",
+        r"business\s+logic\s+vulnerability|weak\s+encryption|clickjacking",
+        # Modbus related patterns
+        r"modbus\s+uninitialized\s+register|cve\s+\d{4}-\d{4,5}"
     ]
 
     low_patterns = [
-        r"outdated\s+auth|weak\s+crypto|info\s+disclosure|dos|default\s+creds",
-        r"open\s+ports|unpatched\s+software|http\s+security\s+headers|xss\s+info",
-        r"clickjacking|headers|exposed\s+data|dep|insecure\s+coding|logging",
-        r"bitcoin\s+getaddr|bitcoin\s+info|bittorrent\s+discovery|broadcast\s+eigrp\s+discovery|broadcast\s+pppoe\s+discover",
-        r"nfs\s+ls|nfs\s+showmount|nfs\s+statfs|nje\s+node\s+brute|nje\s+pass\s+brute|ntp\s+info|ntp\s+monlist|omron\s+info|openflow\s+info|openlookup\s+info|radware\s+brute|router\s+brute|snmp\s+info|smb\s+info|system\s+info|telnet\s+info|vnc\s+info",
-        r"clickjacking|headers|exposed\s+data|dep",
-        r"insecure\s+coding|logging|software\s+update|cve\s+\d{4}-\d{4,5}",
-        r"address\s+info|afp\s+ls|afp\s+serverinfo|afp\s+showmount|allseeingeye\s+info",
-        r"icmp\s+info|iax2\s+version|iap2\s+info|info\s+info|info\s+debug|info\s+service|ntp\s+info"
+        r"outdated\s+auth|weak\s+crypto|info\s+disclosure|default\s+creds|open\s+ports",
+        r"unpatched\s+software|xss\s+info|exposed\s+data|insecure\s+coding|logging",
+        r"low\s+impact\s+vulnerabilities|software\s+update|information\s+disclosure|denial\s+of\s+service",
+        # Other low vulnerability patterns
+        r"nfs\s+ls|nfs\s+showmount|nfs\s+statfs|router\s+brute|snmp\s+info|smb\s+info"
     ]
 
     # Sub-function checking if any of the regex patterns match the normalised vulnerability name.
